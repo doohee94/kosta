@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>angel</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- plan -->
+  <servlet>
+  <servlet-name>PlanControl</servlet-name>
+  <servlet-class>control.plan.PlanControl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>PlanControl</servlet-name>
+  <url-pattern>*.plan</url-pattern>
+  </servlet-mapping>
+  
+  
+    <!-- diary -->
+  <servlet>
+  <servlet-name>DiaryControl</servlet-name>
+  <servlet-class>control.diary.DiaryControl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>DiaryControl</servlet-name>
+  <url-pattern>*.diary</url-pattern>
+  </servlet-mapping>
+  
+  
+    <!-- cost -->
+  <servlet>
+  <servlet-name>CostControl</servlet-name>
+  <servlet-class>control.cost.CostControl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>CostControl</servlet-name>
+  <url-pattern>*.cost</url-pattern>
+  </servlet-mapping>
+  
+    <!-- user -->
+  <servlet>
+  <servlet-name>UserControl</servlet-name>
+  <servlet-class>control.user.UserControl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>UserControl</servlet-name>
+  <url-pattern>*.user</url-pattern>
+  </servlet-mapping>
+  
+    <!-- setting -->
+  <servlet>
+  <servlet-name>SettingControl</servlet-name>
+  <servlet-class>control.setting.SettingControl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>SettingControl</servlet-name>
+  <url-pattern>*.setting</url-pattern>
+  </servlet-mapping>
+  
+    <!-- photo -->
+  <servlet>
+  <servlet-name>PhotoControl</servlet-name>
+  <servlet-class>control.photo.PhotoControl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>PhotoControl</servlet-name>
+  <url-pattern>*.photo</url-pattern>
+  </servlet-mapping>
+  
+    <!-- text -->
+  <servlet>
+  <servlet-name>TextControl</servlet-name>
+  <servlet-class>control.text.TextControl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>TextControl</servlet-name>
+  <url-pattern>*.text</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
