@@ -3,7 +3,7 @@
 
 body {
     margin: 40px 0 0;
-    background: #91D1D3;
+    background: pink;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -32,7 +32,7 @@ body {
 
 .paper-content {
     position: absolute;
-    top: 30px; right: 0; bottom: 30px; left: 60px;
+    top: 15px; right: 0; bottom: 20px; left: 60px;
     background: linear-gradient(transparent, transparent 28px, #91D1D3 28px);
     background-size: 30px 30px;
 }
@@ -54,13 +54,27 @@ body {
     box-sizing: border-box;
     z-index: 1;
 }
-
-footer {
-    margin-top: 30px;
-    text-align: center;
-    font-size: 12px;
-    color: rgba(0,0,0,.6);
+#title {
+	outline: 0;
+	border: 0;
+	color: mediumblue;
+	font-family: 'Handlee', cursive;
+	font-weight: bold;
+    font-size: 18px;
+	height: 20px;
+	
+	width:500px;
+	z-index: 1;
 }
-footer a {
-    color: rgba(255,255,255,.8);
+
+#title2 {
+	font-size: 18px;
+	font-weight: bold;
+	font-family: 'Handlee', cursive;
+}
+
+#dProd {
+	font-size: 18px;
+	font-weight: bold;
+	font-family: 'Handlee', cursive;
 }

@@ -26,7 +26,6 @@
 $(function(){
 	var date = new Date();
 	var month = date.getMonth();
-	var rain = document.getElementById("rain");
 	$('#dProd').val($.datepicker.formatDate('yy-mm-dd', date));
 	$("#dProd").datepicker({
 		showOn:"button",
@@ -34,13 +33,7 @@ $(function(){
 		buttonImageOnly: true
 		
 	});
-	$('.rain').click(function(){
-		
-		
 
-
-	});
-	 
 });
 </script>
 </head>
@@ -50,15 +43,15 @@ $(function(){
 
 	<div class="weather_tab">
 
-		<div class="icon sun-shower" id="sun-shower">
-			<div class="cloud" id="cloud"></div>
-			<div class="sun" id="sun">
-				<div class="rays" id="rays"></div>
+		<div class="icon sun-shower">
+			<div class="cloud"></div>
+			<div class="sun">
+				<div class="rays"></div>
 			</div>
 			<div class="rain" ></div>
 		</div>
 
-		<div class="icon thunder-storm" id="thunder-storm">
+		<div class="icon thunder-storm">
 			<div class="cloud"></div>
 			<div class="lightning">
 				<div class="bolt"></div>
@@ -66,12 +59,12 @@ $(function(){
 			</div>
 		</div>
 
-		<div class="icon cloudy" id="cloudy">
+		<div class="icon cloudy">
 			<div class="cloud"></div>
 			<div class="cloud"></div>
 		</div>
 
-		<div class="icon flurries" id="flurries">
+		<div class="icon flurries">
 			<div class="cloud"></div>
 			<div class="snow">
 				<div class="flake"></div>
@@ -79,13 +72,13 @@ $(function(){
 			</div>
 		</div>
 
-		<div class="icon sunny" id="sunny">
+		<div class="icon sunny">
 			<div class="sun">
 				<div class="rays"></div>
 			</div>
 		</div>
 
-		<div class="icon rainy" id="rainy">
+		<div class="icon rainy">
 			<div class="cloud"></div>
 			<div class="rain"></div>
 		</div>
@@ -95,7 +88,7 @@ $(function(){
 	<div class="paper">
     	<div class="paper-content">
     	<p>	
-				<label for = "title" id="title2">제목:</label><input type= 'text' id = "title" name = 'title' />
+				<label for = "title">제목:</label><input type= 'text' id = "title" />
 			
 		
 		 <input type="text" id="dProd" readonly/> 
