@@ -4,13 +4,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>가계부 달력</title>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
-<script type="text/javascript" src="js/jquery.smartPop.js"></script>
 <link rel="stylesheet" href="css/jquery.smartPop.css" />
 <link href='/angel/fullcalendar-3.4.0/fullcalendar-3.4.0/fullcalendar.css' rel='stylesheet' />
 <link href='/angel/fullcalendar-3.4.0/fullcalendar-3.4.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="js/jquery.smartPop.js"></script>
 <script src='/angel/fullcalendar-3.4.0/fullcalendar-3.4.0/lib/moment.min.js'></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src='/angel/fullcalendar-3.4.0/fullcalendar-3.4.0/fullcalendar.js'></script>
 <script>
 	$(document).ready(function() {
@@ -37,18 +37,19 @@
 				//지출 수정 팝업 띄워주기
 		        alert('Event: ' + calEvent.title);
 		        alert('지출한날' + calEvent.start.toISOString());
-		       
-
+		        $.smartPop.open({ width: 900, height: 500, url: '/angel/cost/modifyCost.jsp' });
 		    },
 		    dayClick: function(date, jsEvent, view) {
 		    	//입력 팝업 띄워주기
 		        alert('Clicked on: ' + date.format());
+		        $.smartPop.open({ width: 900, height: 500, url: '/angel/cost/inputCost.jsp' });
 		    }
 
 		});		
 		$('#view').click(function(){
 			//그래프 팝업 띄워주기
-			 $.smartPop.open({ url: '/angel/cost/costTable.jsp' });
+			 $.smartPop.open({ width: 900, height: 500, url: '/angel/cost/costTable.jsp' });
+
 		});
 
 		
