@@ -58,10 +58,11 @@ $(document).ready(function() {
            <option> 기타 </option>
          </select>
      </div> 
+     <br/>
        <div class="button">
          <div align="center">
-         	<img src="../imgs/check.png" width="83" height="93" align="middle"/>
-           <img src="../imgs/cancel.png" width="74" height="93" align="middle"/>
+         	<img src="../imgs/modify.png" width="60" height="60" align="middle"/>
+            <img src="../imgs/delete.png" width="60" height="60" align="middle"/>
          </div>
        </div>  
 </form>
