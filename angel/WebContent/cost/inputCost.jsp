@@ -58,18 +58,16 @@ $(document).ready(function() {
            <option> 기타 </option>
          </select>
   </div>
-  </label>  
-  <label for="submit-input">
-    <div class="holder" id="submit">
-      <div align="center">입력 </div>
-    </div>
-  </label> 
     <label for="submit-input">
-    <div class="holder" id="submit">
-      <div align="center">취소 </div>
-    </div>
-    
-  </label>
+    	<div class="holder" id="submit">
+			<img src=""/>
+		</div>
+  	</label>
+  	<label for="submit-input">
+    	<div class="holder" id="submit">
+			<img src=""/>
+		</div>
+  	</label>
 </form>
 </body>
 </html>
