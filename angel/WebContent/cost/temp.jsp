@@ -32,7 +32,6 @@ for(int i=0; i<title.length;i++){
 String reTitle = request.getParameter("title");
 String reSDay = request.getParameter("startDay");
 String reEDay = request.getParameter("endDay");
-System.out.print(reTitle);
 
 
 if(reTitle != null ||reSDay != null || reEDay != null ){

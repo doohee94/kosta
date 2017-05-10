@@ -4,16 +4,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>가계부 달력</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="js/jquery.smartPop.js"></script>
+<link rel="stylesheet" href="css/jquery.smartPop.css" />
 <link href='/angel/fullcalendar-3.4.0/fullcalendar-3.4.0/fullcalendar.css' rel='stylesheet' />
 <link href='/angel/fullcalendar-3.4.0/fullcalendar-3.4.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
 <script src='/angel/fullcalendar-3.4.0/fullcalendar-3.4.0/lib/moment.min.js'></script>
-<script src='/angel/fullcalendar-3.4.0/fullcalendar-3.4.0/lib/jquery.min.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src='/angel/fullcalendar-3.4.0/fullcalendar-3.4.0/fullcalendar.js'></script>
 <script>
 	$(document).ready(function() {
@@ -24,7 +21,7 @@
 				right: 'month,listWeek'
 			},
 		    defaultDate: moment().format('YYYY-MM-DD'),
-			navLinks: true, // can click day/week names to navigate views
+			navLinks: false, // can click day/week names to navigate views
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
 		    eventSources: [
@@ -35,12 +32,25 @@
 					dataType : 'json', 		
 		        }
 		        // any other sources...
-		    ]
+		    ],
+		    eventClick: function(calEvent, jsEvent, view) {
+				//지출 수정 팝업 띄워주기
+		        alert('Event: ' + calEvent.title);
+		        alert('지출한날' + calEvent.start.toISOString());
+		       
+
+		    },
+		    dayClick: function(date, jsEvent, view) {
+		    	//입력 팝업 띄워주기
+		        alert('Clicked on: ' + date.format());
+		    }
 
 		});		
 		$('#view').click(function(){
-			alert("뷰");
+			//그래프 팝업 띄워주기
+			 $.smartPop.open({ url: '/angel/cost/costTable.jsp' });
 		});
+
 		
 	});
 	
@@ -67,7 +77,5 @@
 <div align="right">
 	<img src="../imgs/view.png"  id="view" width="95" height="95"/>
 </div>
-
-
 </body>
 </html>
