@@ -26,7 +26,7 @@
 $(function(){
 	var date = new Date();
 	var month = date.getMonth();
-	var rain = document.getElementById("rain");
+	var rain = document.getElementById("sun-shower");
 	$('#dProd').val($.datepicker.formatDate('yy-mm-dd', date));
 	$("#dProd").datepicker({
 		showOn:"button",
@@ -34,11 +34,25 @@ $(function(){
 		buttonImageOnly: true
 		
 	});
-	$('.rain').click(function(){
+	
+	$(".sun-shower").click(function(){
+		$(".rain").toggleClass("rainToggle");	//class를 on/of를 하는 방법 : toggleClass
+		$(".sun").toggleClass("sunToggle");
+	});
+	
+	$(".thunder-storm").click(function(){
+		$(".bolt").toggleClass("boltToggle1");	
+		$(".bolt:nth-child(2)").toggleClass("boltToggle2");
+	});
+	
+	 
+	$(".flurries").click(function(){
+		$(".flake").toggleClass("flakeToggle3");	
+		$(".flake").toggleClass("flakeToggle4");
+		$(".flake").toggleClass("flakeToggle1");
+		$(".flake").toggleClass("flakeToggle2");
 		
 		
-
-
 	});
 	 
 });
