@@ -45,9 +45,10 @@
 
 	<div id='calendar'></div>
 <div align="right">
-  <input type='button'value='입력'/>
-  <input type='button'value='수정'/>
-  <input type='button'value='삭제'/>
+	<img src="../imgs/view.png"  width="95" height="95"/>
+	<img src="../imgs/insert.png" width="95" height="95"/>
+	<img src="../imgs/modify.png" width="95" height="95"/>
+	<img src="../imgs/delete.png" width="95" height="95"/>
 </div>
 
 

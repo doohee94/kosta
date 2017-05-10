@@ -57,19 +57,13 @@ $(document).ready(function() {
            <option> 유흥 </option>
            <option> 기타 </option>
          </select>
-  </div>
-  </label>  
-  <label for="submit-input">
-    <div class="holder" id="submit">
-      <div align="center">수정 </div>
-    </div>
-  </label> 
-    <label for="submit-input">
-    <div class="holder" id="submit">
-      <div align="center">취소 </div>
-    </div>
-    
-  </label>
+     </div> 
+       <div class="button">
+         <div align="center">
+         	<img src="../imgs/check.png" width="83" height="93" align="middle"/>
+           <img src="../imgs/cancel.png" width="74" height="93" align="middle"/>
+         </div>
+       </div>  
 </form>
 </body>
 </html>

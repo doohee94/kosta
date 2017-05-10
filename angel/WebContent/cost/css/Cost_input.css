@@ -76,23 +76,3 @@ select {
     }
   }
 }
-#submit {
-  background-color: #D94356;
-  text-align: center;
-  cursor: pointer;
-  
-  &:hover {
-    background-color: #C83245;
-  }
-  &:active {
-    background-color: #B72134;
-  }
-}
-
-a {
-  text-decoration: none;
-}
-
-#submit-input {
-  display: none;
-}
