@@ -33,6 +33,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 	<!-- 여러개의 매퍼를 등록 -->
 		<mapper resource="mybatis/guest/mapper/CommentMapper.xml" />
-		<mapper resource="mybatis/board/mapper/BoardMapper.xml" />
+		<mapper resource="mapper/cost/CostMapper.xml" />
 	</mappers>
 </configuration>
