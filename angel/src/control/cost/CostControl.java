@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.basic.Command;
 import command.basic.CommandException;
+import command.cost.commandCostList;
 
 /**
  * Servlet implementation class CostControl
@@ -27,7 +28,13 @@ public class CostControl extends HttpServlet {
      */
     public CostControl() {
         super();
+        initCommand();
         // TODO Auto-generated constructor stub
+    }
+    private void initCommand(){
+    	commandMap = new HashMap();
+    	
+    	commandMap.put("cost-view", new commandCostList("/cost/costCalendar.jsp"));
     }
 
 	/**

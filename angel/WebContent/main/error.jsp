@@ -9,7 +9,6 @@
 <body>
 	<center>
 	죄송합니다요. 네트워크 문제가 발생하였습니다. <br/><br/>
-	<img src="/imgs/error.png"><br/>
 	</center>
 </body>
 </html>
