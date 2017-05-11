@@ -18,7 +18,7 @@
 	INSERT INTO cost (cost_num, member_id, cost_date, cost_category, cost_content, cost_money)
 	VALUES (sequence_cost.nextval, #{memberId}, #{costDate},#{costCategory}, #{costContent}, #{costMoney})
 	</insert>
-	<update id="modifyCost" parameterType=""hashmap"">
+	<update id="modifyCost" parameterType="hashmap">
 		UPDATE cost
 		SET cost_date=#{costDate}, cost_category=#{costCategory}, cost_content=#{costContent}, cost_money=#{costMoney}
 		WHERE member_id = #{memberId}AND cost_num=#{costNum}
