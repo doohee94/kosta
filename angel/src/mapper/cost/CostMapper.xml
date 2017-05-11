@@ -14,29 +14,29 @@
 		<result column="cost_meney" property="costMoney"/>
 	</resultMap>
 	<!-- insert cost -->
-	<insert id="insertCost" parameterType="cost">
+	<insert id="insertCost" parameterType="CostVo">
 	INSERT INTO cost (cost_num, member_id, cost_date, cost_category, cost_content, cost_money)
 	VALUES (sequence_cost.nextval, #{memberId}, #{costDate},#{costCategory}, #{costContent}, #{costMoney})
 	</insert>
-	<update id="modifyCost" parameterType="cost">
+	<update id="modifyCost" parameterType="hashmap">
 		UPDATE cost
 		SET cost_date=#{costDate}, cost_category=#{costCategory}, cost_content=#{costContent}, cost_money=#{costMoney}
 		WHERE member_id = #{memberId}AND cost_num=#{costNum}
 	</update>
-	<delete id="deleteCost" parameterType="cost">
+	<delete id="deleteCost" parameterType="hashmap">
 		DELETE FROM cost
 		WHERE member_id = #{memberId}AND cost_num=#{costNum}		
 	</delete>	
 	<!-- # : PreparedStatement 형식, $ :  Statement 형식-->
  	<!-- <select id="selectComment" parameterType="hashmap" resultMap="commentMap">-->
 	<!--  cost view -->
-	<select id="selectCostList" parameterType="hashmap" resultType="cost">
+	<select id="selectCostList" parameterType="hashmap" resultType="CostVo">
 		SELECT *
 		FROM cost
 		WHERE member_id = #{memberId}
 	</select>
 	<!-- cost modify view -->
-	<select id="selectCostView" parameterType="hashmap" resultType="cost">
+	<select id="selectCostView" parameterType="hashmap" resultType="CostVo">
 		SELECT *
 		FROM cost
 		WHERE member_id = #{memberId}AND cost_num=#{costNum}

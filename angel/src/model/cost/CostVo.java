@@ -1,6 +1,8 @@
 package model.cost;
 
-public class CostVo {
+import java.io.Serializable;
+
+public class CostVo implements Serializable{
 	//member field
 	private int costNum;
 	private String memberId;
