@@ -30,7 +30,11 @@
 	<!-- # : PreparedStatement 형식, $ :  Statement 형식-->
  	<!-- <select id="selectComment" parameterType="hashmap" resultMap="commentMap">-->
 	<!--  cost view -->
-
+	<select id="selectCostList" parameterType="hashmap" resultType="cost">
+		SELECT *
+		FROM cost
+		WHERE member_id = #{memberId}
+	</select>
 	<!-- cost modify view -->
 	<select id="selectCostView" parameterType="hashmap" resultType="cost">
 		SELECT *
