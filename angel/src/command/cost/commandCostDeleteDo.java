@@ -8,14 +8,10 @@ import command.basic.CommandException;
 public class commandCostDeleteDo implements Command{
 
 	@Override
-	public String execute(HttpServletRequest request) throws CommandException {
+	public String execute(HttpServletRequest request) {
 		// TODO Auto-generated method stub
-		try{
-			
-		}catch{
-			throw new CommandException();
-		}
 		return null;
 	}
+
 
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CostMapper">
+<!--  mapper nickname -->
+<!--  sql control  for id-->
+	<resultMap type="cost" id="costMap">
+		<id column ="member_id" property="memberId"/>
+		<result column="cost_num" property="costNum"/>
+		<result column="cost_date" property="costDate"/>
+		<result column="cost_content" property="costContent"/>
+		<result column="cost_category" property="costCategory"/>
+		<result column="cost_meney" property="costMoney"/>
+	</resultMap>
+	<!-- insert cost -->
+	<insert id="insertCost" parameterType="cost">
+	INSERT INTO cost (cost_num, member_id, cost_date, cost_category, cost_content, cost_money)
+	VALUES (sequence_cost.nextval, #{memberId}, #{costDate},#{costCategory}, #{costContent}, #{costMoney})
+	</insert>
+	<update id="modifyCost" parameterType="cost">
+		UPDATE cost
+		SET cost_date=#{costDate}, cost_category=#{costCategory}, cost_content=#{costContent}, cost_money=#{costMoney}
+		WHERE member_id = #{memberId}AND cost_num=#{costNum}
+	</update>
+	<delete id="deleteCost" parameterType="cost">
+		DELETE FROM cost
+		WHERE member_id = #{memberId}AND cost_num=#{costNum}		
+	</delete>	
+	<!-- # : PreparedStatement 형식, $ :  Statement 형식-->
+ 	<!-- <select id="selectComment" parameterType="hashmap" resultMap="commentMap">-->
+	<!--  cost view -->
+
+	<!-- cost modify view -->
+	<select id="selectCostView" parameterType="hashmap" resultType="cost">
+		SELECT *
+		FROM cost
+		WHERE member_id = #{memberId}AND cost_num=#{costNum}
+	</select>
+
+</mapper>
