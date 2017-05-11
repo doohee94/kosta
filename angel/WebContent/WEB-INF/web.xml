@@ -77,4 +77,17 @@
   <url-pattern>*.text</url-pattern>
   </servlet-mapping>
   
+    <servlet>
+    <servlet-name>FileUploadServlet</servlet-name>
+    <servlet-class>pds.file.FileUploadServlet</servlet-class>
+    <multipart-config>
+    <location>c:\Temp</location>
+    <file-size-threshold>102400</file-size-threshold>
+    </multipart-config>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FileUploadServlet</servlet-name>
+    <url-pattern>/pds</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
