@@ -1,4 +1,4 @@
-package service.cost;
+package repository.cost;
 
 import java.io.InputStream;
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import model.cost.CostVo;
 
-public class CommandRepository {
+public class CostRepository {
 //매버 별칭 변수선언
 	String namespace="CostMapper";
 	String statment="";
@@ -38,13 +38,11 @@ public class CommandRepository {
 			sqlSess.close();
 		}
 	}
-	public List<CostVo> selectCostList(String memberId){
+	public List<CostVo> selectCostList(){
 		SqlSession sqlSess = getSelSessionFactory().openSession();
 		try{
-		HashMap map = new HashMap();
-		map.put("memberId", memberId);
 		statment = namespace+".selectCostList";
-		return sqlSess.selectOne(statment, map);
+		return sqlSess.selectOne(statment);
 		}finally{
 			sqlSess.close();
 		}

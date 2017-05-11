@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import command.basic.Command;
 import command.basic.CommandException;
 
-public class commandCostDeleteDo implements Command{
+public class CommandCostDeleteDo implements Command{
 
 	
 	public String execute(HttpServletRequest request,HttpServletResponse response) {

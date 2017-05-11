@@ -12,45 +12,37 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.basic.Command;
 import command.basic.CommandException;
-import command.cost.commandCostList;
+import command.basic.CommandNull;
+import command.cost.CommandCostList;
 
-/**
- * Servlet implementation class CostControl
- */
-@WebServlet("/CostControl")
+
+
+
 public class CostControl extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 	private HashMap commandMap;   
 	private String	jspDir = "/cost/";
 	private String  error = "/main/error.jsp";
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public CostControl() {
         super();
         initCommand();
-        // TODO Auto-generated constructor stub
+
     }
     private void initCommand(){
     	commandMap = new HashMap();
     	
-    	commandMap.put("cost-view", new commandCostList("/cost/costCalendar.jsp"));
+    	commandMap.put("cost-main", new CommandNull("main.jsp"));
+    	commandMap.put("cost-list", new CommandCostList("/cost/home.jsp"));
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
+		processRequest(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
+		processRequest(request, response);
 	}
 	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
@@ -81,10 +73,11 @@ public class CostControl extends HttpServlet {
 			nextPage = error;
 			System.out.println("오류 : " + e.getMessage() );
 		}
-		//페이지 이동
+		String ajax = request.getParameter("ajax");
+		if(  ajax !=null && ajax.equals("true")) return;
+		
 		RequestDispatcher reqDp = getServletContext().getRequestDispatcher( jspDir + nextPage );
 		reqDp.forward( request, response );
-		
 	}
 
 
