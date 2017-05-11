@@ -90,10 +90,17 @@ public class CommandRepository {
 	public Integer insertCost(CostVo c){
 		SqlSession sqlSess = getSelSessionFactory().openSession();
 		try{
-			
+		statment = namespace+".insertCost";
+		int result = sqlSess.insert(statment, c);
+		if(result > 0){
+			sqlSess.commit();
+		}else{
+			sqlSess.rollback();
+		}
 		}finally{
 			sqlSess.close();
 		}
+		return 0;
 	}
 	
 	
