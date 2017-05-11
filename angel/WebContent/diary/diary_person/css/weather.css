@@ -16,7 +16,9 @@ body {
   background-color: currentColor;
 }
 
-
+.stop{
+  animation-play-state: paused;
+}
 
 .icon {
   position: relative;
@@ -79,6 +81,19 @@ body {
   background: currentColor;
   border-radius: 50%;
   box-shadow: 0 0 0 0.375em #fff;
+  
+}
+
+.sunToggle{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  margin: -1.25em;
+  background: currentColor;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.375em #fff;
   animation: spin 12s infinite linear;
 }
 .rays {
@@ -126,9 +141,29 @@ body {
   height: 3.75em;
   margin: 0.375em 0 0 -2em;
   background: currentColor;
+    
 }
 
-.rain:after {
+.rain:after {`
+  content: '';
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: 1.125em;
+  height: 1.125em;
+  margin: -1em 0 0 -0.25em;
+  background: #0cf;
+  border-radius: 100% 0 60% 50% / 60% 0 100% 50%;
+  box-shadow:
+    0.625em 0.875em 0 -0.125em rgba(255,255,255,0.2),
+    -0.875em 1.125em 0 -0.125em rgba(255,255,255,0.2),
+    -1.375em -0.125em 0 rgba(255,255,255,0.2);
+  transform: rotate(-28deg);
+
+}
+
+.rainToggle {
   content: '';
   position: absolute;
   z-index: 2;
@@ -145,7 +180,16 @@ body {
     -1.375em -0.125em 0 rgba(255,255,255,0.2);
   transform: rotate(-28deg);
   animation: rain 3s linear infinite;
-  animation-play-state: paused;
+  
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: 3.75em;
+  height: 3.75em;
+  margin: 0.375em 0 0 -2em;
+  background: currentColor;
+
 }
 
 .bolt {
@@ -155,7 +199,6 @@ body {
   margin: -0.25em 0 0 -0.125em;
   color: #fff;
   opacity: 0.3;
-  animation: lightning 2s linear infinite;
 }
 .bolt:nth-child(2) {
   width: 0.5em;
@@ -163,8 +206,27 @@ body {
   margin: -1.75em 0 0 -1.875em;
   transform: translate(2.5em, 2.25em);
   opacity: 0.2;
+}
+
+.boltToggle1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -0.25em 0 0 -0.125em;
+  color: #fff;
+  opacity: 0.3;
+  animation: lightning 2s linear infinite;
+}
+.boltToggle2 {
+  width: 0.5em;
+  height: 0.25em;
+  margin: -1.75em 0 0 -1.875em;
+  transform: translate(2.5em, 2.25em);
+  opacity: 0.2;
   animation: lightning 1.5s linear infinite;
 }
+
+
 .bolt:before,
 .bolt:after {
   content: '';
@@ -212,27 +274,56 @@ body {
   color: #fff;
   list-height: 1em;
   opacity: 0.2;
-  animation: spin 8s linear infinite reverse;
+/*   animation: spin 8s linear infinite reverse; */
 }
 .flake:after {
-  margin: 0.125em 0 0 -1em;
+  margin: 0.125em 	0 0 -1em;
   font-size: 1.5em;
   opacity: 0.4;
-  animation: spin 14s linear infinite;
+/*   animation: spin 14s linear infinite; */
 }
 .flake:nth-child(2):before {
   margin: -0.5em 0 0 0.25em;
   font-size: 1.25em;
   opacity: 0.2;
-  animation: spin 10s linear infinite;
+/*   animation: spin 10s linear infinite; */
 }
 .flake:nth-child(2):after {
   margin: 0.375em 0 0 0.125em;
   font-size: 2em;
   opacity: 0.4;
-  animation: spin 16s linear infinite reverse;
+/*   animation: spin 16s linear infinite reverse; */
 }
 
+.flakeToggle1{
+  content: '\2744';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -1.025em 0 0 -1.0125em;
+  color: #fff;
+  list-height: 1em;
+  opacity: 0.2;
+  animation: spin 8s linear infinite reverse;
+}
+.flakeToggle2{
+  margin: 0.125em 0 0 -1em;
+  font-size: 1.5em;
+  opacity: 0.4;
+  animation: spin 14s linear infinite;
+}
+.flakeToggle3{
+  margin: -0.5em 0 0 0.25em;
+  font-size: 1.25em;
+  opacity: 0.2;
+  animation: spin 10s linear infinite;
+}
+.flakeToggle4{
+  margin: 0.375em 0 0 0.125em;
+  font-size: 2em;
+  opacity: 0.4;
+  animation: spin 16s linear infinite reverse;
+}
 
 /* Animations */ 
 
