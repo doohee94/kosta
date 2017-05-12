@@ -60,7 +60,7 @@ public class UserControl extends HttpServlet {
 		try{
 			
 			if( commandMap.containsKey( cmdKey.toLowerCase() ) ){			// hashmap에 key값이 포함되어 있는게 있는지 찾는거
-				cmd = (Command)commandMap.get( cmdKey.toLowerCase());		// hashmap에서 key값의 value를 가져옴.
+				cmd = (Command)commandMap.get(cmdKey.toLowerCase());		// hashmap에서 key값의 value를 가져옴.
 			}else{
 				throw new CommandException("지정할 명령어가 존재하지 않음");
 			}

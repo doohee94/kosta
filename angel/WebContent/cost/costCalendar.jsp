@@ -4,16 +4,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>가계부 달력</title>
-<link rel="stylesheet" href="css/jquery.smartPop.css" />
+<link rel="stylesheet" href="/angel/cost/css/jquery.smartPop.css" />
 <link href='/angel/fullcalendar-3.4.0/fullcalendar-3.4.0/fullcalendar.css' rel='stylesheet' />
 <link href='/angel/fullcalendar-3.4.0/fullcalendar-3.4.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<style>
+
+	body {
+		margin: 40px 10px;
+		padding: 0;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		font-size: 14px;
+	}
+
+	#calendar {
+		max-width: 80%;
+		margin: 0 auto;
+	}
+
+</style>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
-<script type="text/javascript" src="js/jquery.smartPop.js"></script>
+<script type="text/javascript" src="/angel/cost/js/jquery.smartPop.js"></script>
 <script src='/angel/fullcalendar-3.4.0/fullcalendar-3.4.0/lib/moment.min.js'></script>
 <script src='/angel/fullcalendar-3.4.0/fullcalendar-3.4.0/fullcalendar.js'></script>
+<script src='/angel/fullcalendar-3.4.0/fullcalendar-3.4.0/locale-all.js'></script>
 <script>
-	$(document).ready(function() {
+jQuery(document).ready(function($) {
+
 		$('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',
@@ -24,15 +40,21 @@
 			navLinks: false, // can click day/week names to navigate views
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
-		    eventSources: [
+		    events: 
 		        // your event source
 		        {
-					url : '/angel/cost/temp.jsp',
+					url : 'cost?cmd=cost-list&ajax=true',
 					type : 'post',
-					dataType : 'json', 		
-		        }
+					dataType : 'json', 
+					error: function() {
+					$('#script-warning').show();	
+		        },
+				loading: function(bool) {
+					$('#loading').toggle(bool);
+				}
+		      }
 		        // any other sources...
-		    ],
+		    ,
 		    eventClick: function(calEvent, jsEvent, view) {
 				//지출 수정 팝업 띄워주기
 		        alert('Event: ' + calEvent.title);
@@ -56,27 +78,13 @@
 	});
 	
 </script>
-<style>
 
-	body {
-		margin: 40px 10px;
-		padding: 0;
-		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-		font-size: 14px;
-	}
-
-	#calendar {
-		max-width: 900px;
-		margin: 0 auto;
-	}
-
-</style>
 </head>
 <body>
-
+<br/><br/>
 	<div id='calendar'></div>
 <div align="right">
-	<img src="../imgs/view.png"  id="view" width="95" height="95"/>
+	<img src="/angel/imgs/view.png"  id="view" width="70" height="70"/>&nbsp;&nbsp;&nbsp;
 </div>
 </body>
 </html>

@@ -32,11 +32,27 @@ public class LoginRepository {
 	}
 	
 	// 로그인 아이디와 비밀번호가 담긴 VO를 넘겨 member가 있는지 찾아본다.
-	public int selectMember(MemberVo memberVo){
+	public boolean selectMember(MemberVo memberVo){
+		
+		System.out.println("로그인 할 때의 아이디 : " + memberVo.getMemberId());
+		System.out.println("로그인 할 때의 비밀번호 : " + memberVo.getMemberPw());
+		
+		
 		SqlSession sqlSess = getSqlSessionFactory().openSession();
 		try{
 			String statement = namespace + ".selectMember";
-			int result = sqlSess.selectOne(statement, memberVo);
+			MemberVo member = sqlSess.selectOne(statement, memberVo);	// 아이디,비밀번호를 넘겨서 member가 있는지 검색!
+			boolean result;		// member가 있으면 true, 없으면 false
+			
+			if(member == null){
+//				System.out.println("로그인정보없음");
+				result = true;
+			}
+			else{
+//				System.out.println("로그인 정보 있음");
+				result = false;
+			}
+//			System.out.println("로그인 했을 때의 결과는 ?  "+result);
 			return result;
 		}finally{
 			sqlSess.close();

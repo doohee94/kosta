@@ -11,7 +11,7 @@
 <title>방명록 메인</title>
 </head>
 <body>
-	메인화면이라 . . . 그냥 상상하고 . . . save
+	메인화면이라 . . . 그냥 상상하고 . . . saveaaaaa
 	<a href="<%= projectName %>/.diary?cmd=list-page">list</a><br/><br/>
 	
 </body>
