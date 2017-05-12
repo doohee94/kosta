@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <typeAlias type="model.diary.DiaryVo" alias="diary"/>
 <typeAlias type="model.user.MemberVo" alias="memberVo"/>
  <typeAlias type="model.plan.PlanVo" alias="plan"/>
-  <typeAlias type="model.cost.CostVo" alias="cost"/>
+  <typeAlias type="model.cost.CostVo" alias="CostVo"/>
 </typeAliases>
 
 	<environments default="development">
