@@ -37,7 +37,7 @@ public class CommandLogin implements Command{
 		}
 		else{
 			request.setAttribute("loginCheck", "false");
-			return "LoginView.jsp";
+			return "/main/LoginView.jsp";
 		}
 		
 	}

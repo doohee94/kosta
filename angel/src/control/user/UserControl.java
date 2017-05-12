@@ -21,7 +21,7 @@ import command.user.*;
 public class UserControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HashMap commandMap;
-	private String	jspDir = "/login/";
+	//private String	jspDir = "/plan/plan_person/";
 	private String error = "/main/error.jsp";
 	
 	
@@ -34,7 +34,7 @@ public class UserControl extends HttpServlet {
 	private void initCommand() {
 		System.out.println("여기도 타야함.......제발");
 		commandMap = new HashMap();
-		commandMap.put("loginCheck", new CommandLogin("main.jsp"));
+		commandMap.put("loginCheck", new CommandLogin("/plan/plan_person/home.jsp"));
 
 	}
 
@@ -80,7 +80,7 @@ public class UserControl extends HttpServlet {
 			System.out.println("오류 : " + e.getMessage() );
 		}
 
-		RequestDispatcher reqDp = getServletContext().getRequestDispatcher( jspDir + nextPage );
+		RequestDispatcher reqDp = getServletContext().getRequestDispatcher(nextPage);
 		reqDp.forward( request, response );
 
 		

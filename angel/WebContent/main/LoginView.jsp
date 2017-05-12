@@ -1,14 +1,26 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <% String projectLink = "/angel/UserControl?cmd="; %>
+<%
+	// 로그인 실패시 알려주기 위해 request로 받아왔음
+	String loginCheck = (String)request.getAttribute("loginCheck");
+//  System.out.print(loginCheck+"는 로그인 체크 결과값임");
+	
+	if(loginCheck==null){
+		// 로그인 전 초기 로딩시.....ㅎㅎㅎㅎㅎ
+	}
+	else if(loginCheck.equals("false")){
+		System.out.print("다시로그인고고!");
+	}
 
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>로그인화면(첫 번째로 켜는 화면임)</title>
 <!-- CSS 추가 -->
-<link rel="stylesheet" href="css/login1.css"/>
-<link rel="stylesheet" type="text/css" href="css/login2.css">
+<link rel="stylesheet" href="/angel/main/css/login1.css"/>
+<link rel="stylesheet" type="text/css" href="/angel/main/css/login2.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function(){
