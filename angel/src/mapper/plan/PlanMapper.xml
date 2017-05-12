@@ -31,9 +31,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 </insert>
 
+<update id="modifyComment" parameterType="plan">
+
+UPDATE plan 
+SET plan_sdate = to_date(#{planSdate},'yyyy-mm-dd hh24:mi:ss' ), plan_edate=to_date(#{planEdate},'yyyy-mm-dd hh24:mi:ss')
+WHERE plan_num=#{planNum}
 
 
 
+</update>
+
+<delete id="deleteComment" parameterType="int">
+	
+	DELETE FROM plan
+	WHERE plan_num=#{id}
+
+</delete>
 
 
 

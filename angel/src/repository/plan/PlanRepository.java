@@ -70,7 +70,52 @@ public class PlanRepository {
 			return 0;
 		
 	}
+		
+		
+		public int update(PlanVo vo){
+			
+			SqlSession sqlSess = getSqlSesstionFactory().openSession();
+			try{
+			int result = sqlSess.update(namespace+".modifyComment",vo);
+			if(result >0 ){
+				sqlSess.commit();
+				System.out.println("커밋");
+				//jdbc : auto-commit, Mybatis : 아님 반드시 커밋 or 롤백
+			}else{
+				sqlSess.rollback();
+				System.out.println("롤백");
+			}
+			}finally{
+				sqlSess.close();
+			}
+			
+			return 0;
+			
+		}
 	
+		public int delete(int id){
+			
+			SqlSession sqlSess = getSqlSesstionFactory().openSession();
+			
+			try{
+				
+				int result = sqlSess.delete(namespace+".deleteComment",id);
+				if(result >0 ){
+					sqlSess.commit();
+					System.out.println("커밋");
+					//jdbc : auto-commit, Mybatis : 아님 반드시 커밋 or 롤백
+				}else{
+					sqlSess.rollback();
+					System.out.println("롤백");
+				}
+				
+			}finally{
+				sqlSess.close();
+			}
+		
+			
+			return 0;
+		}
 	
 
 }

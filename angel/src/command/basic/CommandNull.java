@@ -10,7 +10,8 @@ public class CommandNull implements Command{
 		next = _next;
 	}
 
-	public String execute( HttpServletRequest request,HttpServletResponse response){
+	public String execute( HttpServletRequest request , HttpServletResponse response){
+		System.out.println("CommNull 탄당");
 		return next;
 	}
 
