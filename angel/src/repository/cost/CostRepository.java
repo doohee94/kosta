@@ -41,8 +41,8 @@ public class CostRepository {
 	public List<CostVo> selectCostList(){
 		SqlSession sqlSess = getSelSessionFactory().openSession();
 		try{
-		statment = namespace+".selectCostList";
-		return sqlSess.selectOne(statment);
+		
+		return sqlSess.selectList(namespace+".selectCostList");
 		}finally{
 			sqlSess.close();
 		}

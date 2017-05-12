@@ -30,9 +30,8 @@ public class CostControl extends HttpServlet {
     }
     private void initCommand(){
     	commandMap = new HashMap();
-    	
     	commandMap.put("cost-main", new CommandNull("main.jsp"));
-    	commandMap.put("cost-list", new CommandCostList("/cost/home.jsp"));
+    	commandMap.put("cost-list", new CommandCostList("home.jsp"));
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

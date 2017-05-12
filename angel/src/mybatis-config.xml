@@ -34,5 +34,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<!-- 여러개의 매퍼를 등록 -->
 <!-- 		<mapper resource="mapper/cost/CostMapper.xml" /> -->
 		<mapper resource="mapper/member/memberMapper.xml"/>
+		<mapper resource="mapper/cost/CostMapper.xml" />
 	</mappers>
 </configuration>

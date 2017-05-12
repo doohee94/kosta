@@ -28,22 +28,29 @@ public class CommandCostList implements Command{
 			JSONObject obj = new JSONObject();
 			JSONArray jArray = new JSONArray();
 			for(int i=0; i<cost.size();i++){
-
+				String color = cost.get(i).getCostCategory();
 				JSONObject sObject = new JSONObject();
-
+					
 				sObject.put("id",cost.get(i).getMemberId());
 				sObject.put("title",cost.get(i).getCostContent());
 				sObject.put("start",cost.get(i).getCostDate());
 				sObject.put("end",cost.get(i).getCostDate());
-
-
+//				if(color.equals("식비")){
+//					sObject.put("color","red");
+//				}else if(color.equals("유흥")){
+//					sObject.put("color","yellow");
+//				}else if(color.equals("기타")){
+//					sObject.put("color","green");
+//				}
+//					
+					
 				jArray.add(sObject);
 			}
 
 			System.out.print(jArray.toString() +"\n");
 			obj.put(null, jArray);
 
-			response.getWriter().println(jArray.toString());
+			response.getWriter().print(jArray.toString());
 
 		}catch (Exception e) {
 

@@ -4,14 +4,13 @@ import java.util.List;
 
 import model.cost.CostVo;
 import repository.cost.CostRepository;
-import service.plan.PlanService;
 
 public class CostService {
-	public static CostService service;
+	private static CostService service;
 	
-	private CostService(){	
-	}
-	public static CostService getInstance(){
+	private CostService(){}
+	
+public static CostService getInstance(){
 		
 		if(service == null)
 		{
@@ -19,10 +18,13 @@ public class CostService {
 		}
 		return service;
 	}
+
+
 	CostRepository repo = new CostRepository();
-	
+
+
 	public List<CostVo> selectCostList(){
-		return repo.selectCostList();
-	}
-	
+	return repo.selectCostList();
+}
+
 }
