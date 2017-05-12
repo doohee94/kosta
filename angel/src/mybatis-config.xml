@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 <!-- 	<typeAlias type="mybatis.guest.model.Comment" alias="comment"/> -->
 <!-- 모델 클래스 만든 후에 위에 처럼 별명 지정해 주세요 -->
-
+<typeAlias type="model.diary.DiaryVo" alias="diary"/>
 </typeAliases>
 
 	<environments default="development">
@@ -34,5 +34,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<!-- 여러개의 매퍼를 등록 -->
 		<mapper resource="mybatis/guest/mapper/CommentMapper.xml" />
 		<mapper resource="mapper/cost/CostMapper.xml" />
+		<mapper resource="mapper/diary/DiaryMapper.xml" />
 	</mappers>
 </configuration>
