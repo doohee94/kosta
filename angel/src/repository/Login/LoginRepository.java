@@ -46,11 +46,11 @@ public class LoginRepository {
 			
 			if(member == null){
 //				System.out.println("로그인정보없음");
-				result = true;
+				result = false;
 			}
 			else{
 //				System.out.println("로그인 정보 있음");
-				result = false;
+				result = true;
 			}
 //			System.out.println("로그인 했을 때의 결과는 ?  "+result);
 			return result;
