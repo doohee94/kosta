@@ -29,5 +29,11 @@ public class PlanService {
 	}
 	
 	
+	public int Insert(PlanVo vo){
+		System.out.println("인서트 서비스");
+		return repo.Insert(vo);
+		
+	}
+	
 	
 }

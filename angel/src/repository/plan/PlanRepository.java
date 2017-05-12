@@ -45,6 +45,32 @@ public class PlanRepository {
 		
 	}
 	
+		public int Insert(PlanVo vo){
+			System.out.println("인서트 레포");
+			SqlSession sqlSess = getSqlSesstionFactory().openSession();
+			
+			try{
+				
+				int result =  sqlSess.insert(namespace+".insertComment",vo);
+				if(result >0 ){
+					sqlSess.commit();
+					System.out.println("커밋");
+					//jdbc : auto-commit, Mybatis : 아님 반드시 커밋 or 롤백
+				}else{
+					sqlSess.rollback();
+					System.out.println("롤백");
+				}
+				
+				
+			}finally{
+				System.out.println("파이널리");
+				sqlSess.close();
+			}
+			
+			return 0;
+		
+	}
+	
 	
 
 }

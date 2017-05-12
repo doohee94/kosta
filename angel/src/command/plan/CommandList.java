@@ -47,6 +47,7 @@ public class CommandList implements Command{
 				sObject.put("start",plan.get(i).getPlanSdate());
 				sObject.put("end",plan.get(i).getPlanEdate());
 				
+				System.out.println( i +">>>>>>>>>>>>>>>>" + plan.get(i).getPlanContent());
 				jArray.add(sObject);
 			}
 				

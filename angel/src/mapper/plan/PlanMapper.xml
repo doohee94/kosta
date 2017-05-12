@@ -10,12 +10,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select  id='selectComment' resultType="plan">
 	SELECT *
 	FROM plan
-	where member_id=1234
+	where member_id='1234'
 
 </select>
 
 
 
+<insert id="insertComment"  parameterType="plan">
+	
+	INSERT INTO plan VALUES(
+	
+	sequence_plan.nextval,
+	#{memberId},
+	 to_date(#{planSdate},'yyyy-mm-dd hh24:mi:ss'),
+	 to_date(#{planEdate},'yyyy-mm-dd hh24:mi:ss'),
+	#{planContent},
+	null
+	)
+
+
+</insert>
 
 
 

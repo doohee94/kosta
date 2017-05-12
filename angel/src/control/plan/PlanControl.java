@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.basic.*;
+import command.plan.CommandInsert;
 import command.plan.CommandList;
 
 
@@ -24,7 +25,7 @@ public class PlanControl extends HttpServlet {
   
     public PlanControl() {
         super();
-       
+       System.out.println("여기 안돌지...ㅠㅠ\n\n\n");
         initCommand();
     }
 
@@ -33,7 +34,7 @@ public class PlanControl extends HttpServlet {
 
 		commandMap.put("main-page",new CommandNull("main.jsp") );
 		commandMap.put("list-page",new CommandList("home.jsp") );
-	
+		commandMap.put("insert-page",new CommandInsert("home.jsp") );
 		// 나머지도 추가하기		
 		
 	}
