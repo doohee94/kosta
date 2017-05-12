@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% String projectLink = "/angel/UserControl?cmd="; %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +12,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function(){
+		
+		$(".login").click(function(){
+			// 로그인 버튼을 누른다.
+			// 아이디와 비밀번호가 맞는지 DB와 확인, 맞다면 main, 틀리면 팝업으로 로그인 실패 뜬다고 알려주기
+		});
 	
 		$(".btn span:first-child").click(function(){
 			alert("회원가입");
@@ -31,7 +38,7 @@
 	<h3 class="sign-in">Angel</h3>
 	</div>
 	<br/>
-	<form>
+	<form id="frm" name="frm" method="post" action="<%=projectLink%>main_page">
 		<div align="center">
 		
 		<input class="user-input" type="text" name="id" id="id" placeholder="id is"/>
@@ -40,7 +47,7 @@
 			<input type="password" name="pw" id="pw" placeholder="password is"/>
  		</div>
  		<div align="center">
- 		<span class="login">Login</span>
+ 		<input type="submit" value="Login"/>
  		</div>
  		<br/>
  		<div class="btn" align="center">

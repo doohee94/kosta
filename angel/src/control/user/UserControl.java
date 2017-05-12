@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import command.basic.Command;
-import command.basic.CommandException;
-import command.basic.CommandNull;
+import command.basic.*;
+import command.user.*;
 
 
 /**
@@ -32,7 +31,7 @@ public class UserControl extends HttpServlet {
 
 	private void initCommand() {
 		commandMap = new HashMap();
-		commandMap.put("main-page", new CommandNull("home.jsp"));
+		commandMap.put("main_page", new CommandLogin("home.jsp"));
 	}
 
 
