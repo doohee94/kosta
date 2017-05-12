@@ -24,10 +24,11 @@ public class CommandLogin implements Command{
 //		System.out.println("로그인 할 때의 아이디 : " + request.getParameter("id"));
 //		System.out.println("로그인 할 때의 비밀번호 : " + request.getParameter("pw"));
 		// 아이디와 비밀번호를 서비스로 gogo
-		MemberVo memberVo = null;
+		MemberVo memberVo = new MemberVo();
+		
 		memberVo.setMemberId(request.getParameter("id"));
 		memberVo.setMemberPw(request.getParameter("pw"));
-		
+				
 		// select 한 결과를 담아요~~~ (로그인 정보의 결과)
 		int login = LoginService.getInstance().selectMember(memberVo);
 		
