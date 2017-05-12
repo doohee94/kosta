@@ -20,8 +20,8 @@ public class CommandLogin implements Command{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws CommandException {
 
-//		System.out.println("로그인 할 때의 아이디 : " + request.getParameter("id"));
-//		System.out.println("로그인 할 때의 비밀번호 : " + request.getParameter("pw"));
+		System.out.println("로그인 할 때의 아이디 : " + request.getParameter("id"));
+		System.out.println("로그인 할 때의 비밀번호 : " + request.getParameter("pw"));
 		// 아이디와 비밀번호를 서비스로 gogo
 		MemberVo memberVo = new MemberVo();
 		
@@ -30,11 +30,14 @@ public class CommandLogin implements Command{
 				
 		// select 한 결과를 담아요~~~ (로그인 정보의 결과 : member 있으면 true값임!!!)
 		boolean login = LoginService.getInstance().selectMember(memberVo);
+		System.out.println("select 한 결과값은??"+login);
 		
-		if(login=true){
+		if(login==true){
 			return next;
 		}
 		else{
+			request.setAttribute("loginCheck", "false");
+			return "LoginView.jsp";
 		}
 		
 	}

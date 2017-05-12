@@ -24,14 +24,18 @@ public class UserControl extends HttpServlet {
 	private String	jspDir = "/plan/plan_person/";
 	private String error = "/main/error.jsp";
 	
+	
     public UserControl() {
         super();
+        System.out.println("여길 타긴하나.....");
         initCommand();
     }
 
 	private void initCommand() {
+		System.out.println("여기도 타야함.......제발");
 		commandMap = new HashMap();
-		commandMap.put("main_page", new CommandLogin("home.jsp"));
+		commandMap.put("loginCheck", new CommandLogin("main.jsp"));
+
 	}
 
 
@@ -47,6 +51,9 @@ public class UserControl extends HttpServlet {
 	}
 
 	private void processRequest(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {
+		
+		System.out.println();
+		
 		
 		String nextPage = "";
 		String cmdKey	= request.getParameter("cmd"); //list-page

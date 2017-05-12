@@ -13,10 +13,28 @@
 <script type="text/javascript">
 	$(function(){
 		
-		$(".login").click(function(){
-			// 로그인 버튼을 누른다.
-			// 아이디와 비밀번호가 맞는지 DB와 확인, 맞다면 main, 틀리면 팝업으로 로그인 실패 뜬다고 알려주기
-		});
+ 		$(".login").click(function(){
+ 			// 로그인 버튼을 누른다. (!!ajax를 사용!!)
+ 			// 아이디와 비밀번호가 맞는지 DB와 확인, 맞다면 main, 틀리면 팝업으로 로그인 실패 뜬다고 알려주기
+// 			$.ajax({
+// 				url : "loginCheck.jsp",
+// 				type : "get",
+// 				data : {id:$("#id").val(), pw:$("#pw").val()},
+// 				dataType : "text",
+// 				success:function(data){
+// 					if(data.trim()==false){
+// 						alert("로그인 실패");
+						
+// 					}
+// 					else if(data.trim()==true){
+// 						alert("로그인 성공");
+// 						//session을 만들면 됨
+// 						//페이지를 넘겨준다. main으로...
+// 					}
+// 				}
+// 			})
+			
+ 		});
 	
 		$(".btn span:first-child").click(function(){
 			alert("회원가입");
@@ -38,7 +56,7 @@
 	<h3 class="sign-in">Angel</h3>
 	</div>
 	<br/>
-	<form id="frm" name="frm" method="post" action="<%=projectLink%>main_page">
+	<form id="frm" name="frm" method="post" action="<%=projectLink%>loginCheck">
 		<div align="center">
 		
 		<input class="user-input" type="text" name="id" id="id" placeholder="id is"/>
@@ -47,7 +65,8 @@
 			<input type="password" name="pw" id="pw" placeholder="password is"/>
  		</div>
  		<div align="center">
- 		<input type="submit" value="Login"/>
+		<input type="submit" value="Login" class="login">
+<!--  		<div class="login">Login</div> -->
  		</div>
  		<br/>
  		<div class="btn" align="center">
