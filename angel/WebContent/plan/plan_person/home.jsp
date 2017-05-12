@@ -13,16 +13,16 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="/test/plan/plan_person/assets/css/main.css" />
+		<link rel="stylesheet" href="/angel/plan/plan_person/assets/css/main.css" />
 		
 		<!-- 풀캘린더 -->
-		<link rel='stylesheet' href='/test/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/fullcalendar.css' />
+		<link rel='stylesheet' href='/angel/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/fullcalendar.css' />
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 		
-		<noscript><link rel="stylesheet" href="/test/plan/plan_person/assets/css/noscript.css" /></noscript>
+		<noscript><link rel="stylesheet" href="/angel/plan/plan_person/assets/css/noscript.css" /></noscript>
 		
 		<style type="text/css">
 
@@ -95,10 +95,10 @@
 		<title>Astral by HTML5 UP</title>
 		
 		
-		<script src='/test/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/lib/jquery.min.js'></script>
-		<script src='/test/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/lib/moment.min.js'></script>
-		<script src='/test/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0//fullcalendar.js'></script>
-		<script src="/test/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/locale-all.js"></script>
+		<script src='/angel/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/lib/jquery.min.js'></script>
+		<script src='/angel/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/lib/moment.min.js'></script>
+		<script src='/angel/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0//fullcalendar.js'></script>
+		<script src="/angel/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/locale-all.js"></script>
 		
 
 		<!-- Latest compiled and minified JavaScript -->
@@ -356,12 +356,12 @@ jQuery(document).ready(function($) {
 			</div>
 
 		<!-- Scripts -->
-			<script src="/test/plan/plan_person/assets/js/jquery.min.js"></script>
-			<script src="/test/plan/plan_person/assets/js/skel.min.js"></script>
-			<script src="/test/plan/plan_person/assets/js/skel-viewport.min.js"></script>
-			<script src="/test/plan/plan_person/assets/js/util.js"></script>
+			<script src="/angel/plan/plan_person/assets/js/jquery.min.js"></script>
+			<script src="/angel/plan/plan_person/assets/js/skel.min.js"></script>
+			<script src="/angel/plan/plan_person/assets/js/skel-viewport.min.js"></script>
+			<script src="/angel/plan/plan_person/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="/test/plan/plan_person/assets/js/main.js"></script>
+			<script src="/angel/plan/plan_person/assets/js/main.js"></script>
 			
 			
 			
