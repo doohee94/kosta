@@ -19,6 +19,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <typeAlias type="model.diary.DiaryVo" alias="diary"/>
 <typeAlias type="model.user.MemberVo" alias="memberVo"/>
  <typeAlias type="model.plan.PlanVo" alias="plan"/>
+  <typeAlias type="model.cost.CostVo" alias="cost"/>
 </typeAliases>
 
 	<environments default="development">
@@ -34,11 +35,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</environments>
 	<mappers>
 	<!-- 여러개의 매퍼를 등록 -->
-		<mapper resource="mybatis/guest/mapper/CommentMapper.xml" />
+		<mapper resource="mapper/plan/PlanMapper.xml" />
 		<mapper resource="mapper/cost/CostMapper.xml" />
 		<mapper resource="mapper/diary/DiaryMapper.xml" />
 		<mapper resource="mapper/member/memberMapper.xml"/>
-		<mapper resource="mapper/plan/PlanMapper.xml" />
 		
 	</mappers>
 

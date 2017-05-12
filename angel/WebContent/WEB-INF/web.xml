@@ -34,7 +34,7 @@
   </servlet>
   <servlet-mapping>
   <servlet-name>CostControl</servlet-name>
-  <url-pattern>*.cost</url-pattern>
+  <url-pattern>/cost</url-pattern>
   </servlet-mapping>
   
     <!-- user -->

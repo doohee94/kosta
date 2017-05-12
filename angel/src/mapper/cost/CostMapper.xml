@@ -5,7 +5,7 @@
 <mapper namespace="CostMapper">
 <!--  mapper nickname -->
 <!--  sql control  for id-->
-	<resultMap type="CostVo" id="costMap">
+	<resultMap type="cost" id="costMap">
 		<id column ="member_id" property="memberId"/>
 		<result column="cost_num" property="costNum"/>
 		<result column="cost_date" property="costDate"/>
