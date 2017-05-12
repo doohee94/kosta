@@ -12,7 +12,6 @@ import service.login.LoginService;
 // 제일 처음 로딩되는 화면에서 로그인을 시켜라!
 public class CommandLogin implements Command{
 	
-	
 	String next;
 	public CommandLogin(String _next){
 		next=_next;
@@ -29,13 +28,15 @@ public class CommandLogin implements Command{
 		memberVo.setMemberId(request.getParameter("id"));
 		memberVo.setMemberPw(request.getParameter("pw"));
 				
-		// select 한 결과를 담아요~~~ (로그인 정보의 결과)
-		int login = LoginService.getInstance().selectMember(memberVo);
+		// select 한 결과를 담아요~~~ (로그인 정보의 결과 : member 있으면 true값임!!!)
+		boolean login = LoginService.getInstance().selectMember(memberVo);
 		
+		if(login=true){
+			return next;
+		}
+		else{
+		}
 		
-		
-		
-		return next;
 	}
 
 }
