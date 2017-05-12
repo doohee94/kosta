@@ -40,6 +40,10 @@ $(function(){
 		$(".sun").toggleClass("sunToggle");
 	});
 	
+	$(".cloudy").click(function(){
+		$(".cloud:nth-child(2)").toggleClass("cloudToggle");
+	});
+	
 	$(".thunder-storm").click(function(){
 		$(".bolt").toggleClass("boltToggle1");	
 		$(".bolt:nth-child(2)").toggleClass("boltToggle2");
