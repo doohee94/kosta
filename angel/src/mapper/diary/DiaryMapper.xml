@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select  id='selectComment' resultType="diary">
    SELECT *
    FROM diary
-   where member_id='ckswhd1128'
+   where member_id='1234'
 
 </select>
 
