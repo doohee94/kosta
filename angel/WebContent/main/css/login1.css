@@ -952,7 +952,8 @@
 	input[type="submit"],
 	input[type="reset"],
 	button,
-	.button {
+	.button,
+	.login {
 		-webkit-appearance: none;
 		display: inline-block;
 		background-color: #222222;
@@ -970,7 +971,8 @@
 		input[type="submit"]:hover,
 		input[type="reset"]:hover,
 		button:hover,
-		.button:hover {
+		.button:hover,
+		.login:hover {
 			background-color: #333333;
 		}
 
@@ -978,7 +980,8 @@
 		input[type="submit"]:active,
 		input[type="reset"]:active,
 		button:active,
-		.button:active {
+		.button:active,
+		.login:active {
 			background-color: #444444;
 		}
 
@@ -986,7 +989,8 @@
 		input[type="submit"].alt,
 		input[type="reset"].alt,
 		button.alt,
-		.button.alt {
+		.button.alt,
+		.login.alt {
 			background-color: #777777;
 		}
 
@@ -994,7 +998,8 @@
 			input[type="submit"].alt:hover,
 			input[type="reset"].alt:hover,
 			button.alt:hover,
-			.button.alt:hover {
+			.button.alt:hover,
+			.login.alt:hover{
 				background-color: #888888;
 			}
 
@@ -1002,7 +1007,8 @@
 			input[type="submit"].alt:active,
 			input[type="reset"].alt:active,
 			button.alt:active,
-			.button.alt:active {
+			.button.alt:active,
+			.login.alt:active {
 				background-color: #999999;
 			}
 
@@ -1191,7 +1197,8 @@
 			input[type="submit"],
 			input[type="reset"],
 			button,
-			.button {
+			.button,
+			.login {
 				padding: 0.7em 1.5em 0.7em 1.5em;
 			}
 
@@ -1199,7 +1206,8 @@
 				input[type="submit"].small,
 				input[type="reset"].small,
 				button.small,
-				.button.small {
+				.button.small,
+				.login.small {
 					font-size: 0.75em;
 				}
 
@@ -1207,7 +1215,8 @@
 				input[type="submit"].big,
 				input[type="reset"].big,
 				button.big,
-				.button.big {
+				.button.big,
+				.login.big {
 					font-size: 1.25em;
 					padding: 0.5em 1.25em 0.5em 1.25em;
 				}
@@ -1216,7 +1225,8 @@
 				input[type="submit"].huge,
 				input[type="reset"].huge,
 				button.huge,
-				.button.huge {
+				.button.huge,
+				.login.huge {
 					font-size: 1.5em;
 					padding: 0.5em 1.25em 0.5em 1.25em;
 				}
@@ -1483,7 +1493,8 @@
 			input[type="submit"],
 			input[type="reset"],
 			button,
-			.button {
+			.button,
+			.login {
 				display: block;
 				width: 100%;
 				padding: 0.75em 0 0.75em 0;

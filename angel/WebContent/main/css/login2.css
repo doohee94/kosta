@@ -40,7 +40,7 @@ form {position:relative;}
 
 /* .button:hover {color:#d3d3d3} */
 
-input {
+input, .login {
   width:50%;
   padding:5px;
   height:40px;
@@ -71,7 +71,7 @@ input[type="password"]{
   padding-left:45px;
   color:$button;
 }
-input[type="submit"]{
+input[type="submit"], .login{
   background:pink; 
   border:none;
   color:white;
@@ -79,4 +79,5 @@ input[type="submit"]{
   font-size:0.8em;
   cursor:pointer;
 }
+
 

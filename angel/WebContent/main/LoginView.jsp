@@ -40,7 +40,7 @@
 			<input type="password" name="pw" id="pw" placeholder="password is"/>
  		</div>
  		<div align="center">
- 		<input type="submit" value="Login" />
+ 		<span class="login">Login</span>
  		</div>
  		<br/>
  		<div class="btn" align="center">
