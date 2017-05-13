@@ -13,16 +13,16 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="/angel/plan/plan_person/assets/css/main.css" />
+		<link rel="stylesheet" href="/test/plan/plan_person/assets/css/main.css" />
 		
 		<!-- 풀캘린더 -->
-		<link rel='stylesheet' href='/angel/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/fullcalendar.css' />
+		<link rel='stylesheet' href='/test/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/fullcalendar.css' />
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 		
-		<noscript><link rel="stylesheet" href="/angel/plan/plan_person/assets/css/noscript.css" /></noscript>
+		<noscript><link rel="stylesheet" href="/test/plan/plan_person/assets/css/noscript.css" /></noscript>
 		
 		<style type="text/css">
 
@@ -95,10 +95,10 @@
 		<title>Astral by HTML5 UP</title>
 		
 		
-		<script src='/angel/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/lib/jquery.min.js'></script>
-		<script src='/angel/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/lib/moment.min.js'></script>
-		<script src='/angel/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0//fullcalendar.js'></script>
-		<script src="/angel/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/locale-all.js"></script>
+		<script src='/test/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/lib/jquery.min.js'></script>
+		<script src='/test/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/lib/moment.min.js'></script>
+		<script src='/test/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0//fullcalendar.js'></script>
+		<script src="/test/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/locale-all.js"></script>
 		
 
 		<!-- Latest compiled and minified JavaScript -->
@@ -142,8 +142,22 @@ jQuery(document).ready(function($) {
        }//날짜클릭
        
        ,eventDrop:function(event,jsEvent,view){
+    	   $('#id').val(event.id);
+    	   
+    		var sday = event.start.toISOString().split("T");
+    		var eday = event.end.toISOString().split("T");
+    		
+    		$('#mSday').val(sday[0]+" "+sday[1]);
+    		 $('#mEday').val(eday[0]+" "+eday[1]);
     	   
     	   $("#myModal2").modal("show");
+       }
+       
+       ,eventClick:function(event){
+    	   
+    	   $('#id').val(event.id);
+    	   $("#myModal3").modal("show");
+    	   
        }
 
   
@@ -195,14 +209,25 @@ jQuery(document).ready(function($) {
     	  });//클릭 
  			
    	  $("#modify").click(function(){
-    		  
-   		  	a
-   		  		
+    	var id = $('#id').val();
+    	var sDay =  $('#mSday').val();
+    	var eDay =   $('#mEday').val();
+    	
+    	
+   		var url =  "plan?cmd=modify-page&id="+id+"&sDay="+sDay+"&eDay="+eDay;
+		$(location).attr('href',url);
     
     			
      		   	
     	  });//수정 클릭 
     	  
+    	  
+    	  $("#delete").click(function(){
+    	    	var id = $('#id').val();
+    	   		var url =  "plan?cmd=delete-page&id="+id;
+    			$(location).attr('href',url);
+    	    
+    	    	  });//삭제 클릭 
     
 
 }); //ready
@@ -213,6 +238,9 @@ jQuery(document).ready(function($) {
 		
 	</head>
 	<body id="home_body">
+	
+	
+
 	<br/>	<br/>
 		<!-- Wrapper-->
 			<div id="wrapper">
@@ -316,6 +344,9 @@ jQuery(document).ready(function($) {
 					
 					</div>
 					<div class="modal-footer">
+						<input type="hidden" id = "id" name="id"/>
+						<input type="hidden" id = "mSday" name="mSday"/>
+						<input type="hidden" id = "mEday" name="mEday"/>
 						<button type="button" class="btn btn-default"  id="modify" name="modify">YES</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
 					</div>
@@ -325,24 +356,34 @@ jQuery(document).ready(function($) {
 		</div>
 	</div>
 
+	<!-- DELETE  Modal-->
+	<div class="modal fade" id="myModal3" role="dialog"
+		aria-labelledby="mySmallModalLabel">
+		<div class="modal-dialog  modal-fullsize">
 
+			<div class="modal-content  modal-fullsize">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
 
+					<h4 class="modal-title">CHECK</h4>
+				</div>
+				<div class="modal-body">
+							
+						Are you really going to DELETE the schedule?
+					
+					</div>
+					<div class="modal-footer">
+						<input type="hidden" id = "id" name="id"/>
+						<input type="hidden" id = "mSday" name="mSday"/>
+						<input type="hidden" id = "mEday" name="mEday"/>
+						<button type="button" class="btn btn-default"  id="delete" name="delete">YES</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
+					</div>
+				
 
-
-
-
-
-								
-								
-								
-								
-								
-								
-								
-								
-								
-								
-
+			</div>
+		</div>
+	</div>
 
 	</article>
 	</div>
@@ -356,16 +397,12 @@ jQuery(document).ready(function($) {
 			</div>
 
 		<!-- Scripts -->
-			<script src="/angel/plan/plan_person/assets/js/jquery.min.js"></script>
-			<script src="/angel/plan/plan_person/assets/js/skel.min.js"></script>
-			<script src="/angel/plan/plan_person/assets/js/skel-viewport.min.js"></script>
-			<script src="/angel/plan/plan_person/assets/js/util.js"></script>
+			<script src="/test/plan/plan_person/assets/js/jquery.min.js"></script>
+			<script src="/test/plan/plan_person/assets/js/skel.min.js"></script>
+			<script src="/test/plan/plan_person/assets/js/skel-viewport.min.js"></script>
+			<script src="/test/plan/plan_person/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="/angel/plan/plan_person/assets/js/main.js"></script>
+			<script src="/test/plan/plan_person/assets/js/main.js"></script>
 			
-			
-			
-			
-
 	</body>
 </html>

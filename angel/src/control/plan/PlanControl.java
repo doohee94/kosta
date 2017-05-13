@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.basic.*;
+import command.plan.CommandDelete;
 import command.plan.CommandInsert;
 import command.plan.CommandList;
+import command.plan.CommandModify;
 
 
 
@@ -35,6 +37,8 @@ public class PlanControl extends HttpServlet {
 		commandMap.put("main-page",new CommandNull("main.jsp") );
 		commandMap.put("list-page",new CommandList("home.jsp") );
 		commandMap.put("insert-page",new CommandInsert("home.jsp") );
+		commandMap.put("modify-page",new CommandModify("home.jsp") );
+		commandMap.put("delete-page",new CommandDelete("home.jsp") );
 		// 나머지도 추가하기		
 		
 	}

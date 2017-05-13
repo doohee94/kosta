@@ -35,5 +35,15 @@ public class PlanService {
 		
 	}
 	
+	public int update(PlanVo vo){
+		
+		return repo.update(vo);
+		
+	}
+	
+	public int delete(int id){
+		
+		return repo.delete(id);
+	}
 	
 }
