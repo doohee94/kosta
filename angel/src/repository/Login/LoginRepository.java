@@ -59,4 +59,21 @@ public class LoginRepository {
 		}
 	}
 
+	// 회원가입 화면에서 새로운 고객의 정보를 DB에 입력한다.
+	public int imputMember(MemberVo memberVo) {
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		try{
+			String statement = namespace + ".inputMember";
+			int result = sqlSess.insert(statement, memberVo);
+			if(result > 0){
+				sqlSess.commit();
+			}else{
+				sqlSess.rollback();
+			}
+		}finally{
+			sqlSess.close();
+		}
+		return 0;
+	}
+
 }

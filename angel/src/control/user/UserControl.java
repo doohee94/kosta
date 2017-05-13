@@ -27,15 +27,15 @@ public class UserControl extends HttpServlet {
 	
     public UserControl() {
         super();
-        System.out.println("여길 타긴하나.....");
         initCommand();
     }
 
 	private void initCommand() {
-		System.out.println("여기도 타야함.......제발");
+		System.out.println("command를 탄다...!!!");
 		commandMap = new HashMap();
 		commandMap.put("loginCheck", new CommandLogin("/plan/plan_person/home.jsp"));
-
+		commandMap.put("signUpView", new CommandNull("/main/SignupView.jsp"));
+		commandMap.put("memberSignUp", new CommandSignUp("/main/LoginView.jsp"));
 	}
 
 

@@ -22,6 +22,10 @@ public class LoginService {
 	public boolean selectMember(MemberVo memberVo){
 		return repo.selectMember(memberVo);
 	}
+
+	public int inputMember(MemberVo memberVo) {
+		return repo.imputMember(memberVo);
+	}
 	
 
 }

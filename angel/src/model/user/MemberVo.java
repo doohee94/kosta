@@ -6,11 +6,12 @@ public class MemberVo implements Serializable{
 
 	String memberId;
 	String memberPw;
-	String memberAddr;
+	String memberName;
 	String memberGender;
 	String memberTel;
 	String memberBirth;
 	String memberCouple;
+	
 	
 	public MemberVo() {}
 
@@ -30,12 +31,14 @@ public class MemberVo implements Serializable{
 		this.memberPw = memberPw;
 	}
 
-	public String getMemberAddr() {
-		return memberAddr;
+
+
+	public String getMemberName() {
+		return memberName;
 	}
 
-	public void setMemberAddr(String memberAddr) {
-		this.memberAddr = memberAddr;
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
 
 	public String getMemberGender() {

@@ -10,6 +10,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	AND member_pw = #{memberPw}
 </select>
 
+<insert id="inputMember" parameterType="memberVo">
+	INSERT INTO member VALUES (#{memberId}, #{memberPw}, #{memberName}, #{memberGender}, #{memberTel}, #{memberBirth})
+</insert>
+
 
 
 

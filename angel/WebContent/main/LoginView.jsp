@@ -21,35 +21,12 @@
 <!-- CSS 추가 -->
 <link rel="stylesheet" href="/angel/main/css/login1.css"/>
 <link rel="stylesheet" type="text/css" href="/angel/main/css/login2.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-		
- 		$(".login").click(function(){
- 			// 로그인 버튼을 누른다. (!!ajax를 사용!!)
- 			// 아이디와 비밀번호가 맞는지 DB와 확인, 맞다면 main, 틀리면 팝업으로 로그인 실패 뜬다고 알려주기
-// 			$.ajax({
-// 				url : "loginCheck.jsp",
-// 				type : "get",
-// 				data : {id:$("#id").val(), pw:$("#pw").val()},
-// 				dataType : "text",
-// 				success:function(data){
-// 					if(data.trim()==false){
-// 						alert("로그인 실패");
-						
-// 					}
-// 					else if(data.trim()==true){
-// 						alert("로그인 성공");
-// 						//session을 만들면 됨
-// 						//페이지를 넘겨준다. main으로...
-// 					}
-// 				}
-// 			})
-			
- 		});
 	
 		$(".btn span:first-child").click(function(){
-			alert("회원가입");
+			location.href="<%=projectLink%>signUpView";
 			
 		});
 	
