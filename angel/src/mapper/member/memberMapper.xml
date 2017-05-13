@@ -11,9 +11,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </select>
 
 <insert id="inputMember" parameterType="memberVo">
-	INSERT INTO member VALUES (#{memberId}, #{memberPw}, #{memberName}, #{memberGender}, #{memberTel}, #{memberBirth})
+	INSERT INTO member (member_id, member_pw, member_name, member_gender, member_tel, member_birth) VALUES
+	(#{memberId}, #{memberPw}, #{memberName}, #{memberGender}, #{memberTel}, #{memberBirth})
 </insert>
 
+<select id="idCheck" parameterType="hashmap" resultType="memberVo">
+	SELECT * FROM member
+	WHERE member_id = #{inputId}
+</select>
 
 
 

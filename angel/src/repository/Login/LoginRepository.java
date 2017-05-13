@@ -1,6 +1,8 @@
 package repository.Login;
 
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -74,6 +76,33 @@ public class LoginRepository {
 			sqlSess.close();
 		}
 		return 0;
+	}
+
+	
+	public String idcheck(String inputId) {
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		try{
+			
+			String statement = namespace + ".idCheck";
+			String result;
+			
+			HashMap map = new HashMap();
+			map.put("inputId", inputId);
+			
+			List<MemberVo> member= sqlSess.selectList(statement, map);	// 아이디를 넘겨서 이미있는 아이디인지 검색!
+			if(member.size()==0){
+				System.out.println("없는 아이디, 사용가능");
+				result = "true";
+			}
+			else{
+				System.out.println("있는 아이디, 사용불가능");
+				result = "false";
+			}
+			return result;
+			
+		}finally{
+			sqlSess.close();
+		}
 	}
 
 }

@@ -30,7 +30,7 @@ public class CommandSignUp implements Command {
 		
 		int signup = LoginService.getInstance().inputMember(memberVo);
 		
-		return null;
+		return next;
 	}
 
 }

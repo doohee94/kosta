@@ -26,6 +26,11 @@ public class LoginService {
 	public int inputMember(MemberVo memberVo) {
 		return repo.imputMember(memberVo);
 	}
+
+	// 내가 입력한 아이디가 있는지 없는지 아이디를 체크하는 것임.
+	public String idCheck(String inputId) {
+		return repo.idcheck(inputId);
+	}
 	
 
 }

@@ -36,6 +36,9 @@ public class UserControl extends HttpServlet {
 		commandMap.put("loginCheck", new CommandLogin("/plan/plan_person/home.jsp"));
 		commandMap.put("signUpView", new CommandNull("/main/SignupView.jsp"));
 		commandMap.put("memberSignUp", new CommandSignUp("/main/LoginView.jsp"));
+		commandMap.put("backToLoginView", new CommandNull("/main/LoginView.jsp"));
+		commandMap.put("idCheck", new CommandIdCheck("/main/SignupView.jsp"));
+		
 	}
 
 
@@ -80,6 +83,9 @@ public class UserControl extends HttpServlet {
 			System.out.println("오류 : " + e.getMessage() );
 		}
 
+		String ajax = request.getParameter("ajax");
+		if(ajax!=null&&ajax.equals("true")) return;
+		
 		RequestDispatcher reqDp = getServletContext().getRequestDispatcher(nextPage);
 		reqDp.forward( request, response );
 
