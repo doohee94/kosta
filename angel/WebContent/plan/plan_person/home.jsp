@@ -3,9 +3,9 @@
 <%
 // 	로그인을 하기 위해, 아이디, 이름을 가져온다. 커플 아이디, 이름도 가져와야함.
 	String loginId = request.getParameter("id");
-	String loginName = request.getParameter("name");
+
 	System.out.print("loginId는      : " + loginId+'\n');
-	System.out.print("loginName은      : " + loginName+'\n');
+
 	
 
 %>

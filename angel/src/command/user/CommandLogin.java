@@ -43,7 +43,7 @@ public class CommandLogin implements Command{
 			System.out.println("로그인 한 이름 : " + loginName);		
 			
 			request.setAttribute("id", loginId);
-			request.setAttribute("name", loginName);
+
 			return next;
 		}
 		else{
