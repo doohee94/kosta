@@ -8,7 +8,7 @@
 <br/>
 <div class="button">
          <div align="center">
-         	<a href="/project/picture/picture.jsp"><img src="/project/picture/pics/list.png" width="60 height="60" align="middle"  /></a>
+         	<a href="/angel/picture/picture.jsp"><img src="/angel/picture/pics/list.png" width="60 height="60" align="middle"  /></a>
          
          </div>
        </div>  

@@ -40,8 +40,8 @@ $(function () {
 
 <div class="button">
          <div align="center">
-         	<a href="/project/picture/upload.jsp"><img src="/project/picture/pics/input.png" width="60 height="60" align="middle"  /></a>
-         	<a href="/project/picture/list.jsp"><img src="/project/picture/pics/delete.png" width="60 height="60" align="middle"/></a>
+         	<a href="/angel/picture/upload.jsp"><img src="/angel/picture/pics/input.png" width="60 height="60" align="middle"  /></a>
+         	<a href="/angel/picture/list.jsp"><img src="/angel/picture/pics/delete.png" width="60 height="60" align="middle"/></a>
          </div>
        </div>  
 
