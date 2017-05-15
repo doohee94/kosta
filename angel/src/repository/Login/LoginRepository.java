@@ -34,7 +34,7 @@ public class LoginRepository {
 	}
 	
 	// 로그인 아이디와 비밀번호가 담긴 VO를 넘겨 member가 있는지 찾아본다.
-	public boolean selectMember(MemberVo memberVo){
+	public MemberVo selectMember(MemberVo memberVo){
 		
 		System.out.println("로그인 할 때의 아이디 : " + memberVo.getMemberId());
 		System.out.println("로그인 할 때의 비밀번호 : " + memberVo.getMemberPw());
@@ -55,7 +55,7 @@ public class LoginRepository {
 				result = true;
 			}
 //			System.out.println("로그인 했을 때의 결과는 ?  "+result);
-			return result;
+			return member;
 		}finally{
 			sqlSess.close();
 		}

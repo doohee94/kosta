@@ -19,7 +19,7 @@ public class LoginService {
 	
 	LoginRepository repo = new LoginRepository();
 	
-	public boolean selectMember(MemberVo memberVo){
+	public MemberVo selectMember(MemberVo memberVo){
 		return repo.selectMember(memberVo);
 	}
 

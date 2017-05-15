@@ -1,10 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <% String projectLink = "/angel/UserControl?cmd="; %>
-<%
-	// id 자동 검사한 결과를 받는다.
-	String idCheck = (String)request.getAttribute("idCheck");
-	System.out.print("idCheck한 결과값은????   "+idCheck);
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,12 +9,10 @@
 <!-- CSS 추가 -->
 <link rel="stylesheet" href="/angel/main/css/sign1.css" />
 <link rel="stylesheet" type="text/css" href="/angel/main/css/sign2.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
 <script type="text/javascript">
 	$(function(){
 
-
-		
 		$(".photo").click(function(){
 			// 회원가입시 사진도 필요하지~
 			alert("사진등록");	
@@ -34,10 +28,15 @@
 				data : {id:$("#id").val()},
 				dataType:'text',
 				success:function(data){
-					alert(data);
 					//var idCheck = request.getAttribute("idCheck");
 					// 입력한 아이디가 존재하면 존재한다고 알려줘
 					// 존재하지 않으면 안존재한다고 알려조야지...사용가능한아이디에요
+					if(data=="false"){
+						$("#idCheckResult").val("이미 존재하는 아이디 입니다.");
+						$("#id").val("");
+					}else{
+						$("#idCheckResult").val("사용 가능한 아이디 입니다.");						
+					}
 				}
 			})
 		});
@@ -46,6 +45,8 @@
 			// 회원가입 취소 버튼을 누르면 다시 로그인 하는 창으로 돌아가요~
 			location.href="<%=projectLink%>backToLoginView";
 		});
+		
+
 	
 		
 	});
@@ -55,10 +56,10 @@
 
 <div class="wrapper">
 	<h3 class="sign-in">Sign Up</h3><br/>
-	
 	<!-- 	여기에 사진과 사진을 넣을 공간을 마련 -->
 	
-	
+	<form name="frm" method="post" action="<%=projectLink%>memberSignUp" enctype="multipart/form-data">
+<!-- 	<input type="hidden" id='cmd' name='cmd' value="memberSignUp"/> -->
 	<div align="center">
 	<img src="img/profile1.jpg" alt="boy">
 	<br/>
@@ -68,14 +69,14 @@
 	
 	</div>
 	<br/>
-	<form name="frm" method="post" action="<%=projectLink%>memberSignUp">
+	
 		<table>
 		<tr>
 		<td>
 			<input class="user-input" type="text" name="id" id="id" placeholder="아이디"/>		
 		</td>
 		<td>
-			<%=idCheck%>
+			<input class="user-input" type="text" name="idCheckResult" id="idCheckResult" placeholder=""/>
 		</td>
 		</tr>
 		<tr>
@@ -88,10 +89,10 @@
 		</tr>
 		<tr>
 		<td>
-			<input class="user-input" type="text" name="name" id="id" placeholder="이름"/>		
+			<input class="user-input" type="text" name="name" id="name" placeholder="이름"/>		
 		</td>
 		<td>
-			<input class="user-input" type="text" name="gender" id="id" placeholder="성별"/>		
+			<input class="user-input" type="text" name="gender" id="gender" placeholder="성별"/>		
 		</td>
 		</tr>
 				<tr>
@@ -99,7 +100,7 @@
 			<input class="user-input" type="text" name="tel" id="tel" placeholder="전화번호"/>		
 		</td>
 		<td>
-			<input class="user-input" type="text" name="birth" id="id" placeholder="생년월일"/>		
+			<input class="user-input" type="text" name="birth" id="birth" placeholder="생년월일"/>		
 		</td>
 		</tr>
 		</table>

@@ -7,8 +7,7 @@
 	
 	if(loginCheck==null){
 		// 로그인 전 초기 로딩시.....ㅎㅎㅎㅎㅎ
-	}
-	else if(loginCheck.equals("false")){
+	}else if(loginCheck.equals("false")){
 		System.out.print("다시로그인고고!");
 	}
 

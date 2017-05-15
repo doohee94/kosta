@@ -20,19 +20,30 @@ public class CommandLogin implements Command{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws CommandException {
 
-		System.out.println("로그인 할 때의 아이디 : " + request.getParameter("id"));
-		System.out.println("로그인 할 때의 비밀번호 : " + request.getParameter("pw"));
+//		System.out.println("로그인 할 때의 아이디 : " + request.getParameter("id"));
+//		System.out.println("로그인 할 때의 비밀번호 : " + request.getParameter("pw"));
 		// 아이디와 비밀번호를 서비스로 gogo
 		MemberVo memberVo = new MemberVo();
+		MemberVo loginVo = new MemberVo();
 		
 		memberVo.setMemberId(request.getParameter("id"));
 		memberVo.setMemberPw(request.getParameter("pw"));
 				
 		// select 한 결과를 담아요~~~ (로그인 정보의 결과 : member 있으면 true값임!!!)
-		boolean login = LoginService.getInstance().selectMember(memberVo);
-		System.out.println("select 한 결과값은??"+login);
+		loginVo = LoginService.getInstance().selectMember(memberVo);
 		
-		if(login==true){
+		
+		
+		if(loginVo!=null){
+
+			String loginId = loginVo.getMemberId();
+			String loginName = loginVo.getMemberName();
+			
+			System.out.println("로그인 한 아이디 : " + loginId);
+			System.out.println("로그인 한 이름 : " + loginName);		
+			
+			request.setAttribute("id", loginVo.getMemberId());
+			request.setAttribute("name", loginVo.getMemberName());
 			return next;
 		}
 		else{
