@@ -13,7 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import command.basic.Command;
 import command.basic.CommandException;
 import command.basic.CommandNull;
+import command.cost.CommandCostDeleteForm;
+import command.cost.CommandCostInput;
 import command.cost.CommandCostList;
+import command.cost.CommandCostModifyForm;
 
 
 
@@ -32,6 +35,9 @@ public class CostControl extends HttpServlet {
     	commandMap = new HashMap();
     	commandMap.put("cost-main", new CommandNull("main.jsp"));
     	commandMap.put("cost-list", new CommandCostList("home.jsp"));
+    	commandMap.put("input-cost", new CommandCostInput("home.jsp"));
+    	commandMap.put("modify-cost", new CommandCostModifyForm("home.jsp"));
+    	commandMap.put("delete-cost", new CommandCostDeleteForm("home.jsp"));
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

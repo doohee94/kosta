@@ -9,14 +9,14 @@ public class CostVo implements Serializable{
 	private String costDate;
 	private String costContent;
 	private String costCategory;
-	private int costMoney;
+	private String costMoney;
 
 	//constructor method 
 	public CostVo()
 	{
 		
 	}
-	public CostVo(int costNum, String memberId, String costDate, String costContent, String costCategory, int costMoney)
+	public CostVo(int costNum, String memberId, String costDate, String costContent, String costCategory, String costMoney)
 	{
 		this.costNum 		 = costNum;
 		this.memberId		 = memberId;
@@ -56,10 +56,10 @@ public class CostVo implements Serializable{
 	public void setCostCategory(String costCategory) {
 		this.costCategory = costCategory;
 	}
-	public int getCostMoney() {
+	public String getCostMoney() {
 		return costMoney;
 	}
-	public void setCostMoney(int costMoney) {
+	public void setCostMoney(String costMoney) {
 		this.costMoney = costMoney;
 	}
 	

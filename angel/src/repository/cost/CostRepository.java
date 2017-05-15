@@ -26,6 +26,7 @@ public class CostRepository {
 		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
 		return factory;
 	}
+	//그래프 만들때 찾아오는 sql문 부르는 메소드
 	public CostVo selectCostView(String memberId, int costNum){
 		SqlSession sqlSess = getSelSessionFactory().openSession();
 		try{
@@ -38,16 +39,18 @@ public class CostRepository {
 			sqlSess.close();
 		}
 	}
-	public List<CostVo> selectCostList(){
+	//리스트 불러올때 쓰는 sql문 부르는 메소드
+	public List<CostVo> selectCostList(String memberId){
 		SqlSession sqlSess = getSelSessionFactory().openSession();
 		try{
 		
-		return sqlSess.selectList(namespace+".selectCostList");
+		return sqlSess.selectList(namespace+".selectCostList", memberId);
 		}finally{
 			sqlSess.close();
 		}
 	}
-	public CostVo deleteCost(String memberId, int costNum){
+	//delete 하는 sql문 부르는 메소드
+	public int deleteCost(String memberId, int costNum){
 		int result = 0;
 		SqlSession sqlSess = getSelSessionFactory().openSession();
 		try{
@@ -65,16 +68,15 @@ public class CostRepository {
 		}finally{
 			sqlSess.close();
 		}
-		return null;
+		return result;
 	}
-	public CostVo modifyCost(CostVo c){
+	//modify 하는 sql문 부르는 메소드
+	public Integer modifyCost(CostVo c){
 		SqlSession sqlSess = getSelSessionFactory().openSession();
+		int result = 0;
 		try{
-		HashMap map = new HashMap();
-		map.put("memberId", c.getMemberId());
-		map.put("costNum", c.getCostNum());
 		statment = namespace+".modifyCost";
-		int result = sqlSess.update(statment, c);
+		result = sqlSess.update(statment,c);
 		if(result>0){
 			sqlSess.commit();
 		}else{
@@ -83,13 +85,15 @@ public class CostRepository {
 			}finally{
 				sqlSess.close();
 		}
-		return c;
+		return result;
 	}
+	//값들을 삽입하는 sql문 부르는 메소드
 	public Integer insertCost(CostVo c){
 		SqlSession sqlSess = getSelSessionFactory().openSession();
+		int result = 0;
 		try{
 		statment = namespace+".insertCost";
-		int result = sqlSess.insert(statment, c);
+		result = sqlSess.insert(statment, c);
 		if(result > 0){
 			sqlSess.commit();
 		}else{
@@ -98,7 +102,7 @@ public class CostRepository {
 		}finally{
 			sqlSess.close();
 		}
-		return 0;
+		return result;
 	}
 	
 	
