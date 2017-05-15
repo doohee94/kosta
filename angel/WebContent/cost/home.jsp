@@ -1,4 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<% String projectName = "/test"; %> 
+<%
+// 	로그인을 하기 위해, 아이디, 이름을 가져온다. 커플 아이디, 이름도 가져와야함.
+	String loginId = request.getParameter("id");
+
+	System.out.print("loginId는      : " + loginId+'\n');
+
+	
+
+%>
 <!DOCTYPE HTML>
 <!--
 	Astral by HTML5 UP
@@ -56,7 +66,7 @@
     .fc-day-number.fc-sat.fc-past { color:#0000FF; }     /* 토요일 */
     .fc-day-number.fc-sun.fc-past { color:#FF0000; }    /* 일요일 */
 
-
+/* 모달---- */
 	.modal.modal-center { text-align: center; }
 
 	.modal-dialog.modal-fullsize {
@@ -224,6 +234,16 @@ jQuery(document).ready(function($) {
     		  var url = "cost?cmd=delete-cost&memberId="+memberId+"&costNo="+costNo;
     	  		$(location).attr('href',url);
     	  });//클릭
+    	  //탭
+    	  var jbOffset = $( '.jbMenu' ).offset();
+          $( window ).scroll( function() {
+            if ( $( document ).scrollTop() > jbOffset.top ) {
+              $( '.jbMenu' ).addClass( 'jbFixed' );
+            }
+            else {
+              $( '.jbMenu' ).removeClass( 'jbFixed' );
+            }
+          });
 
 }); //ready
 
@@ -232,7 +252,11 @@ jQuery(document).ready(function($) {
 			
 	</head>
 	<body id="home_body">
-	<br/>	<br/>
+	
+	<%@ include file="head.jsp" %>
+	
+	<div id="sidemain" class="jbContent">  <!-- @@@@@여기 해줘야 바뀜 -->
+
 		<!-- Wrapper-->
 			<div id="wrapper">
 
@@ -356,6 +380,21 @@ jQuery(document).ready(function($) {
 			<script src="/angel/cost/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="/angel/cost/assets/js/main.js"></script>
+<script> //@@@@@@@@@@@여기도@@@@@@@@@@@@@
+function openNav() {
+    document.getElementById("mySidenav").style.width = "350px";
+    document.getElementById("sidemain").style.marginLeft = "350px";
+}
 
+function closeNav() {
+	 document.getElementById("mySidenav").style.width = "0";
+	    document.getElementById("sidemain").style.marginLeft= "0";
+}
+
+
+</script>
+			
+	</body>
+</html>
 	</body>
 </html>
