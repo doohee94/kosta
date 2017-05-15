@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% String projectLink = "/angel/UserControl?cmd="; %>
 
 <!DOCTYPE HTML>
 <html>
@@ -120,6 +121,13 @@ $(function(){
    	  
      });
 	 
+
+	 
+	 $(".logout").click(function(){
+// 		session.removeAttribute("login");		
+		location.href="<%=projectLink%>backToLoginView";
+	 })
+	 
 });
 
 </script>
@@ -145,7 +153,7 @@ $(function(){
    		<img src="/angel/plan/plan_person/assets/css/images/logosamlple.png" id="logo_in_nave" name="logo_in_nave"  ></img>
     </div>
     <br/>
-   <div id="welcome" style="text-align: center">000님, 환영합니다.</div> <br/>
+   <div class ="welcome" id="welcome" style="text-align: center">000님, 환영합니다.</div> <br/>
    
   	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"  >&times;</a>
 
@@ -176,8 +184,10 @@ $(function(){
 
 	
 			<footer>
-			<div id='logout' name='logout' >LOGOUT</div>
+			<div class="logout">
+			<div id='logout'>LOGOUT</div>
 			<img src="/angel/plan/plan_person/assets/css/images/logout.png"></img>
+			</div>
 			</footer>
 			
 	
