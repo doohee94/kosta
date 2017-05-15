@@ -38,13 +38,12 @@ System.out.print(reTitle);
 
 if(reTitle != null ||reSDay != null || reEDay != null ){
 	Atitle.add(reTitle);
-	AstartDay.add(reSDay);
+	AstartDay.add(reSDay); 
 	AendDay.add(reEDay);
 	System.out.print("여긴 돌긴해??????");
 }
 
 JSONObject obj = new JSONObject();
-
 JSONArray jArray = new JSONArray();
 
 //array 리스트로 vo를 받아올때는 그거 사이즈만큼 돌림. 지금은 일단 title만큼

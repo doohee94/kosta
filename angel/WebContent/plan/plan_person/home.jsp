@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<% String projectName = "/test"; %> 
 <!DOCTYPE HTML>
 <!--
 	Astral by HTML5 UP
@@ -24,6 +25,7 @@
 		
 		<noscript><link rel="stylesheet" href="/test/plan/plan_person/assets/css/noscript.css" /></noscript>
 		
+		
 		<style type="text/css">
 
     body {
@@ -45,13 +47,26 @@
     }
    
    #startTime, #endTime{
-   
-    	height : 30px;
     	width :  100px;
+    	font-style: #fffffff;
+    	color : black;
+		height : 40px;
+		font-size: 15px;
    }
+   
+   
+#color{
+	width :  150px;
+	height : 40px;
+	font-size: 15px;
+	
+}
+   
    .fc-day-number.fc-sat.fc-past { color:#0000FF; }     /* 토요일 */
     .fc-day-number.fc-sun.fc-past { color:#FF0000; }    /* 일요일 */
 
+
+/*@@@@@@@@@@@@@@@@@@@@@@모달*/
 
 .modal.modal-center { text-align: center; }
 
@@ -84,11 +99,10 @@
   display: inline-block; text-align: left; vertical-align: middle; 
  text-align: center;
 
-
-
 }
-   
 
+
+  
 </style>
 		
 		
@@ -100,15 +114,23 @@
 		<script src='/test/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0//fullcalendar.js'></script>
 		<script src="/test/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/locale-all.js"></script>
 		
-
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		
+	
 		
 		<script type="text/javascript">
 
 
 
 jQuery(document).ready(function($) {
+	
+	   //@@@@@@@@@@컬러피커@@@@@@@@
+	   
+	   
+	
+	
+	
 
     $('#calendar').fullCalendar({
     	
@@ -124,10 +146,7 @@ jQuery(document).ready(function($) {
            
 			
         	url : 'plan?cmd=list-page&ajax=true',
-         // type : 'post',
            dataType : 'json'
-          // contentType: "application/x-www-form-urlencoded; charset=UTF-8"
-       		
         
         },
         weekends: true,
@@ -183,6 +202,18 @@ jQuery(document).ready(function($) {
     			  return false;
     		  }
     		  
+    		  //영어 정규화
+    		   var title = $("#content").val();
+    		  var engExp = /^[a-zA-Z0-9\s]+$/;
+    		  
+    		  var titleCheck = title.match(engExp);
+    		  
+    		  if(!titleCheck){
+    			  alert('Please Wrtie Only English or Digit');
+    			  return false;
+    		  }
+    		                                                                                                                                                                                       
+    		  
     		  var sTime = $("#startTime option:selected").val();
     		  var eTime = $("#endTime option:selected").val();
     			
@@ -202,7 +233,11 @@ jQuery(document).ready(function($) {
     		 FullSDay = sDay + " " + sTime+":00:00";
     		 FullEDay = eDay + " " + eTime+":00:00";
     		 
-    			var url =  "plan?cmd=insert-page&title="+title+"&startDay="+FullSDay+"&endDay="+FullEDay;
+    		 //컬러
+    		 var color = $('#color option:selected').val();
+    		
+    		 
+    			var url =  "plan?cmd=insert-page&title="+title+"&startDay="+FullSDay+"&endDay="+FullEDay+"&color="+color;
     			$(location).attr('href',url);
     			
      		   	
@@ -216,9 +251,7 @@ jQuery(document).ready(function($) {
     	
    		var url =  "plan?cmd=modify-page&id="+id+"&sDay="+sDay+"&eDay="+eDay;
 		$(location).attr('href',url);
-    
-    			
-     		   	
+	
     	  });//수정 클릭 
     	  
     	  
@@ -228,20 +261,38 @@ jQuery(document).ready(function($) {
     			$(location).attr('href',url);
     	    
     	    	  });//삭제 클릭 
-    
-
+    	    	  
+    	    //탭
+    	  var jbOffset = $( '.jbMenu' ).offset();
+          $( window ).scroll( function() {
+            if ( $( document ).scrollTop() > jbOffset.top ) {
+              $( '.jbMenu' ).addClass( 'jbFixed' );
+            }
+            else {
+              $( '.jbMenu' ).removeClass( 'jbFixed' );
+            }
+          });
+          
+          //컬러 설정 변경
+          
+          $("#color").change(function(){
+        	  
+        	  $('#color').css("color","#"+$('#color option:selected').val());
+          });
+          
+    	    	  
 }); //ready
 
-		
+
 		
 		</script>
 		
 	</head>
 	<body id="home_body">
-	
-	
 
-	<br/>	<br/>
+<%@ include file="head.jsp" %>
+   
+<div id="sidemain" class="jbContent">  <!-- @@@@@여기 해줘야 바뀜 -->
 		<!-- Wrapper-->
 			<div id="wrapper">
 
@@ -280,7 +331,7 @@ jQuery(document).ready(function($) {
 						START DAY <input type="text" name="startDay" autocomplete="off" id="startDay"placeholder="ex)2017-05-11" /> 
 						
 						START TIME <select name="startTime"
-							id="startTime">
+							id="startTime" >
 							<%for(int i=0; i<=24;i++){ %>
 							<%  if(i<10){%>
 							<option value="0<%=i%>">0<%=i %></option>
@@ -291,16 +342,16 @@ jQuery(document).ready(function($) {
 						</select>  <br />
 						
 						END DAY<input type="text" name="endDay" autocomplete="off"
-							id="endDay" placeholder="ex)2017-05-11" /> 
+							id="endDay" placeholder="ex)2017-05-11"   /> 
 							
 							END TIME <select
-							name="endTime" id="endTime">
+							name="endTime" id="endTime"  >
 
 							<%for(int i=0; i<=24;i++){ %>
 
 							<%  if(i<10){%>
 
-							<option value="0<%=i%>">0<%=i %></option>
+							<option value="0<%=i%>" >0<%=i %></option>
 
 
 							<%}else{ %>
@@ -311,9 +362,19 @@ jQuery(document).ready(function($) {
 							<%} %>
 
 						</select>
-						<br /> <br /> <br />
+						<br /> <br /> 
+						 EVENT COLOR <select id='color' name='color'>
+						 		
+						 	   <option value="ffffff" style="color:#ffffff; background-color:#000000; ">WHITE</option>
+						 		<option value="6495ED" style="color:	#6495ED; ">CornflowerBlue</option>
+						 		<option value="90EE90" style="color:#90EE90; ">LightGreen </option>
+						 		<option value="FF0000" style="color:	#FF0000; ">RED</option>
+						 	
+						 
+						 </select>
+						<br /><br />
 						 CONTENT <input type="text" name="title" autocomplete="off"	id="content"  name="content" placeholder="only english" /> <br />
-
+							
 					</form>
 					</div>
 					<div class="modal-footer">
@@ -369,7 +430,7 @@ jQuery(document).ready(function($) {
 				</div>
 				<div class="modal-body">
 							
-						Are you really going to DELETE the schedule?
+						Are you really going to DELETE the schedule? 
 					
 					</div>
 					<div class="modal-footer">
@@ -387,7 +448,8 @@ jQuery(document).ready(function($) {
 
 	</article>
 	</div>
-				<!-- Footer -->
+			
+	<!-- Footer -->
 					<div id="footer">
 						<ul class="copyright">
 							<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
@@ -396,6 +458,7 @@ jQuery(document).ready(function($) {
 
 			</div>
 
+</div>
 		<!-- Scripts -->
 			<script src="/test/plan/plan_person/assets/js/jquery.min.js"></script>
 			<script src="/test/plan/plan_person/assets/js/skel.min.js"></script>
@@ -403,6 +466,20 @@ jQuery(document).ready(function($) {
 			<script src="/test/plan/plan_person/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="/test/plan/plan_person/assets/js/main.js"></script>
+			 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script> //@@@@@@@@@@@여기도@@@@@@@@@@@@@
+function openNav() {
+    document.getElementById("mySidenav").style.width = "350px";
+    document.getElementById("sidemain").style.marginLeft = "350px";
+}
+
+function closeNav() {
+	 document.getElementById("mySidenav").style.width = "0";
+	    document.getElementById("sidemain").style.marginLeft= "0";
+}
+
+
+</script>
 			
 	</body>
 </html>
