@@ -42,8 +42,8 @@ public class CommandLogin implements Command{
 			System.out.println("로그인 한 아이디 : " + loginId);
 			System.out.println("로그인 한 이름 : " + loginName);		
 			
-			request.setAttribute("id", loginVo.getMemberId());
-			request.setAttribute("name", loginVo.getMemberName());
+			request.setAttribute("id", loginId);
+			request.setAttribute("name", loginName);
 			return next;
 		}
 		else{
