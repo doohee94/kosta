@@ -1,6 +1,6 @@
  <%@ page contentType="text/html; charset=euc-kr" %>
 
-<% String projectName = "/project"; %>
+<% String projectName = "/angel"; %>
 <html>
 <head><title>파일 등록</title></head>
 <body>
