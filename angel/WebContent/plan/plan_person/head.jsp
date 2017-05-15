@@ -145,7 +145,7 @@ $(function(){
    		<img src="/angel/plan/plan_person/assets/css/images/logosamlple.png" id="logo_in_nave" name="logo_in_nave"  ></img>
     </div>
     <br/>
-   <div style="text-align: center">000님, 환영합니다.</div> <br/>
+   <div id="welcome" style="text-align: center">000님, 환영합니다.</div> <br/>
    
   	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"  >&times;</a>
 

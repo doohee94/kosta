@@ -470,7 +470,7 @@ jQuery(document).ready(function($) {
 		<!-- Scripts -->
 			<script src="/angel/plan/plan_person/assets/js/jquery.min.js"></script>
 			<script src="/angel/plan/plan_person/assets/js/skel.min.js"></script>
-			<script src="/angle/plan/plan_person/assets/js/skel-viewport.min.js"></script>
+			<script src="/angel/plan/plan_person/assets/js/skel-viewport.min.js"></script>
 			<script src="/angel/plan/plan_person/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="/angel/plan/plan_person/assets/js/main.js"></script>
@@ -479,6 +479,7 @@ jQuery(document).ready(function($) {
 function openNav() {
     document.getElementById("mySidenav").style.width = "350px";
     document.getElementById("sidemain").style.marginLeft = "350px";
+    document.getElementById("welcome").innerHTML="<%=loginId%>님이 로그인하셨습니다.";
 }
 
 function closeNav() {
