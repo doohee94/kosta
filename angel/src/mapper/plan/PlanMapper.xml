@@ -21,11 +21,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	INSERT INTO plan VALUES(
 	
 	sequence_plan.nextval,
-	#{memberId},
-	 to_date(#{planSdate},'yyyy-mm-dd hh24:mi:ss'),
-	 to_date(#{planEdate},'yyyy-mm-dd hh24:mi:ss'),
-	#{planContent},
-	null
+	#{memberId ,jdbcType=VARCHAR},
+	 to_date(#{planSdate  ,jdbcType=VARCHAR},'yyyy-mm-dd hh24:mi:ss'),
+	 to_date(#{planEdate  ,jdbcType=VARCHAR},'yyyy-mm-dd hh24:mi:ss'),
+	#{planContent  ,jdbcType=VARCHAR},
+	null,
+	#{planColor  ,jdbcType=VARCHAR}
 	)
 
 

@@ -20,12 +20,12 @@ public class CommandInsert implements Command{
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws CommandException {
 	
 		PlanVo vo = new PlanVo();
-		
+		System.out.println(">>>>>>>>>>>>>>>"+(request.getParameter("color")));
 		vo.setMemberId("1234");
 		vo.setPlanSdate(request.getParameter("startDay"));
 		vo.setPlanEdate(request.getParameter("endDay"));
 		vo.setPlanContent( request.getParameter("title"));
-		
+		vo.setPlanColor( request.getParameter("color"));
 		
 		PlanService.getInstance().Insert(vo);
 		

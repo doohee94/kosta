@@ -27,7 +27,6 @@ public class PlanControl extends HttpServlet {
   
     public PlanControl() {
         super();
-       System.out.println("여기 안돌지...ㅠㅠ\n\n\n");
         initCommand();
     }
 

@@ -10,7 +10,17 @@ public class PlanVo  implements Serializable {
 	String planEdate;
 	String planContent;
 	String planCoupleck;
+	String planColor;
 	
+	
+	public String getPlanColor() {
+		return planColor;
+	}
+
+	public void setPlanColor(String planColor) {
+		this.planColor = planColor;
+	}
+
 	public PlanVo() {}
 
 	public int getPlanNum() {

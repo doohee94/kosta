@@ -46,12 +46,11 @@ public class CommandList implements Command{
 				sObject.put("title",plan.get(i).getPlanContent());
 				sObject.put("start",plan.get(i).getPlanSdate());
 				sObject.put("end",plan.get(i).getPlanEdate());
+				sObject.put("color","#"+plan.get(i).getPlanColor());
 				
-				System.out.println( i +">>>>>>>>>>>>>>>>" + plan.get(i).getPlanContent());
 				jArray.add(sObject);
 			}
 				
-				System.out.print(jArray.toString() +"\n");
 				obj.put(null, jArray);
 				
 			response.getWriter().println(jArray.toString());
