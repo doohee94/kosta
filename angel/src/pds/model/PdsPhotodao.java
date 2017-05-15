@@ -35,12 +35,14 @@ public class PdsPhotodao {
 		}
 	}
 	
+	
+	
 	public List<PdsPhoto> select(Connection conn) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			//----------
-			// 이 쿼리는 pds_item_id 가 순서가 완전히 정확하게 순차적일 때 가능
+			// �� ������ pds_item_id �� ������ ������ ��Ȯ�ϰ� �������� �� ����
 			// pstmt = conn.prepareStatement("select * from pds_item where pds_item_id between ? and ? order by pds_item_id desc");
 //			pstmt.setInt(1, firstRow - 1);
 //			pstmt.setInt(2, endRow - firstRow + 1);
@@ -65,23 +67,25 @@ public class PdsPhotodao {
 	
 	private PdsPhoto makePhotoFromResultSet(ResultSet rs) throws SQLException {
 		PdsPhoto item = new PdsPhoto();
-		item.setPhoto_num(rs.getInt("Photo_num"));
+		item.setPhoto_num(rs.getInt("photo_num"));
 		item.setMember_id(rs.getString("member_id"));
 		item.setPhoto_name(rs.getString("photo_name"));
 		item.setPhoto_path(rs.getString("Photo_path"));
-		item.setPhoto_size(rs.getLong("Photo_size"));
-		item.setPhoto_content(rs.getString("Photo_content"));
-		item.setPhoto_coupleck(rs.getString("Photo_coupleck"));
+		item.setPhoto_size(rs.getLong("photo_size"));
+		item.setPhoto_title(rs.getString("photo_title"));
+		item.setPhoto_content(rs.getString("photo_content"));
+		item.setPhoto_coupleck(rs.getString("photo_coupleck"));
 
 		return item;
 	}
 
-	public PdsPhoto selectById(Connection conn, int Photo_num) throws SQLException {
+	public PdsPhoto selectById(Connection conn, int photo_num) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		
 		try {
 			pstmt = conn.prepareStatement("select * from photo  where Photo_num = ?");
-			pstmt.setInt(1, Photo_num);
+			pstmt.setInt(1, photo_num);
 			rs = pstmt.executeQuery();
 			if (!rs.next()) {
 				return null;
@@ -99,19 +103,33 @@ public class PdsPhotodao {
 		Statement stmt = null;
 		ResultSet rs = null;
 		try {
-			pstmt = conn.prepareStatement("insert into photo "
+			System.out.println("0");
+			String sql = "insert into photo "
 					+ "(photo_num, member_id, photo_name, photo_path, photo_size, "
-					+"photo_content, photo_coupleck) "
-					+ "values (seq_pos_item_id.nextval,?, ?, ?, ?, 0, ?)");
-			pstmt.setInt(1, item.getPhoto_num());
+					+"photo_title ,photo_content, photo_coupleck) "
+					+ "values (seq_photo_num.nextval,?, ?, ?, ?, ?, ?, ?)";
+			System.out.println("1");
+			pstmt = conn.prepareStatement(sql);
+			System.out.println("sql->" + sql );
+			pstmt.setString(1, "pika");  //pika대신 사용자아이디로 대체해야됨
+			System.out.println("11");
+			//pstmt.setString(1, item.getMember_id());
 			pstmt.setString(2, item.getPhoto_name());
-			pstmt.setLong(3, item.getPhoto_size());
-			pstmt.setString(4, item.getPhoto_content());
+			System.out.println("22");
+			pstmt.setString(3, item.getPhoto_path());
+			System.out.println("33");
+			pstmt.setLong(4, item.getPhoto_size());
+			System.out.println("44");
+			pstmt.setString(5, item.getPhoto_title());
+			pstmt.setString(6, item.getPhoto_content());
+			System.out.println("55");
+			//pstmt.setString(6, item.getPhoto_coupleck());
+			pstmt.setString(7, "yes");
 			int insertedCount = pstmt.executeUpdate();
-
+			System.out.println("66");
 			if (insertedCount > 0) {
 				stmt = conn.createStatement();
-				rs = stmt.executeQuery("select seq_pos_item_id.currval from dual");
+				rs = stmt.executeQuery("select seq_photo_num.currval from photo");
 				if (rs.next()) {
 					return rs.getInt(1);
 				}
@@ -124,15 +142,36 @@ public class PdsPhotodao {
 		}
 	}
 
-	public int increaseCount(Connection conn, int id) throws SQLException {
+	public int increaseCount(Connection conn, int photo_num) throws SQLException {
 		PreparedStatement pstmt = null;
 		try {
-			pstmt = conn.prepareStatement("update pds_item set downcount = downcount + 1 where pds_item_id = ?");
-			pstmt.setInt(1, id);
+			pstmt = conn.prepareStatement("update photo set downcount = downcount + 1 where photo_num = ?"); //Ȯ���ؾߵ� //////////
 			return pstmt.executeUpdate();
 		} finally {
 			JdbcUtil.close(pstmt);
 		}
 	}
 	
+	
+//	public int updatePhoto(Connection conn, int photo_num)throws SQLException{
+//	Statement stmt = null;
+//	ResultSet rs = null;
+//	PreparedStatement pstmt = null;
+//	String sql = "select rownum, photo_num, photo_path from photo where rownum<11";
+//	
+//	try {
+//		pstmt = conn.prepareStatement(sql);
+//		pstmt.setInt(1, photo_num);
+//		rs = pstmt.executeQuery();
+////		if (!rs.next()) {
+////			return null;
+////		}
+////		PdsPhoto item = makePhotoFromResultSet(rs);
+////		return item;
+//	} finally {
+//		JdbcUtil.close(rs);
+//		JdbcUtil.close(pstmt);
+//	}
+//}
+
 }

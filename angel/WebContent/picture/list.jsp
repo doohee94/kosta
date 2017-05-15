@@ -9,4 +9,4 @@
 	request.setAttribute("listModel", PhotoListModel);
 	
 %>
-<jsp:forward page="list_view.jsp" />
+<jsp:forward page="listview.jsp" />

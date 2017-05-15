@@ -38,7 +38,7 @@ $(document).ready(function() { //수정해라전부
   <label for="cost">
     <div class="holder">
       사진이름:
-      <input type="text" name="cost" autocomplete="off" id="cost">
+      <input type="text" name="title" autocomplete="off" id="cost">
     </div>
   </label>
   
@@ -55,7 +55,7 @@ $(document).ready(function() { //수정해라전부
          <div align="center">
          	<a href="./picture.jsp"><img src="./pics/list.png" width="60 height="60" align="middle"  /></a>
          	<a href="./uploadform.jsp"><img src="./pics/plus.png" width="60 height="60" align="middle"/>
-         	<img src="./pics/cancel.png" width="60 height="60" align="middle"/>
+         	<a href="./listview.jsp"><img src="./pics/cancel.png" width="60 height="60" align="middle"/>
          </div>
        </div>  
 </form>

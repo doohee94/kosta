@@ -38,11 +38,13 @@ public class FileUploadServlet extends HttpServlet {
 
 	private PdsPhoto saveUploadFile(HttpServletRequest req) throws IOException,
 			ServletException {
+		Part titlePart = req.getPart("title");
+		String title = readParameterValue(titlePart);
 		Part descPart = req.getPart("description");
 		String description = readParameterValue(descPart);
 		Part filePart = req.getPart("file");
 		String fileName = getFileName(filePart);
-		String realPath = FileSaveHelper.save("C:\\Users\\kosta\\workspace\\workspace2\\web\\angel\\WebContent\\fileupload\\",
+		String realPath = FileSaveHelper.save("C:\\newwork\\workspace\\project\\WebContent\\fileupload\\",
 				filePart.getInputStream());
 
 		PdsPhoto addRequest = new PdsPhoto();
@@ -50,6 +52,7 @@ public class FileUploadServlet extends HttpServlet {
 		addRequest.setPhoto_size(filePart.getSize());
 		addRequest.setPhoto_content(description);
 		addRequest.setPhoto_path(realPath);
+		addRequest.setPhoto_title(title);
 
 		PdsPhoto PdsPhoto = AddPdsPhotoService.getInstance().add(addRequest);
 		return PdsPhoto;

@@ -11,6 +11,7 @@ public class PdsPhoto {
 	private String photo_name;
 	private String photo_path;
 	private long photo_size;
+	private String photo_title;
 	private String photo_content;
 	private String photo_coupleck;
 	
@@ -44,6 +45,12 @@ public class PdsPhoto {
 	}
 	public void setPhoto_size(long photo_size) {
 		this.photo_size = photo_size;
+	}
+	public String getPhoto_title() {
+		return photo_title;
+	}
+	public void setPhoto_title(String photo_title) {
+		this.photo_title = photo_title;
 	}
 	public String getPhoto_content() {
 		return photo_content;

@@ -4,8 +4,13 @@
 <body>
 
 <!-- 파일명을 얻어오려면  FileUploadServlet에서 forward 전에 지정한 Attribute를 확인 -->
-[] 파일을 업로드 했습니다.
+ 파일을 업로드 했습니다.
 <br/>
-<a href="/JSP/09_upload_class/2_pds/list.jsp">[목록보기]</a>
+<div class="button">
+         <div align="center">
+         	<a href="/project/picture/picture.jsp"><img src="/project/picture/pics/list.png" width="60 height="60" align="middle"  /></a>
+         
+         </div>
+       </div>  
 </body>
 </html>

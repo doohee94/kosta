@@ -14,7 +14,8 @@
 		<td>번호</td>
 		<td>아이디</td>
 		<td>사진이름</td>
-		<td>파일크기</td>
+		<td>내용</td>
+		<td>path</td>
 	
 	</tr>
 	
@@ -30,13 +31,14 @@
 
 
 <c:otherwise>
-<c:forEach var="item" items ="${listModel }">
+<c:forEach var="photo" items ="${listModel }">
 
 	<tr>
-		<td>${photo_num }</td>
-		<td>${member_id}</td>
-		<td>${photo_name}</td>
-		<td>${photo_path}</td>
+		<td>${photo.photo_num }</td>
+		<td>${photo.member_id}</td>
+		<td>${photo.photo_title}</td>
+		<td>${photo.photo_content}</td>
+		<td><img src='/project/fileupload/${photo.photo_path}'/></td>
 <%-- 		<td><a href='download.jsp?id=${item.id }'>다운받기</a></td> --%>
 	</tr>
 	</c:forEach>
