@@ -30,6 +30,7 @@ public class CostRepository {
 	public CostVo selectCostView(String memberId, int costNum){
 		SqlSession sqlSess = getSelSessionFactory().openSession();
 		try{
+		//map에 costNum과 memberId를 담아서 보냄
 		HashMap map = new HashMap();
 		map.put("memberId", memberId);
 		map.put("costNum", costNum);
@@ -54,6 +55,7 @@ public class CostRepository {
 		int result = 0;
 		SqlSession sqlSess = getSelSessionFactory().openSession();
 		try{
+		//map에 costNum과 memberId를 담아서 보냄
 		HashMap map = new HashMap();
 		map.put("memberId", memberId);
 		map.put("costNum", costNum);
@@ -104,6 +106,5 @@ public class CostRepository {
 		}
 		return result;
 	}
-	
 	
 }
