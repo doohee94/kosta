@@ -32,6 +32,7 @@ public class CostControl extends HttpServlet {
 
     }
     private void initCommand(){
+    	//commandMap에 명령문 담기
     	commandMap = new HashMap();
     	commandMap.put("cost-main", new CommandNull("main.jsp"));
     	commandMap.put("cost-list", new CommandCostList("home.jsp"));
