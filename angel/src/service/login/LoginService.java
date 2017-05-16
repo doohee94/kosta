@@ -42,6 +42,11 @@ public class LoginService {
 		return repo.makeCouple(id, cid, date);
 	}
 
+	public MemberVo searchId(MemberVo search) {
+		System.out.println("searchID서비스여기탐?????");
+		return repo.searchId(search);
+	}
+
 	
 	
 	

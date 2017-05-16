@@ -160,6 +160,32 @@ public class LoginRepository {
 		}
 		return 0; 
 	}
+
+	// idpwSearch 팝업에서 id를 찾는 것.
+	public MemberVo searchId(MemberVo search) {
+		System.out.println("왜 안타니!!!!!!!!!여기 타니?????????????????");
+		System.out.println("1)"+search.getMemberName());
+		System.out.println("2)"+search.getMemberTel());
+		
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		try{
+			HashMap map = new HashMap();
+			map.put("name", search.getMemberName());
+			map.put("tel", search.getMemberTel());
+			
+		String statement = namespace + ".searchId";
+		MemberVo member = sqlSess.selectOne(statement, map);
+		
+		if(member==null){
+			member = new MemberVo();
+		}
+		
+		return member;
+		}
+		finally{
+			sqlSess.close();
+		}
+	}
 	
 	
 	
