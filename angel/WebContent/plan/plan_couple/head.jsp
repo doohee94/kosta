@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Angel</title>
-<link rel="stylesheet" href="/test/plan/plan_couple/assets/css/tab.css"/>
+<link rel="stylesheet" href="/angel/plan/plan_couple/assets/css/tab.css"/>
 
 
 <style type="text/css">
@@ -106,7 +106,7 @@ footer{
   
 
 </style>
-<script type="text/javascript" src="/test/plan/plan_person/js/tab.js"></script>
+<script type="text/javascript" src="/angel/plan/plan_person/js/tab.js"></script>
 
 <script type="text/javascript">
 
@@ -114,9 +114,9 @@ $(function(){
 	
 	 $("#naviImg").hover(function(){
    	  
-   	  $('#naviImg').attr("src","/test/plan/plan_couple/assets/css/images/over.png");
+   	  $('#naviImg').attr("src","/angel/plan/plan_couple/assets/css/images/over.png");
      }, function(){
-   	  $('#naviImg').attr("src","/test/plan/plan_couple/assets/css/images/out.png");
+   	  $('#naviImg').attr("src","/angel/plan/plan_couple/assets/css/images/out.png");
    	  
      });
 	 
@@ -128,12 +128,12 @@ $(function(){
 <body>
 
  <div class="jbTitle">
-   		<img src="/test/plan/plan_couple/assets/css/images/logosamlple.png" id="logo" name="logo"></img>
+   		<img src="/angel/plan/plan_couple/assets/css/images/logosamlple.png" id="logo" name="logo"></img>
     </div>
     
     <div class="jbMenu">
       <p>
-     <img src="/test/plan/plan_couple/assets/css/images/out.png" onclick="openNav()" id='naviImg' name="naviImg"></img>
+     <img src="/angel/plan/plan_couple/assets/css/images/out.png" onclick="openNav()" id='naviImg' name="naviImg"></img>
       </p>
       
       
@@ -142,7 +142,7 @@ $(function(){
 <br/>
 <div id="mySidenav" class="sidenav">
 	<div class="jbTitle" ">
-   		<img src="/test/plan/plan_couple/assets/css/images/logosamlple.png" id="logo_in_nave" name="logo_in_nave"  ></img>
+   		<img src="/angel/plan/plan_couple/assets/css/images/logosamlple.png" id="logo_in_nave" name="logo_in_nave"  ></img>
     </div>
     <br/>
    <div style="text-align: center">000님, 환영합니다.</div> <br/>
@@ -155,9 +155,9 @@ $(function(){
     <li data-extension="open">
         <div class="main-title"><span class="folder"> </span><a>Personal <br/></a></div> 
         <ul class="sub">
-            <li><a href="/test/.diary?cmd=list-page">Diary</a></li> <br/>
-            <li><a href="/test/plan?cmd=list-page">Plan</a></li> <br/>
-            <li><a href="/test/cost?cmd=cost-list">Household Account</a></li><br/>
+            <li><a href="/angel/.diary?cmd=list-page">Diary</a></li> <br/>
+            <li><a href="/angel/plan?cmd=list-page">Plan</a></li> <br/>
+            <li><a href="/angel/cost?cmd=cost-list">Household Account</a></li><br/>
             <li><a>Photo</a></li><br/>
         </ul>
     </li>
@@ -177,7 +177,7 @@ $(function(){
 	
 			<footer>
 			<div id='logout' name='logout' >LOGOUT</div>
-			<img src="/test/plan/plan_couple/assets/css/images/logout.png"></img>
+			<img src="/angel/plan/plan_couple/assets/css/images/logout.png"></img>
 			</footer>
 			
 	
