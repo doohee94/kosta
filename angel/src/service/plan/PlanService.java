@@ -24,8 +24,8 @@ public class PlanService {
 	PlanRepository repo = new PlanRepository();
 	
 	
-	public List<PlanVo> selectList(){
-		return repo.selectList();
+	public List<PlanVo> selectList(String id, String cid){
+		return repo.selectList(id, cid);
 	}
 	
 	

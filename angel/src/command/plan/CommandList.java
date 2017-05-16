@@ -19,7 +19,7 @@ import service.plan.PlanService;
 public class CommandList implements Command{
 	
 	String next;
-	
+
 	public CommandList(String _next){
 
 		next = _next;
@@ -27,12 +27,14 @@ public class CommandList implements Command{
 
 	
 	public String execute(HttpServletRequest request,HttpServletResponse response) throws CommandException {
-	
+		
+		String id = request.getParameter("id");
+		String cid = request.getParameter("cid");
 		
 		try {
 			
 			//플랜 vo에 담아오는게 편하겟지? 그렇지..?
-			List<PlanVo> plan = PlanService.getInstance().selectList();
+			List<PlanVo> plan = PlanService.getInstance().selectList(id, cid);
 			
 			JSONObject obj = new JSONObject();
 
@@ -53,7 +55,7 @@ public class CommandList implements Command{
 				
 				obj.put(null, jArray);
 				
-			response.getWriter().println(jArray.toString());
+				response.getWriter().println(jArray.toString());
 		} 
 			catch (Exception e) {
 			

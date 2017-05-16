@@ -26,7 +26,6 @@ public class CommandModify implements Command{
 		
 		
 		PlanVo vo = new PlanVo();
-		
 		vo.setPlanNum(id);
 		vo.setPlanSdate(sDay);
 		vo.setPlanEdate(eDay);

@@ -1,19 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<% String projectName = "/test"; %> 
-<%
-// 	로그인을 하기 위해, 아이디를 가져온다. 커플 아이디도 가져와야함.
-	String coupleID = (String)request.getAttribute("couple");
-	String loginId = (String)request.getAttribute("id");
-// 	System.out.print("home 화면, loginId는      : " + loginId+'\n');
-// 	System.out.print("home 화면, coupleId는      : " + coupleID+'\n');
+<% String projectName = "/test";
+String id =(String)session.getAttribute("id");
+String cid = (String)session.getAttribute("cid");
+id="bbbb";
 
-	// session에 로그인 아이디, 커플 아이디를 등록함.
-	session.setAttribute("loginId", loginId);
-	session.setAttribute("coupleId", coupleID);
-	
-
-	
-%>
+%> 
 <!DOCTYPE HTML>
 <!--
 	Astral by HTML5 UP
@@ -21,22 +12,23 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 
+
 <html>
 	<head>
 		<title>Astral by HTML5 UP</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="/angel/plan/plan_person/assets/css/main.css" />
+		<link rel="stylesheet" href="/test/plan/plan_person/assets/css/main.css" />
 		
 		<!-- 풀캘린더 -->
-		<link rel='stylesheet' href='/angel/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/fullcalendar.css' />
+		<link rel='stylesheet' href='/test/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/fullcalendar.css' />
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 		
-		<noscript><link rel="stylesheet" href="/angel/plan/plan_person/assets/css/noscript.css" /></noscript>
+		<noscript><link rel="stylesheet" href="/test/plan/plan_person/assets/css/noscript.css" /></noscript>
 		
 		
 		<style type="text/css">
@@ -122,10 +114,10 @@
 		<title>Astral by HTML5 UP</title>
 		
 		
-		<script src='/angel/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/lib/jquery.min.js'></script>
-		<script src='/angel/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/lib/moment.min.js'></script>
-		<script src='/angel/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0//fullcalendar.js'></script>
-		<script src="/angel/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/locale-all.js"></script>
+		<script src='/test/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/lib/jquery.min.js'></script>
+		<script src='/test/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/lib/moment.min.js'></script>
+		<script src='/test/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0//fullcalendar.js'></script>
+		<script src="/test/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/locale-all.js"></script>
 		
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -142,7 +134,7 @@ jQuery(document).ready(function($) {
 	   
 	   
 	
-	
+	var id='<%=id%>';
 	
 
     $('#calendar').fullCalendar({
@@ -158,7 +150,7 @@ jQuery(document).ready(function($) {
         events: {
            
 			
-        	url : 'plan?cmd=list-page&ajax=true',
+        	url : 'plan?cmd=list-page&ajax=true&id='+id,
            dataType : 'json'
         
         },
@@ -175,7 +167,6 @@ jQuery(document).ready(function($) {
        
        ,eventDrop:function(event,jsEvent,view){
     	   $('#id').val(event.id);
-    	 
     		var sday = event.start.toISOString().split("T");
     		var eday = event.end.toISOString().split("T");
     		
@@ -311,7 +302,7 @@ jQuery(document).ready(function($) {
 
 				<!-- Nav -->
 					<nav id="nav">
-						<a href="#me" class="icon fa-home active"><span>Home</span></a>
+						<a href="#me" class="icon fa-home active"><span>Calendar</span></a>
 					</nav>
 
 				<!-- Main -->
@@ -429,7 +420,6 @@ jQuery(document).ready(function($) {
 			</div>
 		</div>
 	</div>
-
 	<!-- DELETE  Modal-->
 	<div class="modal fade" id="myModal3" role="dialog"
 		aria-labelledby="mySmallModalLabel">
@@ -473,18 +463,17 @@ jQuery(document).ready(function($) {
 
 </div>
 		<!-- Scripts -->
-			<script src="/angel/plan/plan_person/assets/js/jquery.min.js"></script>
-			<script src="/angel/plan/plan_person/assets/js/skel.min.js"></script>
-			<script src="/angel/plan/plan_person/assets/js/skel-viewport.min.js"></script>
-			<script src="/angel/plan/plan_person/assets/js/util.js"></script>
+			<script src="/test/plan/plan_person/assets/js/jquery.min.js"></script>
+			<script src="/test/plan/plan_person/assets/js/skel.min.js"></script>
+			<script src="/test/plan/plan_person/assets/js/skel-viewport.min.js"></script>
+			<script src="/test/plan/plan_person/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="/angel/plan/plan_person/assets/js/main.js"></script>
+			<script src="/test/plan/plan_person/assets/js/main.js"></script>
 			 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script> //@@@@@@@@@@@여기도@@@@@@@@@@@@@
 function openNav() {
     document.getElementById("mySidenav").style.width = "350px";
     document.getElementById("sidemain").style.marginLeft = "350px";
-    document.getElementById("welcome").innerHTML="<%=loginId%>님이 로그인하셨습니다.";
 }
 
 function closeNav() {

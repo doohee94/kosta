@@ -15,6 +15,10 @@ import command.plan.CommandDelete;
 import command.plan.CommandInsert;
 import command.plan.CommandList;
 import command.plan.CommandModify;
+import command.plan.Command_Couple_Delete;
+import command.plan.Command_Couple_Insert;
+import command.plan.Command_Couple_List;
+import command.plan.Command_Couple_Modify;
 
 
 
@@ -22,7 +26,7 @@ import command.plan.CommandModify;
 
 public class PlanControl extends HttpServlet {
 	private HashMap commandMap;
-	private String	jspDir = "/plan/plan_person/";
+	private String	jspDir = "/plan/";
 	private String  error = "error.jsp";
   
     public PlanControl() {
@@ -33,12 +37,19 @@ public class PlanControl extends HttpServlet {
     private void initCommand(){
 		commandMap = new HashMap();
 
+		//개인
 		commandMap.put("main-page",new CommandNull("main.jsp") );
-		commandMap.put("list-page",new CommandList("home.jsp") );
-		commandMap.put("insert-page",new CommandInsert("home.jsp") );
-		commandMap.put("modify-page",new CommandModify("home.jsp") );
-		commandMap.put("delete-page",new CommandDelete("home.jsp") );
+		commandMap.put("list-page",new CommandList("plan_person/home.jsp") );
+		commandMap.put("insert-page",new CommandInsert("plan_person/home.jsp") );
+		commandMap.put("modify-page",new CommandModify("plan_person/home.jsp") );
+		commandMap.put("delete-page",new CommandDelete("plan_person/home.jsp") );
 		// 나머지도 추가하기		
+		
+		//커플
+		commandMap.put("list-couple-page",new Command_Couple_List("plan_couple/home.jsp") );
+		commandMap.put("insert-couple-page",new Command_Couple_Insert("plan_couple/home.jsp") );
+		commandMap.put("modify-couple-page",new Command_Couple_Modify("plan_couple/home.jsp") );
+		commandMap.put("delete-couple-page",new Command_Couple_Delete("plan_couple/home.jsp") );
 		
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

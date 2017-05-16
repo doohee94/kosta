@@ -1,6 +1,7 @@
 package repository.plan;
 
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -30,14 +31,27 @@ public class PlanRepository {
 		return factory; //설정파일을 
 	}
 	
-	public List<PlanVo> selectList(){
+	public List<PlanVo> selectList(String id, String cid){
 		
 		SqlSession sqlSess = getSqlSesstionFactory().openSession();
 		
 		try{
 			
-			return sqlSess.selectList(namespace+".selectComment");
-			
+			if(cid == null){
+				
+				HashMap map = new HashMap();
+				map.put("id", id);
+				return sqlSess.selectList(namespace+".selectComment",map);
+				
+			} else{
+				
+				HashMap map = new HashMap();
+				map.put("id", id);
+				map.put("cid", cid);
+				System.out.println(id +"<><><><><><><><><><><>"+cid);
+				return  sqlSess.selectList(namespace+".select_Couple_Comment",map);
+				
+			}
 		}finally{
 			sqlSess.close();
 		}
@@ -50,6 +64,7 @@ public class PlanRepository {
 			SqlSession sqlSess = getSqlSesstionFactory().openSession();
 			
 			try{
+				
 				
 				int result =  sqlSess.insert(namespace+".insertComment",vo);
 				if(result >0 ){

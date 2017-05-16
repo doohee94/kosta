@@ -7,12 +7,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 
-<select  id='selectComment' resultType="plan">
+<select  id='selectComment'  parameterType="hashmap"   resultType="plan">
 	SELECT *
 	FROM plan
-	where member_id='1234'
+	where member_id=#{id,jdbcType=VARCHAR} and (plan_coupleck = 'null' or plan_coupleck is null  )
 
 </select>
+
+<select  id='select_Couple_Comment'   parameterType="hashmap"  resultType="plan">
+	SELECT *
+	FROM plan
+	where (member_id=#{id} or member_id=#{cid}) and plan_coupleck != 'null'
+</select>
+
 
 
 
@@ -25,18 +32,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 to_date(#{planSdate  ,jdbcType=VARCHAR},'yyyy-mm-dd hh24:mi:ss'),
 	 to_date(#{planEdate  ,jdbcType=VARCHAR},'yyyy-mm-dd hh24:mi:ss'),
 	#{planContent  ,jdbcType=VARCHAR},
-	null,
-	#{planColor  ,jdbcType=VARCHAR}
+	#{planCoupleck  ,jdbcType=VARCHAR},
+	#{planColor  ,jdbcType=VARCHAR} 
 	)
-
+	
 
 </insert>
+
+
+
 
 <update id="modifyComment" parameterType="plan">
 
 UPDATE plan 
 SET plan_sdate = to_date(#{planSdate},'yyyy-mm-dd hh24:mi:ss' ), plan_edate=to_date(#{planEdate},'yyyy-mm-dd hh24:mi:ss')
-WHERE plan_num=#{planNum}
+WHERE plan_num=#{planNum} 
 
 
 
@@ -45,7 +55,7 @@ WHERE plan_num=#{planNum}
 <delete id="deleteComment" parameterType="int">
 	
 	DELETE FROM plan
-	WHERE plan_num=#{id}
+	WHERE plan_num=#{id} 
 
 </delete>
 
