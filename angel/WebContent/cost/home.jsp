@@ -2,7 +2,7 @@
 <% String projectName = "/test"; %> 
 <%
 // 	로그인을 하기 위해, 아이디, 이름을 가져온다. 커플 아이디, 이름도 가져와야함.
-	String loginId = request.getParameter("id");
+	String loginId = (String)session.getAttribute("loginId");
 
 	System.out.print("loginId는      : " + loginId+'\n');
 
@@ -277,7 +277,7 @@ jQuery(document).ready(function($) {
 							<article id="me" class="panel">
 								<header>
 								<h2>CALENDAR</h2>
-								<input type='hidden' id='memberId' name='memberId' value='hyorang'>
+								<input type='hidden' id='memberId' name='memberId' value='<%=loginId%>'/>
 								<input type='hidden' id='costNo' name='costNo' value=''>
 								
 								</header>							
