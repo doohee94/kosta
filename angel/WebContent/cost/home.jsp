@@ -119,8 +119,9 @@
 
 
 jQuery(document).ready(function($) {
-
+	var memberId ="<%=loginId%>";
     $('#calendar').fullCalendar({	
+    	
        header: {
             left: 'prev,next today myCustomButton',
             center: 'title',
@@ -129,8 +130,8 @@ jQuery(document).ready(function($) {
         editable : false,
         defaultDate: moment().format('YYYY-MM-DD'),    
         events: {
-           
-        	url : 'cost?cmd=cost-list&ajax=true&memberId=hyorang',
+        	
+        	url : 'cost?cmd=cost-list&ajax=true&memberId='+memberId,
 		//  type : 'post',
 			dataType : 'json'
 			, 
