@@ -484,6 +484,8 @@ jQuery(document).ready(function($) {
 function openNav() {
     document.getElementById("mySidenav").style.width = "350px";
     document.getElementById("sidemain").style.marginLeft = "350px";
+    document.getElementById("welcome").innerHTML="<%=id%>님이 로그인하셨습니다.";
+
 }
 
 function closeNav() {

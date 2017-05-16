@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <% String projectLink = "/angel/UserControl?cmd="; %>
 <%
-	String id = (String)session.getAttribute("loginId");
-	System.out.print("plan)head)의 로그인한 아이디   "+id );
+	String loginid = (String)session.getAttribute("loginId");
+	System.out.print("plan)head)의 로그인한 아이디   "+loginid);
 
 %>
 <!DOCTYPE HTML>
@@ -177,7 +177,7 @@ $(function(){
         <li data-extension="open">
     	<div class="main-title"><span class="folder"> </span><a>Couple <br/></a></div> 
     	 <ul class="sub">
-            <li><a href="/angel/couple?cmd=couple-main&id=<%=id%>">Couple</a></li><br/>
+            <li><a href="/angel/couple?cmd=couple-main&id=<%=loginid%>">Couple</a></li><br/>
     	 </ul>
     </li>
 
