@@ -35,7 +35,9 @@
 		});
 	
 		$(".btn span:last-child").click(function(){
-			alert("아이디/비밀번호 찾기");
+			 window.open("/angel/main/IdPwSearchView.jsp", "아이디 및 패스워드 찾기", "width=850, height=300, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
+			
+		
 		});
 	
 		

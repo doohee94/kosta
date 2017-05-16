@@ -114,9 +114,9 @@
 			<input class="user-input" type="text" name="name" id="name" placeholder="name"/>		
 		</td>
 		<td align="center">
-			<input type="radio" name="gender" id="gender" class="gender" value="남성">male
+			<input type="radio" name="gender" id="gender" class="gender" value="male">male
 			<span style="color:white">공백을주자</span>
-			<input type="radio" name="gender" id="gender" class="gender" value="여성">female		
+			<input type="radio" name="gender" id="gender" class="gender" value="female">female		
 <!-- 			<select name=gender id="gender"> -->
 <!-- 				<option value="여성">여성</option> -->
 <!-- 				<option value="남성">남성</option> -->
