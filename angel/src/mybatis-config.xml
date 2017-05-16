@@ -39,6 +39,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mapper/cost/CostMapper.xml" />
 		<mapper resource="mapper/diary/DiaryMapper.xml" />
 		<mapper resource="mapper/member/memberMapper.xml"/>
+		<mapper resource="mapper/couple/CoupleMapper.xml"/>		
 		
 	</mappers>
 
