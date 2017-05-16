@@ -48,4 +48,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	AND member_tel = #{tel}
 </select>
 
+<select id="searchPw" parameterType="hashmap" resultType="memberVo">
+	SELECT * FROM member
+	WHERE member_id = #{id}
+	AND member_tel = #{tel}
+</select>
+
+
+
 </mapper>

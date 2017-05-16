@@ -30,11 +30,27 @@
 					document.getElementById("searchResult").innerHTML="당신의 아이디는  : "+data;
 				}
 			})
-			
-			
-			
 		})
 
+		$(".ok2").click(function(){
+			
+			//ajax를 이용하여!!!!!!
+			$.ajax({
+				url:'<%=projectLink%>searchPw&ajax=true',
+				type:"post",
+				data : {
+					id:$(".id").val(),
+					tel:$(".tel2").val()
+				},
+				dataType:'text',
+				success:function(data){
+					document.getElementById("searchResult2").innerHTML="당신의 아이디는  : "+data;
+				}
+			})
+		})
+
+		
+		
 		$(".cancel").click(function(){
 			close();
 		})
@@ -67,8 +83,9 @@
 	<div id="menu1" class="tab-pane fade">
    	<h3>비밀번호 찾기를 선택하셨습니다.</h3>
    	(본인의 아이디, 핸드폰번호를 입력해주세요.)<br/>
-   	아이디 <input type="text" name="id">
-   	핸드폰번호 <input type="text" name="tel" placeholder="tel ex)010-8308-1520"/>
+   	아이디 <input type="text" name="id" class="id">
+   	핸드폰번호 <input type="text" name="tel" class="tel2" placeholder="tel ex)010-8308-1520"/>
+    <div id="searchResult2"></div>
 	<div class="ok2">확인</div>
 	<div class="cancel">취소</div>
 	</div>

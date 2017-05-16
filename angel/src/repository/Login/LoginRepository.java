@@ -186,6 +186,31 @@ public class LoginRepository {
 			sqlSess.close();
 		}
 	}
+
+	public MemberVo searchPw(MemberVo search) {
+		System.out.println("왜 안타니!!!!!!!!!여기 타니?????????????????");
+		System.out.println("1)"+search.getMemberId());
+		System.out.println("2)"+search.getMemberTel());
+		
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		try{
+			HashMap map = new HashMap();
+			map.put("id", search.getMemberId());
+			map.put("tel", search.getMemberTel());
+			
+		String statement = namespace + ".searchPw";
+		MemberVo member = sqlSess.selectOne(statement, map);
+		
+		if(member==null){
+			member = new MemberVo();
+		}
+		
+		return member;
+		}
+		finally{
+			sqlSess.close();
+		}
+	}
 	
 	
 	

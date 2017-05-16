@@ -47,6 +47,11 @@ public class LoginService {
 		return repo.searchId(search);
 	}
 
+	public MemberVo searchPw(MemberVo search) {
+		System.out.println("searchID서비스여기탐?????");
+		return repo.searchPw(search);
+	}
+
 	
 	
 	

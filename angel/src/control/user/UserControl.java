@@ -39,6 +39,7 @@ public class UserControl extends HttpServlet {
 		commandMap.put("backToLoginView", new CommandNull("/main/LoginView.jsp"));
 		commandMap.put("idCheck", new CommandIdCheck("/main/SignupView.jsp"));
 		commandMap.put("searchId", new CommandSearchId("/main/IdPwSearchView.jsp"));
+		commandMap.put("searchPw", new CommandSearchPw("/main/IdPwSearchView.jsp"));
 		
 	}
 
