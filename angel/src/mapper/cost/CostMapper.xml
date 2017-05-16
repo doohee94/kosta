@@ -18,11 +18,13 @@
 	INSERT INTO cost (cost_num, member_id, cost_date, cost_category, cost_content, cost_money)
 	VALUES (sequence_cost.nextval, #{memberId}, #{costDate},#{costCategory}, #{costContent}, #{costMoney})
 	</insert>
+	<!-- modify cost -->
 	<update id="modifyCost" parameterType="CostVo">
 		UPDATE cost
 		SET cost_date=#{costDate}, cost_category=#{costCategory}, cost_content=#{costContent}, cost_money=#{costMoney}
 		WHERE member_id = #{memberId} AND cost_num=#{costNum}
 	</update>
+	<!-- delete cost -->
 	<delete id="deleteCost" parameterType="hashmap">
 		DELETE FROM cost
 		WHERE member_id = #{memberId}AND cost_num=#{costNum}		
@@ -35,11 +37,4 @@
 		FROM cost
 		WHERE member_id = #{memberId}
 	</select>
-	<!-- cost modify view -->
-	<select id="selectCostView" parameterType="hashmap" resultType="CostVo">
-		SELECT *
-		FROM cost
-		WHERE member_id = #{memberId}AND cost_num=#{costNum}
-	</select>
-
 </mapper>
