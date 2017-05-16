@@ -22,17 +22,21 @@ public static CostService getInstance(){
 
 	CostRepository repo = new CostRepository();
 
-
+	//select
 	public List<CostVo> selectCostList(String memberId){
 		return repo.selectCostList(memberId);
 	}
+	//insert
 	public int inputCost(CostVo vo){
 		return repo.insertCost(vo);
 	}
+	//modify
 	public int modifyCost(CostVo vo){
 		return repo.modifyCost(vo);
 	}
+	//delete
 	public int deleteCost(String memberId, int costNum){
 		return repo.deleteCost(memberId, costNum);
 	}
+
 }
