@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import command.basic.Command;
 import command.basic.CommandException;
 import model.user.MemberVo;
@@ -30,79 +33,67 @@ public class CommandSignUp implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws CommandException {
 		
-		// multi-path는 getparameter를 사용하지 못한다. getpart를 사용해야 함... 무조건.
+		// DB에 입력할 memberVO 객체를 생성한다.
+		MemberVo inputMember = new MemberVo();
+
+		// enctype="multipart/form-data" 으로 선언하고 submit한 데이터는
+		// request가 아닌 MultipartRequest 객체로 불러와야 한다.
 		
-		MemberVo memberVo = new MemberVo();
-
-//		memberVo.setMemberId(request.getParameter("id"));
-//		memberVo.setMemberPw(request.getParameter("pw"));
-//		memberVo.setMemberName(request.getParameter("name"));
-//		memberVo.setMemberGender(request.getParameter("gender"));
-//		memberVo.setMemberTel(request.getParameter("tel"));
-//		memberVo.setMemberBirth(request.getParameter("birth"));
-
-
-
+		// 파일이 저장될 주소를 선언.
+		String saveDirectory="C:\\Users\\kosta\\Desktop\\test\\angel\\WebContent\\profile\\";
 		
-		System.out.println("알라리알라리알라리");
-
-
-		try{
-
+		try {
+			MultipartRequest mult = new MultipartRequest(request, saveDirectory, 1024*1024*15, "euc-kr", new DefaultFileRenamePolicy());
 			
-		
-			String inputId = request.getParameter("id");
-			Part pwPart = request.getPart("pw");
-
+			String id = mult.getParameter("id");
+			String pw = mult.getParameter("pw");
+			String pwCheck = mult.getParameter("pwCheck");
+			String name = mult.getParameter("name");
+			String gender = mult.getParameter("gender");
+			String tel = mult.getParameter("tel");
+			String birth = mult.getParameter("birth");
+			// 전송받은 데이터가 파일일 경우 getOriginalFileName 으로 파일 이름을 받는다.
+			String photo = mult.getOriginalFileName("photo");
+			// 업로드한 파일의 전체 경로를 DB에 저장하기 위함.. (사용하기 쉽게 하기 위해 잘라서 넣는다. 나중에 가져오기 쉽게할려고!!!!)
+			String path = "/angel/profilePhoto/"+photo;
 			
-			System.out.println("-----readParameterValue는는는id : " + inputId);
-			System.out.println("-----readParameterValue는는는pw: " + pwPart);
-
-//			String id = readParameterValue(idPart);
-//			System.out.println("가져온 아이디는??????   " + id);
+			// 잘 가져오는지 test 해보기위함.. (파라미터를.. 아주 힘들었음)
+			System.out.println("id는   "+id);
+			System.out.println("pw는   "+pw);
+			System.out.println("pwCheck는   "+pwCheck);
+			System.out.println("name는   "+name);
+			System.out.println("gender는   "+gender);
+			System.out.println("tel는   "+tel);
+			System.out.println("birth는   "+birth);
+			System.out.println("photo이름은   "+photo);
+			System.out.println("photo저장경로는  "+path);
+			
+			// 잘 가져왔으니 inputMember객체에 대입해준다.... 
+			inputMember.setMemberId(id);
+			inputMember.setMemberPw(pw);
+			inputMember.setMemberName(name);
+			inputMember.setMemberGender(gender);
+			inputMember.setMemberTel(tel);
+			inputMember.setMemberBirth(birth);
+			inputMember.setPhotoName(photo);
+			inputMember.setPhotoRealpath(path);
+			
+			// DB에 대입!!!!!!
+			LoginService.getInstance().inputMember(inputMember);
+			
+			request.setAttribute("id", id);
+			request.setAttribute("path", path);
 			
 			
-		// 회원가입시, photo를 입력하는 ..... 후아.... 어렵다!!!!!!
-//		System.out.println("photo 입력 시작");
-//		Part file = request.getPart("photo");
-//		String fileName =getFileName(file);
-//		System.out.println("파일 이름은???  "+fileName);
-//		String realPath = FileSaveHelper.save("C:\\Users\\kosta\\workspace(Web)\\JSP\\WebContent\\fileupload\\",
-//				file.getInputStream());
-//		memberVo.setPhotoRealpath(realPath);
-//		System.out.println("진짜 경로는???  "+realPath);
-		
-//		int signup = LoginService.getInstance().inputMember(memberVo);
-		}catch(Exception ex){
-			ex.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		return next;
-	}
 
-	
-	
-	
-	
-	private String getFileName(Part part) throws UnsupportedEncodingException {
-//		System.out.println("part의 헤더가져오기    "+part.getHeader("Content-Disposition"));
-		for (String cd : part.getHeader("Content-Disposition").split(";")) {
-			if (cd.trim().startsWith("filename")) {
-				return cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
-			}
-		}
-		return null;
-	}
-	
-	private String readParameterValue(Part part) throws IOException {
-		System.out.println("-----타나1");
-		InputStreamReader reader = new InputStreamReader(part.getInputStream(),"euc-kr");
-		System.out.println("-----타나2");
-		char[] data = new char[512];
-		int len = -1;
-		StringBuilder builder = new StringBuilder();
-		while ((len = reader.read(data)) != -1) {
-			builder.append(data, 0, len);
-		}
-		return builder.toString();
+		
+		
+		
+return next;
 	}
 }
+
