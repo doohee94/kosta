@@ -9,6 +9,7 @@
 <!-- CSS 추가 -->
 <link rel="stylesheet" href="/angel/main/css/sign1.css" />
 <link rel="stylesheet" type="text/css" href="/angel/main/css/sign2.css">
+<link rel="stylesheet" type="text/css" href="/angel/main/css/radio.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -17,6 +18,27 @@
 			// 회원가입시 사진도 필요하지~
 			alert("사진등록");	
 		});
+		
+		$("#pwCheck").change(function(){
+			var pw = $("#pw").val();
+			var pwCheck = $("#pwCheck").val();
+			if(pw==pwCheck){
+				$("#idCheckResult").val("비밀번호를 잘 입력했어요");		
+			}else{
+				$("#idCheckResult").val("비밀번호 다시 입력해보아요^^");						
+			}
+		})
+		
+		$("#pw").change(function(){
+			var pw = $("#pw").val();
+			var pwCheck = $("#pwCheck").val();
+			if(pw==pwCheck){
+				$("#idCheckResult").val("비밀번호를 잘 입력했어요");		
+			}else{
+				$("#idCheckResult").val("비밀번호 다시 입력해보아요^^");						
+			}
+		})
+		
 		
 		$("#id").change(function(){
 // 			var inputId = $("#id").val();
@@ -55,13 +77,13 @@
 <body>
 
 <div class="wrapper">
-	<h3 class="sign-in">Sign Up</h3><br/>
+	<h4 class="sign-in">Sign Up</h4><br/>
 	<!-- 	여기에 사진과 사진을 넣을 공간을 마련 -->
 	
 	<form name="frm" method="post" action="<%=projectLink%>memberSignUp" enctype="multipart/form-data">
 <!-- 	<input type="hidden" id='cmd' name='cmd' value="memberSignUp"/> -->
 	<div align="center">
-	<img src="img/profile1.jpg" alt="boy">
+<!-- 	<img src="img/profile1.jpg" alt="boy"> -->
 	<br/>
 	
 	<!-- 	<button class="replace">파일 업로드</button> -->
@@ -73,34 +95,41 @@
 		<table>
 		<tr>
 		<td>
-			<input class="user-input" type="text" name="id" id="id" placeholder="아이디"/>		
+			<input class="user-input" type="text" name="id" id="id" placeholder="id"/>		
 		</td>
 		<td>
-			<input class="user-input" type="text" name="idCheckResult" id="idCheckResult" placeholder=""/>
-		</td>
-		</tr>
-		<tr>
-		<td>
-			<input class="user-input" type="text" name="pw" id="pw" placeholder="비밀번호"/>		
-		</td>
-		<td>
-			<input class="user-input" type="text" name="pwCheck" id="pwCheck" placeholder="비밀번호 확인"/>		
+			<input class="user-input" style="color:#FF5675" type="text" disabled="disabled" name="idCheckResult" id="idCheckResult" placeholder=""/>
 		</td>
 		</tr>
 		<tr>
 		<td>
-			<input class="user-input" type="text" name="name" id="name" placeholder="이름"/>		
+			<input class="user-input" type="password" name="pw" id="pw" placeholder="password"/>		
 		</td>
 		<td>
-			<input class="user-input" type="text" name="gender" id="gender" placeholder="성별"/>		
+			<input class="user-input" type="password" name="pwCheck" id="pwCheck" placeholder="confirm password"/>		
+		</td>
+		</tr>
+		<tr>
+		<td>
+			<input class="user-input" type="text" name="name" id="name" placeholder="name"/>		
+		</td>
+		<td align="center">
+			<input type="radio" name="gender" id="gender" class="gender" value="남성">male
+			<span style="color:white">공백을주자</span>
+			<input type="radio" name="gender" id="gender" class="gender" value="여성">female		
+<!-- 			<select name=gender id="gender"> -->
+<!-- 				<option value="여성">여성</option> -->
+<!-- 				<option value="남성">남성</option> -->
+<!-- 			</select> -->
+<!-- 		<input class="user-input" type="text" name="gender" id="gender" placeholder="성별"/>		 -->
 		</td>
 		</tr>
 				<tr>
 		<td>
-			<input class="user-input" type="text" name="tel" id="tel" placeholder="전화번호"/>		
+			<input class="user-input" type="text" name="tel" id="tel" placeholder="tel ex)010-8308-1520"/>		
 		</td>
 		<td>
-			<input class="user-input" type="text" name="birth" id="birth" placeholder="생년월일"/>		
+			<input class="user-input" type="text" name="birth" id="birth" placeholder="birth ex)19929017"/>		
 		</td>
 		</tr>
 		</table>

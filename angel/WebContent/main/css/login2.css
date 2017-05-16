@@ -27,14 +27,14 @@ form {position:relative;}
   font-size:2em;
 }
 
-/* .button{ */
-/*   background-color:white; */
-/*   color:black; */
-/*   padding:7px 15px; */
-/*   border-radius:3px; */
-/*   font-size:0.8em; */
-/*   cursor:pointer;  */
-/* } */
+.button{
+  background-color:white;
+  color:black;
+  padding:7px 15px;
+  border-radius:3px;
+  font-size:0.8em;
+  cursor:pointer; 
+}
 
 
 

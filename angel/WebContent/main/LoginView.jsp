@@ -1,3 +1,4 @@
+<%@page import="javafx.scene.control.Alert"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <% String projectLink = "/angel/UserControl?cmd="; %>
 <%
@@ -5,10 +6,13 @@
 	String loginCheck = (String)request.getAttribute("loginCheck");
 //  System.out.print(loginCheck+"는 로그인 체크 결과값임");
 	
+	String reject = "";
 	if(loginCheck==null){
 		// 로그인 전 초기 로딩시.....ㅎㅎㅎㅎㅎ
 	}else if(loginCheck.equals("false")){
 		System.out.print("다시로그인고고!");
+		// 비밀번호가 틀렸으니 다시 로그인하라고 알려줘야 함!!
+		reject = "로그인 정보가 올바르지 않습니다. 다시 로그인해주세요.";
 	}
 
 %>
@@ -23,10 +27,11 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-	
+
+		document.getElementById("idCheck").innerHTML="<%=reject%>";
+
 		$(".btn span:first-child").click(function(){
-			location.href="<%=projectLink%>signUpView";
-			
+			location.href="<%=projectLink%>signUpView";			
 		});
 	
 		$(".btn span:last-child").click(function(){
@@ -55,10 +60,11 @@
  		<div align="center">
 		<input type="submit" value="Login" class="login">
 <!--  		<div class="login">Login</div> -->
+			<div id="idCheck" style="color:#FF5675"></div>
  		</div>
  		<br/>
  		<div class="btn" align="center">
-        	<span><div class="button">Register</div></span>
+        	<span><div class=button>Register</div></span>
         	<span><div class="button">Lost your password?</div></span>
         </div>
 	</form>

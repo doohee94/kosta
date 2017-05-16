@@ -57,6 +57,17 @@
   <url-pattern>*.setting</url-pattern>
   </servlet-mapping>
   
+        <!-- couple -->
+  <servlet>
+  <servlet-name>CoupleControl</servlet-name>
+  <servlet-class>control.couple.CoupleControl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>CoupleControl</servlet-name>
+  <url-pattern>/couple</url-pattern>
+  </servlet-mapping>
+  
+  
     <!-- photo -->
   <servlet>
   <servlet-name>PhotoControl</servlet-name>
