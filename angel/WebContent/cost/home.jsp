@@ -122,7 +122,7 @@ jQuery(document).ready(function($) {
 
     $('#calendar').fullCalendar({	
        header: {
-            left: 'prev,next today',
+            left: 'prev,next today myCustomButton',
             center: 'title',
             right: 'month,listMonth'
         },
@@ -233,6 +233,11 @@ jQuery(document).ready(function($) {
     		  var costNo = $("#costNo").val();
     		  var url = "cost?cmd=delete-cost&memberId="+memberId+"&costNo="+costNo;
     	  		$(location).attr('href',url);
+    	  });//클릭
+    	  $("#graph").click(function(){
+    		  var memberId= $("#memberId").val(); 
+    		  var url = "cost?cmd=gList-cost&memberId="+memberId
+    		  window.open(url);
     	  });//클릭
     	  //탭
     	  var jbOffset = $( '.jbMenu' ).offset();
