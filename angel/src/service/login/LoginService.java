@@ -32,5 +32,18 @@ public class LoginService {
 		return repo.idcheck(inputId);
 	}
 	
+	//커플 쳌쳌
+	public String selectCouple(String cid){
+		System.out.println("서비스여기탐?????");
+		return repo.selectCouple(cid);
+	}
+	
+	public int makeCouple(String id, String cid, String date){
+		return repo.makeCouple(id, cid, date);
+	}
+
+	
+	
+	
 
 }

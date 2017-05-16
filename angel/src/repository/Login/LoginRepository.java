@@ -104,5 +104,67 @@ public class LoginRepository {
 			sqlSess.close();
 		}
 	}
+	
+	
+	//커플 아이디 쳌
+	public String selectCouple(String cid){
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		
+		try{
+			System.out.println("레포 여기탐?????");
+			String result = "false";
+			String statement = namespace + ".coupleChek";
+			HashMap map = new HashMap();
+			map.put("cid", cid);
+			List<MemberVo> member= sqlSess.selectList(statement, map);	// 아이디를 넘겨서 이미있는 아이디인지 검색!
+			
+			if(member.size()>0){
+				result = "true";
+				return result;
+			}else{
+				return result;
+			}	
+		}finally {
+			sqlSess.close();
+		}	
+	}//커플 아이디 쳌
+	
+	public int makeCouple(String id, String cid, String date){
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		System.out.println("왜 안타니!!!!!!!!!여기 타니?????????????????");
+		String statement1 = namespace + ".coupleMake_ME";
+		String statement2 = namespace + ".coupleMake_Lover";
+		HashMap map = new HashMap();
+		map.put("id", id);
+		map.put("cid", cid);
+		map.put("date", date);
+		try{
+			
+			int update_me = sqlSess.update(statement1,map);
+			if(update_me > 0){
+				sqlSess.commit();
+			}else{
+				sqlSess.rollback();
+			}
+			
+			int update_lover = sqlSess.update(statement2,map);
+			
+			if(update_lover > 0){
+				sqlSess.commit();
+			}else{
+				sqlSess.rollback();
+			}
+			
+		}finally {
+			sqlSess.close();
+		}
+		return 0; 
+	}
+	
+	
+	
+	
+	
+	
 
 }
