@@ -10,7 +10,7 @@ public class MemberVo implements Serializable{
 	String memberGender;
 	String memberTel;
 	String memberBirth;
-	String memberCouple;
+	String coupleID;
 	String photoName;		// 고객 사진의 파일명
 	String photoRealpath;	// 고객 사진의 실제주소
 	
@@ -66,13 +66,7 @@ public class MemberVo implements Serializable{
 		this.memberBirth = memberBirth;
 	}
 
-	public String getMemberCouple() {
-		return memberCouple;
-	}
 
-	public void setMemberCouple(String memberCouple) {
-		this.memberCouple = memberCouple;
-	}
 
 	public String getPhotoName() {
 		return photoName;
@@ -88,6 +82,14 @@ public class MemberVo implements Serializable{
 
 	public void setPhotoRealpath(String photoRealpath) {
 		this.photoRealpath = photoRealpath;
+	}
+
+	public String getCoupleID() {
+		return coupleID;
+	}
+
+	public void setCoupleID(String coupleID) {
+		this.coupleID = coupleID;
 	}
 	
 	

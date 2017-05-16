@@ -37,12 +37,15 @@ public class CommandLogin implements Command{
 		if(loginVo!=null){
 
 			String loginId = loginVo.getMemberId();
-			String loginName = loginVo.getMemberName();
+			String loginCoupleId = loginVo.getCoupleID();
 			
-			System.out.println("로그인 한 아이디 : " + loginId);
-			System.out.println("로그인 한 이름 : " + loginName);		
+			System.out.println("로그인 한 아이디 : " + loginId);	
+			System.out.println("로그인 한 멤버의 커플 아이디 : " + loginCoupleId);		
 			
+			// 로그인 후, 로그인한 아이디, 로그인 한 사람의 커플 아이디를 가져 와야 함다!
 			request.setAttribute("id", loginId);
+			request.setAttribute("couple", loginCoupleId);
+	
 
 			return next;
 		}

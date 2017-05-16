@@ -1,10 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <% String projectName = "/test"; %> 
 <%
-// 	로그인을 하기 위해, 아이디, 이름을 가져온다. 커플 아이디, 이름도 가져와야함.
+// 	로그인을 하기 위해, 아이디를 가져온다. 커플 아이디도 가져와야함.
+	String coupleID = request.getParameter("couple");
 	String loginId = request.getParameter("id");
-	System.out.print("loginId는      : " + loginId+'\n');
-	session.setAttribute("loginId", loginId);
+	System.out.print("home 화면, loginId는      : " + loginId+'\n');
+	System.out.print("home 화면, coupleId는      : " + coupleID+'\n');
+
+	session.setAttribute("login", loginId);
+	
 
 	
 %>
