@@ -6,8 +6,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <select id="selectMember" parameterType="memberVo" resultType="memberVo">
 	SELECT * FROM member
-	WHERE member_id = #{memberId}
-	AND member_pw = #{memberPw}
+	WHERE member_id = #{memberId,jdbcType=VARCHAR}
+	AND member_pw = #{memberPw,jdbcType=VARCHAR}
 </select>
 
 <insert id="inputMember" parameterType="memberVo">

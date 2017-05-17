@@ -1,4 +1,5 @@
 
+
 <%@page import="mybatis.diary.model.Diary"%>
 <%@ page contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
@@ -110,7 +111,7 @@ width:200px;
 			
 			
 			<div id="tableLikeList" >
-				<div class="thead panel-heading clearfix">
+				<div class="thead panel-heading clearfix" style="width: 900px;">
 					<div data-idx="0" class="col-md-6 hcell">
 						<p class="text-center">
 							<strong>작성일자</strong> <span class="glyphicon"></span>

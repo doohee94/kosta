@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select  id='selectComment' parameterType="hashmap" resultType="diary">
    SELECT *
    FROM diary
-   where member_id= #{memberId, jdbcType=VARCHAR} and diary_coupleck is null
+   where member_id= #{memberId, jdbcType=VARCHAR} and (diary_coupleck is null or diary_coupleck = 'null' )
 
 </select>
 <select  id='coupleSelectComment' parameterType="hashmap" resultType="diary">

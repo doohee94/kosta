@@ -31,11 +31,12 @@
 					<div id="main">
 
 						<!-- Me -->
-							<article id="me" class="panel">
+							<article id="me" class="panel" style="height : 800px;">
 								<%@ include file='diary_person_list.jsp' %>
+								
 							</article>
 
-						
+						<br>
 				<!-- Footer -->
 					<div id="footer">
 						<ul class="copyright">

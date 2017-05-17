@@ -25,7 +25,7 @@ import command.diary.DiaryView;
 
 public class DiaryControl extends HttpServlet {
 	private HashMap commandMap;
-	private String	jspDir = "/";
+	private String	jspDir = "/diary";
 	private String  error = "error.jsp";
    
     public DiaryControl() {
@@ -36,17 +36,17 @@ public class DiaryControl extends HttpServlet {
 		commandMap = new HashMap();
 
 		commandMap.put("main-page",	new CommandNull("main.jsp"));
-		commandMap.put("list-page",	new DiaryList("home.jsp"));
+		commandMap.put("list-page",	new DiaryList("/diary_person/home.jsp"));
 		
-		commandMap.put("view-page",	new DiaryView("diary_person_view.jsp"));
-		commandMap.put("insert-do",	new DiarySave("home.jsp"));
-		commandMap.put("insert-page",new CommandNull("diary_person_save.jsp"));
-		commandMap.put("delete",new DiaryDelete("home.jsp"));
+		commandMap.put("view-page",	new DiaryView("/diary_person/diary_person_view.jsp"));
+		commandMap.put("insert-do",	new DiarySave("/diary_person/home.jsp"));
+		commandMap.put("insert-page",new CommandNull("/diary_person/diary_person_save.jsp"));
+		commandMap.put("delete",new DiaryDelete("/diary_person/home.jsp"));
 		
-		commandMap.put("modify-do",	new DiaryModify("home.jsp"));	
-		commandMap.put("update-page",new DiaryView("diary_person_modify.jsp"));
+		commandMap.put("modify-do",	new DiaryModify("/diary_person/home.jsp"));	
+		commandMap.put("update-page",new DiaryView("/diary_person/diary_person_modify.jsp"));
 		
-		commandMap.put("list-research",new DiaryResearch("home.jsp"));
+		commandMap.put("list-research",new DiaryResearch("/diary_person/home.jsp"));
 		
 		//couple
 		commandMap.put("list-page-couple",	new CoupleDiaryList("/diary_couple/home.jsp"));

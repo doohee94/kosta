@@ -22,8 +22,8 @@ public class DiaryResearch implements Command {
 		
 		HttpSession session = request.getSession();
 		String memberId = (String)session.getAttribute("loginId");
-		String coupleId = (String)session.getAttribute("coupleId");
-		memberId="ckswhd1128";
+		String coupleId =null;
+		
 		
 		List<Diary> list = DiaryService.getInstance().researchList(memberId,diarydate);
 		request.setAttribute("param", list);

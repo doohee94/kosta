@@ -84,6 +84,9 @@ $(function(){
 		         alert("Plase Insert content");
 		         return false;
 		      }
+			
+			var fm = document.getElementById("fm");
+			
 			fm.submit();
 			
 // 	      var url = ".diary?cmd=modify-do&title="+title+"&content="
@@ -121,7 +124,7 @@ $(function(){
 </script>
 </head>
 <body>
-<form id="form" name="form" method = "post">
+<form id="fm" name="fm" method = "post" action=".diary">
 	<div class="weather_tab">
 
 		<div class="icon sun-shower"  id="sun-shower" name="sun-shower">

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import command.basic.Command;
 import mybatis.diary.model.Diary;
@@ -18,16 +19,19 @@ public class DiarySave implements Command {
 		
 		Diary d = new Diary();
 		
+		HttpSession session  = request.getSession();
+		
+		
 		d.setDiaryContent(request.getParameter("content"));
 		d.setDiaryDate(request.getParameter("dProd"));
 		d.setDiaryTitle(request.getParameter("title"));
 		d.setDiaryWeather(request.getParameter("weather"));
-		d.setMemberId(request.getParameter("id"));
+		d.setMemberId((String)session.getAttribute("loginId"));
 		
 		DiaryService.getInstance().insertView(d);
 		
-		String memberId = request.getParameter("id");
-		String coupleId = request.getParameter("cid");
+		String memberId = (String)session.getAttribute("loginId");
+		String coupleId = null;
 		List<Diary> list = DiaryService.getInstance().selectList(memberId, coupleId);
 		request.setAttribute("param", list);
 		

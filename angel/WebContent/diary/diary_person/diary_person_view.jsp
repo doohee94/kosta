@@ -6,7 +6,7 @@
 	
 	String memberId = (String)session.getAttribute("id");
 	String coupleId = (String)session.getAttribute("cid");
-	memberId = "ckswhd1128";
+	
 %>
 <!DOCTYPE html >
 <html>
@@ -16,17 +16,17 @@
 <link rel="stylesheet" href="css/jquery-ui.css" />
 <link rel="stylesheet" href="css/hello_cloud.css" />
 
-<link href="css/weather.css" rel="stylesheet"	type="text/css" />
+<link href="/angel/diary/diary_person/css/weather.css" rel="stylesheet"	type="text/css" />
 
-<link href="css/viewtext.css" rel="stylesheet"	type="text/css" />
+<link href="/angel/diary/diary_person/css/viewtext.css" rel="stylesheet"	type="text/css" />
 <style type="text/css">
 
 
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="js/jquery-ui-1.11.1.js"></script>
-<script src="js/jquery.ui.datepicker.option.js"></script>
+<script src="/angel/diary/diary_person/js/jquery-ui-1.11.1.js"></script>
+<script src="/angel/diary/diary_person/js/jquery.ui.datepicker.option.js"></script>
 <title>view</title>
 <script type="text/javascript">
 
@@ -129,7 +129,7 @@ $(function(){
    		</div>
 	</div>
 	<input type="hidden" id="weather" name = "weather">
-   	<a href=".diary?cmd=update-page&diarynum=<%=list.getDiaryNum()%>"><img src="/extest/imgs/update.png" id="change" name="change"></img></a>					   
-	<a href=".diary?cmd=delete&diarynum=<%=list.getDiaryNum()%>"><img src="/extest/imgs/delete.png" id="delete" name="delete"></img></a>
+   	<a href=".diary?cmd=update-page&diarynum=<%=list.getDiaryNum()%>"><img src="/angel/diary/diary_person/imgs/update.png" id="change" name="change"></img></a>					   
+	<a href=".diary?cmd=delete&diarynum=<%=list.getDiaryNum()%>"><img src="/angel/diary/diary_person/imgs/delete.png" id="delete" name="delete"></img></a>
 </body>
 </html>

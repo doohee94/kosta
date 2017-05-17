@@ -33,6 +33,8 @@ public class CommandList implements Command{
 		
 		try {
 			
+			
+			
 			//플랜 vo에 담아오는게 편하겟지? 그렇지..?
 			List<PlanVo> plan = PlanService.getInstance().selectList(id, cid);
 			

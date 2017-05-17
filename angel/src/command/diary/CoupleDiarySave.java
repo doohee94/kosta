@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import command.basic.Command;
 import mybatis.diary.model.Diary;
@@ -16,17 +17,24 @@ public class CoupleDiarySave implements Command{
 	}
 	public String execute(HttpServletRequest request, HttpServletResponse response){
 		Diary d = new Diary();
+		
+		HttpSession session = request.getSession();
+		
+		
 		d.setDiaryContent(request.getParameter("content"));
 		d.setDiaryDate(request.getParameter("dProd"));
 		d.setDiaryTitle(request.getParameter("title"));
 		d.setDiaryWeather(request.getParameter("weather"));
-		d.setMemberId(request.getParameter("id"));
-		d.setDiaryCoupleck(request.getParameter("cid"));
+		d.setMemberId((String)session.getAttribute("loginId"));
+		d.setDiaryCoupleck((String)session.getAttribute("coupleId"));
 		
 		DiaryService.getInstance().insertViewCouple(d);
 		
-		String memberId = request.getParameter("id");
-		String coupleId = request.getParameter("cid");
+		System.out.println(">>>>>>>>>>>>"+(String)session.getAttribute("loginId"));
+		System.out.println((String)session.getAttribute("coupleId"));
+		
+		String memberId =(String)session.getAttribute("loginId");
+		String coupleId =(String)session.getAttribute("coupleId");
 		List<Diary> list = DiaryService.getInstance().selectList(memberId, coupleId);
 		request.setAttribute("param", list);
 		

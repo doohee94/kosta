@@ -46,6 +46,7 @@ public class PlanControl extends HttpServlet {
 		// 나머지도 추가하기		
 		
 		//커플
+		commandMap.put("main-couple-page",new Command_Couple_List("plan_couple/home.jsp") );
 		commandMap.put("list-couple-page",new Command_Couple_List("plan_couple/home.jsp") );
 		commandMap.put("insert-couple-page",new Command_Couple_Insert("plan_couple/home.jsp") );
 		commandMap.put("modify-couple-page",new Command_Couple_Modify("plan_couple/home.jsp") );

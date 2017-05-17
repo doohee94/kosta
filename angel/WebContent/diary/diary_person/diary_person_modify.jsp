@@ -178,6 +178,7 @@ $(function(){
     <input type="hidden" id="weather" name = "weather"> 
     <input type="hidden" id="diarynum" name="diarynum">
     <input type="hidden" id="id" name="id">
+    <input type="hidden" id="ck" name="ck" value="person">
 	<img src="/angel/diary/diary_person/imgs/confirm.png" id="commit" name="commit"></img>
 					
 	</form>

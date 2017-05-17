@@ -8,8 +8,6 @@
 	String h_id = (String)session.getAttribute("loginId");
 	String h_cid =  (String)session.getAttribute("coupleId");
 	
-	
-	
 	System.out.print("plan)head)의 로그인한 아이디   "+h_id+'\n'); 
 	System.out.print("plan)head)의 로그인한 아이디   "+h_cid+'\n');
 	
@@ -133,13 +131,11 @@ $(function(){
    	  
      });
 	 
-	 $("#logout").click(function(){
-		alert("logout"); 
-		
-		
-		session.setAttribute("loginId", loginId);
-		session.setAttribute("coupleId", coupleID);
-	 });
+	    $("#logout").click(function(){
+	          var url = "angel.user?cmd=logout_user"
+	                alert(url);
+	         $(location).attr('href',url);
+	    });
 	 
 });
 
@@ -166,20 +162,22 @@ $(function(){
    		<img src="/angel/plan/plan_couple/assets/css/images/logosamlple.png" id="logo_in_nave" name="logo_in_nave"  ></img>
     </div>
     <br/>
+    
+    	
    <div id="welcome" style="text-align: center">000님, 환영합니다.</div> <br/>
    
   	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"  >&times;</a>
 
 
-
   <ul class="acc-menu" id="accordionMenu1">  
+  
     <li data-extension="open">
         <div class="main-title"><span class="folder"> </span><a>Personal <br/></a></div> 
         <ul class="sub">
             <li><a href="/angel/.diary?cmd=list-page">Diary</a></li> <br/>
             <li><a href="/angel/plan?cmd=list-page">Plan</a></li> <br/>
             <li><a href="/angel/cost?cmd=cost-list">Household Account</a></li><br/>
-            <li><a>Photo</a></li><br/>
+            <li><a href="/angel/photo?cmd=">Photo</a></li><br/>
         </ul>
     </li>
 	
@@ -188,8 +186,8 @@ $(function(){
     	<div class="main-title"><span class="folder"> </span><a>Couple <br/></a></div> 
     	 <ul class="sub">
             <li><a href="/angel/couple?cmd=couple-main&id=<%=h_loginid%>">Couple</a></li><br/>
-            <li><a href="">Couple Plan</a></li><br/>
-            <li><a href="">Couple Diary</a></li><br/>
+            <li><a href="/angel/plan?cmd=main-couple-page">Couple Plan</a></li><br/>
+            <li><a href="/angel/.diary?cmd=list-page-couple">Couple Diary</a></li><br/>
             <li><a href="/angel/couple?cmd=couple_break_page&id=<%=h_loginid%>">Break Couple</a></li><br/>
     	 </ul>
     </li>
@@ -202,16 +200,15 @@ $(function(){
     </li>
 		<%}%>
 
-
-
     <li data-extension="open">
         <div class="main-title"><span class="folder"> </span><a>Setting <br/> </a></div> 
         <ul class="sub">
-            <li><a>Option</a></li><br/>
-            <li><a>Information</a></li><br/>
+            <li><a href="/angel/UserControl?cmd=ModifyMember&id=<%=h_loginid%>">Information</a></li><br/>
+
         </ul>
     </li>
 </ul>
+
 
 	<br/><br/><br/><br/><br/>
 
@@ -222,12 +219,6 @@ $(function(){
 			<img src="/angel/plan/plan_couple/assets/css/images/logout.png"></img>
 			</footer>
 			
-	
-	
-
-
-
-
 </div>
     
 

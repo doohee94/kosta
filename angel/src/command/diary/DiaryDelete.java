@@ -23,7 +23,7 @@ public class DiaryDelete implements Command{
 		HttpSession session = request.getSession();
 		String memberId = (String)session.getAttribute("loginId");
 		String coupleId = (String)session.getAttribute("coupleId");
-		memberId="ckswhd1128";
+
 		System.out.println("커맨드에서 아이디 >>>>"+memberId);
 		System.out.println("커맨드에서 커ㅠㅡㄹ아이디 >>>>"+coupleId);
 		List<Diary> list = DiaryService.getInstance().selectList(memberId, coupleId);

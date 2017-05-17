@@ -1,12 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<% String h_projectLink = "/angel/UserControl?cmd="; %>
+<%
+	String h_loginid = (String)session.getAttribute("loginId");
+	System.out.print("plan)head)의 로그인한 아이디   "+h_loginid+'\n');
+	
+	String h_id = (String)session.getAttribute("loginId");
+	String h_cid =  (String)session.getAttribute("coupleId");
+	
+	System.out.print("plan)head)의 로그인한 아이디   "+h_id+'\n'); 
+	System.out.print("plan)head)의 로그인한 아이디   "+h_cid+'\n');
+	
+%>
 <!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Angel</title>
-<link rel="stylesheet" href="/angel/diary/css/tab.css"/>
+<link rel="stylesheet" href="/angel/plan/plan_couple/assets/css/tab.css"/>
 
 
 <style type="text/css">
@@ -106,7 +117,7 @@ footer{
   
 
 </style>
-<script type="text/javascript" src="/angel/diary/js/tab.js"></script>
+<script type="text/javascript" src="/angel/plan/plan_person/js/tab.js"></script>
 
 <script type="text/javascript">
 
@@ -114,11 +125,19 @@ $(function(){
 	
 	 $("#naviImg").hover(function(){
    	  
-   	  $('#naviImg').attr("src","/angel/diary/img/over.png");
+   	  $('#naviImg').attr("src","/angel/plan/plan_couple/assets/css/images/over.png");
      }, function(){
-   	  $('#naviImg').attr("src","/angel/diary/img/out.png");
+   	  $('#naviImg').attr("src","/angel/plan/plan_couple/assets/css/images/out.png");
    	  
      });
+	 
+	 $("#logout").click(function(){
+		alert("logout"); 
+		
+		
+		session.setAttribute("loginId", loginId);
+		session.setAttribute("coupleId", coupleID);
+	 });
 	 
 });
 
@@ -128,38 +147,59 @@ $(function(){
 <body>
 
  <div class="jbTitle">
-   		<img src="/angel/diary/img/logosamlple.png" id="logo" name="logo"></img>
+   		<img src="/angel/plan/plan_couple/assets/css/images/logosamlple.png" id="logo" name="logo"></img>
     </div>
     
     <div class="jbMenu">
       <p>
-     <img src="/angel/diary/img/out.png" onclick="openNav()" id='naviImg' name="naviImg"></img>
+     <img src="/angel/plan/plan_couple/assets/css/images/out.png" onclick="openNav()" id='naviImg' name="naviImg"></img>
       </p>
       
       
     </div>
-    
+      
 <br/>
 <div id="mySidenav" class="sidenav">
-	<div class="jbTitle"  >
-   		<img src="/angel/diary/img/logosamlple.png" id="logo_in_nave" name="logo_in_nave"  ></img>
+	<div class="jbTitle" ">
+   		<img src="/angel/plan/plan_couple/assets/css/images/logosamlple.png" id="logo_in_nave" name="logo_in_nave"  ></img>
     </div>
     <br/>
-   <div style="text-align: center">환영해요......</div> <br/>
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"  >&times;</a>
-
+   <div id="welcome" style="text-align: center">000님, 환영합니다.</div> <br/>
+   
+  	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"  >&times;</a>
 
 
   <ul class="acc-menu" id="accordionMenu1">  
     <li data-extension="open">
         <div class="main-title"><span class="folder"> </span><a>Personal <br/></a></div> 
         <ul class="sub">
-            <li><a href="/.diary?cmd=list-page">Diary</a></li> <br/>
-            <li><a href="/plan?cmd=list-page">Plan</a></li> <br/>
-            <li><a href="/cost?cmd=cost-list">Household Account</a></li><br/>
+            <li><a href="/angel/.diary?cmd=list-page">Diary</a></li> <br/>
+            <li><a href="/angel/plan?cmd=list-page">Plan</a></li> <br/>
+            <li><a href="/angel/cost?cmd=cost-list">Household Account</a></li><br/>
             <li><a>Photo</a></li><br/>
         </ul>
     </li>
+	
+	 <%if(h_cid != null) {%>
+        <li data-extension="open">
+    	<div class="main-title"><span class="folder"> </span><a>Couple <br/></a></div> 
+    	 <ul class="sub">
+            <li><a href="/angel/couple?cmd=couple-main&id=<%=h_loginid%>">Couple</a></li><br/>
+            <li><a href="/angel/plan?cmd=main-couple-page">Couple Plan</a></li><br/>
+            <li><a href="/angel/.diary?cmd=list-page-couple">Couple Diary</a></li><br/>
+            <li><a href="/angel/couple?cmd=couple_break_page&id=<%=h_loginid%>">Break Couple</a></li><br/>
+    	 </ul>
+    </li>
+		<%}else{ %>
+        <li data-extension="open">
+    	<div class="main-title"><span class="folder"> </span><a>Couple <br/></a></div> 
+    	 <ul class="sub">
+            <li><a href="/angel/UserControl?cmd=CoupleMake&id=<%=h_loginid%>">Make Couple</a></li><br/>
+    	 </ul>
+    </li>
+		<%}%>
+
+
 
     <li data-extension="open">
         <div class="main-title"><span class="folder"> </span><a>Setting <br/> </a></div> 
@@ -176,7 +216,7 @@ $(function(){
 	
 			<footer>
 			<div id='logout' name='logout' >LOGOUT</div>
-			<img src="/angel/diary/img/logout.png"></img>
+			<img src="/angel/plan/plan_couple/assets/css/images/logout.png"></img>
 			</footer>
 			
 	

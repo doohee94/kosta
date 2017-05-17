@@ -2,14 +2,6 @@
 <% String projectName = "/test"; %> 
 <%
 
-//로그인을 하기 위해, 아이디를 가져온다. 커플 아이디도 가져와야함.
-String coupleID = (String)request.getAttribute("couple");
-String loginId = (String)request.getAttribute("id");
-//System.out.print("home 화면, loginId는      : " + loginId+'\n');
-//System.out.print("home 화면, coupleId는      : " + coupleID+'\n');
-// session에 로그인 아이디, 커플 아이디를 등록함.
-session.setAttribute("loginId", loginId);
-session.setAttribute("coupleId", coupleID);
 
 String id = (String)session.getAttribute("loginId");
 String cid =  (String)session.getAttribute("coupleId");

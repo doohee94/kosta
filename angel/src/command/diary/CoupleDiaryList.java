@@ -19,8 +19,7 @@ public class CoupleDiaryList implements Command{
 		HttpSession session = request.getSession();
 		String memberId = (String)session.getAttribute("loginId");
 		String coupleId = (String)session.getAttribute("coupleId");
-		memberId="ckswhd1128";
-		coupleId = "aaaa";
+		
 		List<Diary> list = DiaryService.getInstance().selectList(memberId, coupleId);
 		request.setAttribute("param", list);
 		return next;
