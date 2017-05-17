@@ -15,6 +15,8 @@ session.setAttribute("coupleId", coupleID);
 String id = (String)session.getAttribute("loginId");
 String cid =  (String)session.getAttribute("coupleId");
 
+System.out.print("id는"+id);
+
 %>
 <!DOCTYPE HTML>
 <!--
@@ -126,7 +128,7 @@ String cid =  (String)session.getAttribute("coupleId");
 
 
 jQuery(document).ready(function($) {
-	var memberId ="<%=loginId%>";
+	var memberId ="<%=id%>";
     $('#calendar').fullCalendar({	
     	
        header: {
@@ -172,7 +174,7 @@ jQuery(document).ready(function($) {
     
     	//입력
     	  $("#submit").click(function(){
-    		  
+    		  alert(memberId);
     		  if($("#content").val() == "" || $("#day").val() == "" || $("#category").val() == ""|| $("#cost").val()==""){
     			  alert("Plase Insert All Text");
     			  return false;
@@ -205,7 +207,7 @@ jQuery(document).ready(function($) {
     	  });//클릭 
     	  //수정(입력하는 방식)
    	  $("#mSubmit").click(function(){
-    		  
+    		 
     		  if($("#mContent").val() == "" || $("#mDay").val() == "" || $("#mCategory").val() == ""|| $("#mCost").val() == "" ){
     			  alert("Plase Insert All Text");
     			  return false;
@@ -285,7 +287,7 @@ jQuery(document).ready(function($) {
 							<article id="me" class="panel">
 								<header>
 								<h2>CALENDAR</h2>
-								<input type='hidden' id='memberId' name='memberId' value='<%=loginId%>'/>
+								<input type='hidden' id='memberId' name='memberId' value='<%=id%>'/>
 								<input type='hidden' id='costNo' name='costNo' value=''>
 								
 								</header>							

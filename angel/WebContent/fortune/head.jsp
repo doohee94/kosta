@@ -3,10 +3,15 @@
 <% String h_projectLink = "/angel/UserControl?cmd="; %>
 <%
 	String h_loginid = (String)session.getAttribute("loginId");
-	System.out.print("plan)head)의 로그인한 아이디   "+h_loginid);
+	System.out.print("plan)head)의 로그인한 아이디   "+h_loginid+'\n');
 	
 	String h_id = (String)session.getAttribute("loginId");
 	String h_cid =  (String)session.getAttribute("coupleId");
+	
+	
+	
+	System.out.print("plan)head)의 로그인한 아이디   "+h_id+'\n'); 
+	System.out.print("plan)head)의 로그인한 아이디   "+h_cid+'\n');
 	
 %>
 <!DOCTYPE HTML>
@@ -128,6 +133,11 @@ $(function(){
    	  
      });
 	 
+	 $("#logout").click(function(){
+		 	var url = "angel.user?cmd=logout_user"
+			$(location).attr('href',url);
+	 });
+	 
 });
 
 </script>
@@ -146,14 +156,14 @@ $(function(){
       
       
     </div>
-    
+      
 <br/>
 <div id="mySidenav" class="sidenav">
 	<div class="jbTitle" ">
    		<img src="/angel/plan/plan_couple/assets/css/images/logosamlple.png" id="logo_in_nave" name="logo_in_nave"  ></img>
     </div>
     <br/>
-   <div style="text-align: center">000님, 환영합니다.</div> <br/>
+   <div id="welcome" style="text-align: center">000님, 환영합니다.</div> <br/>
    
   	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"  >&times;</a>
 
@@ -175,16 +185,27 @@ $(function(){
     	<div class="main-title"><span class="folder"> </span><a>Couple <br/></a></div> 
     	 <ul class="sub">
             <li><a href="/angel/couple?cmd=couple-main&id=<%=h_loginid%>">Couple</a></li><br/>
+            <li><a href="">Couple Plan</a></li><br/>
+            <li><a href="">Couple Diary</a></li><br/>
+            <li><a href="/angel/couple?cmd=couple_break_page&id=<%=h_loginid%>">Break Couple</a></li><br/>
     	 </ul>
     </li>
-		<%} %>
+		<%}else{ %>
+        <li data-extension="open">
+    	<div class="main-title"><span class="folder"> </span><a>Couple <br/></a></div> 
+    	 <ul class="sub">
+            <li><a href="/angel/UserControl?cmd=CoupleMake&id=<%=h_loginid%>">Make Couple</a></li><br/>
+    	 </ul>
+    </li>
+		<%}%>
+
 
 
     <li data-extension="open">
         <div class="main-title"><span class="folder"> </span><a>Setting <br/> </a></div> 
         <ul class="sub">
-            <li><a>Option</a></li><br/>
-            <li><a>Information</a></li><br/>
+            <li><a href="/angel/UserControl?cmd=ModifyMember&id=<%=h_loginid%>">Information</a></li><br/>
+
         </ul>
     </li>
 </ul>
