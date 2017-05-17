@@ -7,16 +7,76 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 
-<select  id='selectComment' resultType="diary">
+<select  id='selectComment' parameterType="hashmap" resultType="diary">
    SELECT *
    FROM diary
-   where member_id='1234'
+   where member_id= #{memberId, jdbcType=VARCHAR} and diary_coupleck is null
 
 </select>
+<select  id='coupleSelectComment' parameterType="hashmap" resultType="diary">
+   SELECT *
+   FROM diary
+   where member_id= #{memberId, jdbcType=VARCHAR} and diary_coupleck = #{coupleId, jdbcType=VARCHAR}
+
+</select>
+
+
 
 <select id='selectone' parameterType="hashmap" resultType="diary">
 	SELECT * FROM diary
-	WHERE diary_num = #{diarynum}
+	WHERE diary_num = #{diarynum, jdbcType=VARCHAR} 
+			
 
 </select>
+<insert id="insertone" parameterType="diary" >
+	INSERT INTO diary
+	VALUES (
+		SEQUENCE_DIARY.nextval,
+		#{memberId ,jdbcType=VARCHAR },
+		to_date(#{diaryDate, jdbcType=VARCHAR },'yyyy-mm-dd'),
+		#{diaryContent ,jdbcType=VARCHAR },
+		#{diaryWeather,jdbcType=VARCHAR },
+		null,
+		#{diaryTitle,jdbcType=VARCHAR }
+		
+	)
+</insert>
+<insert id="insertonecouple" parameterType="diary" >
+	INSERT INTO diary
+	VALUES (
+		SEQUENCE_DIARY.nextval,
+		#{memberId ,jdbcType=VARCHAR },
+		to_date(#{diaryDate, jdbcType=VARCHAR },'yyyy-mm-dd'),
+		#{diaryContent ,jdbcType=VARCHAR },
+		#{diaryWeather,jdbcType=VARCHAR },
+		#{diaryCoupleck,jdbcType=VARCHAR},
+		#{diaryTitle,jdbcType=VARCHAR }
+		
+	)
+</insert>
+<update id="updateone" parameterType="diary">
+	update diary set
+	MEMBER_ID = #{memberId, jdbcType=VARCHAR},
+	DIARY_DATE = #{diaryDate ,jdbcType=VARCHAR},
+	DIARY_CONTENT = #{diaryContent ,jdbcType=VARCHAR},
+	DIARY_WEATHER = #{diaryWeather ,jdbcType=VARCHAR},
+	DIARY_TITLE = #{diaryTitle ,jdbcType=VARCHAR}
+	where DIARY_NUM = #{diaryNum ,jdbcType=INTEGER}
+</update>
+
+<delete id="deleteone" parameterType="int">
+	DELETE 
+	FROM diary
+	WHERE DIARY_NUM = #{diaryNum}
+</delete>
+
+<select id='research' parameterType="hashmap" resultType="diary">
+	SELECT * FROM diary
+	WHERE DIARY_DATE LIKE #{diarydate, jdbcType=VARCHAR}  and member_Id=#{memberId} and diary_coupleck is null
+</select>
+
+
+
+	
+	
 </mapper>

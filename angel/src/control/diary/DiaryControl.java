@@ -13,14 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 import command.basic.Command;
 import command.basic.CommandException;
 import command.basic.CommandNull;
+import command.diary.CoupleDiaryList;
+import command.diary.CoupleDiarySave;
+import command.diary.DiaryDelete;
 import command.diary.DiaryList;
+import command.diary.DiaryModify;
+import command.diary.DiaryResearch;
+import command.diary.DiarySave;
 import command.diary.DiaryView;
-
-
-
-
-
-
 
 
 public class DiaryControl extends HttpServlet {
@@ -35,11 +35,27 @@ public class DiaryControl extends HttpServlet {
     private void initCommand(){
 		commandMap = new HashMap();
 
-		commandMap.put("main-page",	new CommandNull("main.jsp") );
-		commandMap.put("list-page",	new DiaryList("diary_person_list.jsp") );
-		// 나머지도 추가하기		
-		commandMap.put("view-page",	new DiaryView("diary_person_view.jsp") );
-	}
+		commandMap.put("main-page",	new CommandNull("main.jsp"));
+		commandMap.put("list-page",	new DiaryList("home.jsp"));
+		
+		commandMap.put("view-page",	new DiaryView("diary_person_view.jsp"));
+		commandMap.put("insert-do",	new DiarySave("home.jsp"));
+		commandMap.put("insert-page",new CommandNull("diary_person_save.jsp"));
+		commandMap.put("delete",new DiaryDelete("home.jsp"));
+		
+		commandMap.put("modify-do",	new DiaryModify("home.jsp"));	
+		commandMap.put("update-page",new DiaryView("diary_person_modify.jsp"));
+		
+		commandMap.put("list-research",new DiaryResearch("home.jsp"));
+		
+		//couple
+		commandMap.put("list-page-couple",	new CoupleDiaryList("/diary_couple/home.jsp"));
+		commandMap.put("insert-page-couple",new CommandNull("/diary_couple/diary_couple_save.jsp"));
+		commandMap.put("insert-do-couple",	new CoupleDiarySave("/diary_couple/home.jsp"));
+		commandMap.put("delete-couple",new DiaryDelete("/diary_couple/home.jsp"));
+		commandMap.put("update-page-couple",new DiaryView("/diary_couple/diary_couple_modify.jsp"));
+		commandMap.put("modify-do-couple",	new DiaryModify("/diary_couple/home.jsp"));
+    }
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

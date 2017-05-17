@@ -1,0 +1,26 @@
+{
+    "name": "listSorter",
+    "title": "jQuery List Sorter",
+    "description": "jQuery plugin for sorting lists which behave like tables",
+    "keywords": [
+        "sort",
+        "list",
+        "table"
+    ],
+    "version": "0.1.2",
+    "author": {
+        "name": "Aman Dogra",
+        "url": ""
+    },
+    "licenses": [
+        {
+            "type": "GPLv2",
+            "url": "https://github.com/amandogra/listSorter/blob/master/LICENSE"
+        }
+    ],
+    "bugs": "https://github.com/amandogra/listSorter/issues",
+    "homepage": "https://github.com/amandogra/listSorter",
+    "dependencies": {
+        "jquery": ">=1.5"
+    }
+}

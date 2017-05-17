@@ -1,0 +1,9 @@
+ul {
+list-style: none;
+}
+.headerSortDown .glyphicon:before {
+content: "\e114";
+}
+.headerSortUp .glyphicon:before {
+content: "\e113";
+}
