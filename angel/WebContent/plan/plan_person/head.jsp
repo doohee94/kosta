@@ -178,7 +178,7 @@ $(function(){
         <ul class="sub">
             <li><a href="/angel/.diary?cmd=list-page">Diary</a></li> <br/>
             <li><a href="/angel/plan?cmd=list-page">Plan</a></li> <br/>
-            <li><a href="/angel/cost?cmd=cost-list">Household Account</a></li><br/>
+            <li><a href="/angel/cost?cmd=cost-list">Household Account</a></li><br/><br/>
             <li><a>Photo</a></li><br/>
         </ul>
     </li>
