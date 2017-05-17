@@ -2,6 +2,8 @@
 <% String project = "/angel/UserControl?cmd=";
    String id = (String)session.getAttribute("id");
    
+
+   
 %>
 <!DOCTYPE HTML>
 <!--
@@ -84,6 +86,14 @@
 				font-size: 40px;
 				font-style: inherit;
 			}
+			
+			#ck{
+				margin-left: 5%;
+				border-style: none;
+				background-color:lightgray ;
+				text-align: center;
+			
+			}
 		</style>
 		
 		<script src='/angel/plan/plan_person/fullcalendar-3.4.0/fullcalendar-3.4.0/lib/jquery.min.js'></script>
@@ -131,7 +141,7 @@
 	    		  }
 				 var dayRegExp =/^(19|20)\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[0-1])$/;  
 	    		  var date = $("#date").val();
-	    		  if(!date){    
+	    		  if(!date){  
 	    			  alert("Plase Check Your Love Start Date!");
 	    			  return false;
 	    		  }  
@@ -180,9 +190,9 @@
 										<span>LOVER ID</span>
 								</div>
 									 <input type="text" id="coupleId" name="coupleId" class = "inputs"/><br/><br/>
-									<br>
-									
-									<input type="text" id="ck" name="ck" class = "inputs" readonly="readonly" style="width: 350px; "/><br/><br/>
+								
+							
+									<input type="text" id="ck" name="ck" readonly="readonly" style="width: 700px; "/><br/>
 									
 										<br>
 										<div style="text-align: center" id='temp1' >
@@ -191,7 +201,7 @@
 									<input type="text" class="inputs" name="date" id="date" placeholder="ex)2017-05-01" />	
 									<br>
 									<img src="/angel/main/img/heart_bnt.png" name="check_bnt" id="check_bnt"></img>									
-									 <br> <br> <br/>
+									 <br> <br> 
 									<div class="text">Please Insert Your Lover's ID. <br> <br> IF you Do that,<br>  <br/>You can share Couple Diary With your Lover!</div>
 									 
 						</div>		
