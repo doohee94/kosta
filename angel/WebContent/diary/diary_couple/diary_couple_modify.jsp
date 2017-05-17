@@ -10,21 +10,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" href="/extest/css/jquery-ui.css" />
-<link rel="stylesheet" href="/extest/css/hello_cloud.css" />
+<link rel="stylesheet" href="/angel/diary/diary_couple/css/jquery-ui.css" />
+<link rel="stylesheet" href="/angel/diary/diary_couple/css/hello_cloud.css" />
 
-<link href="/extest/css/weather.css" rel="stylesheet"
+<link href="/angel/diary/diary_couple/css/weather.css" rel="stylesheet"
 	type="text/css" />
 
-<link href="/extest/css/viewtext.css" rel="stylesheet"
+<link href="/angel/diary/diary_couple/css/viewtext.css" rel="stylesheet"
 	type="text/css" />
 <style type="text/css">
 
 
 </style>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="/extest/js/jquery-ui-1.11.1.js"></script>
-<script src="/extest/js/jquery.ui.datepicker.option.js"></script>
+<script src="/angel/diary/diary_couple/js/jquery-ui-1.11.1.js"></script>
+<script src="/angel/diary/diary_couple/js/jquery.ui.datepicker.option.js"></script>
 <title>view</title>
 <script type="text/javascript">
 function replaceAll(str, searchStr, replaceStr) {
@@ -42,7 +42,7 @@ $(function(){
 	$('#dProd').val($.datepicker.formatDate('yy-mm-dd', date));
 	$("#dProd").datepicker({
 		showOn:"button",
-		buttonImage: '/extest/imgs/btn_calendar.gif',
+		buttonImage: '/angel/diary/diary_couple/imgs/btn_calendar.gif',
 		buttonImageOnly: true
 		
 	});
@@ -180,7 +180,7 @@ $(function(){
     <input type="hidden" id="diarynum" name="diarynum">
     <input type="hidden" id="id" name="id">
     <input type="hidden" id="cid" name="cid">
-	<img src="/extest/imgs/confirm.png" id="commit" name="commit"></img>			
+	<img src="/angel/diary/diary_couple/imgs/confirm.png" id="commit" name="commit"></img>			
 	</form>
 </body>
 </html>

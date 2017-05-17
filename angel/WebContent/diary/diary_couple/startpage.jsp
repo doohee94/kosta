@@ -5,8 +5,7 @@
  
  String memberId = (String)session.getAttribute("id");
  String coupleId = (String)session.getAttribute("cid");
- memberId = "ckswhd1128";
- coupleId = "aaaa";
+
 %>    
 
 

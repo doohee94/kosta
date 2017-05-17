@@ -2,12 +2,10 @@
 <%@page import="mybatis.diary.model.Diary"%>
 <%@ page  contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%
-	String memberId = (String)session.getAttribute("id");
-	String coupleId = (String)session.getAttribute("cid");
-	memberId = "ckswhd1128";
-	coupleId = "aaaa";
-	
-	Diary list= (Diary)request.getAttribute("param");
+String memberId = (String)session.getAttribute("id");
+String coupleId = (String)session.getAttribute("cid");
+
+Diary list= (Diary)request.getAttribute("param");
 %>
 <!DOCTYPE html >
 <html>
@@ -132,7 +130,7 @@ $(function(){
    		</div>
 	</div>
 	<input type="hidden" id="weather" name = "weather">
-   	<a href=".diary?cmd=update-page-couple&diarynum=<%=list.getDiaryNum()%>"><img src="/extest/imgs/update.png" id="change" name="change"></img></a>					   
-	<a href=".diary?cmd=delete-couple&diarynum=<%=list.getDiaryNum()%>"><img src="/extest/imgs/delete.png" id="delete" name="delete"></img></a>
+   	<a href=".diary?cmd=update-page-couple&diarynum=<%=list.getDiaryNum()%>"><img src="/angel/diary/diary_couple/imgs/update.png" id="change" name="change"></img></a>					   
+	<a href=".diary?cmd=delete-couple&diarynum=<%=list.getDiaryNum()%>"><img src="/angel/diary/diary_couple/imgs/delete.png" id="delete" name="delete"></img></a>
 </body>
 </html>

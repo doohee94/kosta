@@ -11,8 +11,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
-		<link rel="stylesheet" href="/extest/assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="/extest/assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="/angel/diary/diary_couple/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="/angel/diary/diary_couple/assets/css/noscript.css" /></noscript>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
 	<body id="home_body">
@@ -46,11 +46,11 @@ h
 			</div>
 
 		<!-- Scripts -->
-			<script src="/extest/assets/js/jquery.min.js"></script>
-			<script src="/extest/assets/js/skel.min.js"></script>
-			<script src="/extest/assets/js/skel-viewport.min.js"></script>
-			<script src="/extest/assets/js/util.js"></script>
-			<script src="/extest/assets/js/main.js"></script>
+			<script src="/angel/diary/diary_couple/assets/js/jquery.min.js"></script>
+			<script src="/angel/diary/diary_couple/assets/js/skel.min.js"></script>
+			<script src="/angel/diary/diary_couple/assets/js/skel-viewport.min.js"></script>
+			<script src="/angel/diary/diary_couple/assets/js/util.js"></script>
+			<script src="/angel/diary/diary_couple/assets/js/main.js"></script>
 
 <script> //@@@@@@@@@@@여기도@@@@@@@@@@@@@
 function openNav() {

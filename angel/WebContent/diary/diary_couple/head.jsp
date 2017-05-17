@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Angel</title>
-<link rel="stylesheet" href="/extest/header/css/tab.css"/>
+<link rel="stylesheet" href="/angel/diary/diary_couple/header/css/tab.css"/>
 
 
 <style type="text/css">
@@ -106,7 +106,7 @@ footer{
   
 
 </style>
-<script type="text/javascript" src="/extest/header/js/tab.js"></script>
+<script type="text/javascript" src="/angel/diary/diary_couple/header/js/tab.js"></script>
 
 <script type="text/javascript">
 
@@ -114,9 +114,9 @@ $(function(){
 	
 	 $("#naviImg").hover(function(){
    	  
-   	  $('#naviImg').attr("src","/extest/header/img/over.png");
+   	  $('#naviImg').attr("src","/angel/diary/diary_couple/header/img/over.png");
      }, function(){
-   	  $('#naviImg').attr("src","/extest/header/img/out.png");
+   	  $('#naviImg').attr("src","/angel/diary/diary_couple/header/img/out.png");
    	  
      });
 	 
@@ -128,12 +128,12 @@ $(function(){
 <body>
 
  <div class="jbTitle">
-   		<img src="/extest/header/img/logosamlple.png" id="logo" name="logo"></img>
+   		<img src="/angel/diary/diary_couple/header/img/logosamlple.png" id="logo" name="logo"></img>
     </div>
     
     <div class="jbMenu">
       <p>
-     <img src="/extest/header/img/out.png" onclick="openNav()" id='naviImg' name="naviImg"></img>
+     <img src="/angel/diary/diary_couple/header/img/out.png" onclick="openNav()" id='naviImg' name="naviImg"></img>
       </p>
       
       
@@ -142,7 +142,7 @@ $(function(){
 <br/>
 <div id="mySidenav" class="sidenav">
 	<div class="jbTitle"  >
-   		<img src="/extest/header/img/logosamlple.png" id="logo_in_nave" name="logo_in_nave"  ></img>
+   		<img src="/angel/diary/diary_couple/header/img/logosamlple.png" id="logo_in_nave" name="logo_in_nave"  ></img>
     </div>
     <br/>
    <div style="text-align: center">환영해요......</div> <br/>
@@ -176,15 +176,11 @@ $(function(){
 	
 			<footer>
 			<div id='logout' name='logout' >LOGOUT</div>
-			<img src="/extest/header/img/logout.png"></img>
+			<img src="/angel/diary/diary_couple/header/img/logout.png"></img>
 			</footer>
 			
 	
 	
-
-
-
-
 </div>
     
 

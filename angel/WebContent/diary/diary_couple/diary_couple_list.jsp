@@ -6,12 +6,8 @@
 <%@ page import="java.text.SimpleDateFormat"%>
 <% 
 
-
 String memberId = (String)session.getAttribute("id");
 String coupleId = (String)session.getAttribute("cid");
-memberId = "ckswhd1128";
-coupleId = "aaaa";
-
 
 Date date = new Date();
 SimpleDateFormat today_f = new SimpleDateFormat("yyyy-MM-dd");
@@ -25,7 +21,7 @@ if(d== null){
 }
 
 if(list.size() == 0){
-	System.out.println("리스트음슴 시바");
+	System.out.println("일기가 없습니다.");
 }
 %>
 <!DOCTYPE html >
@@ -35,10 +31,10 @@ if(list.size() == 0){
 <title>일기장리스트</title>
 
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-<link href="/extest/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<link href="/extest/css/bootstrap-theme.min.css" rel="stylesheet"
+<link href="/angel/diary/diary_couple/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="/angel/diary/diary_couple/css/bootstrap-theme.min.css" rel="stylesheet"
 	type="text/css" />
-<link href="/extest/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/angel/diary/diary_couple/css/style.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 h1{
 display: inline-block;
@@ -61,7 +57,7 @@ width:200px;
 }
 </style>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src="/extest/js/jquery.listSorter.js"></script>
+<script type="text/javascript" src="/angel/diary/diary_couple/js/jquery.listSorter.js"></script>
 <script type="text/javascript">
 
 	$(function(){
@@ -81,8 +77,6 @@ width:200px;
 			
 			var url=".diary?cmd=list-research&date="+date;
 			$(location).attr('href',url);
-
-			
 
 		});
 	});
@@ -159,7 +153,7 @@ width:200px;
 			</div>
 		</div>
 	</div>
-	<a href=".diary?cmd=insert-page-couple&id=<%=memberId%>&cid=<%=coupleId%>"><img src="/extest/imgs/insert.png" id='insert' name="insert"></img></a>
+	<a href=".diary?cmd=insert-page-couple&id=<%=memberId%>&cid=<%=coupleId%>"><img src="/angel/diary/diary_couple/imgs/insert.png" id='insert' name="insert"></img></a>
 	
 	<script>
 		$('#tableLikeList').listSorter({
