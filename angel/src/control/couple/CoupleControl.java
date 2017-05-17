@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.basic.*;
+import command.couple.CommandBreak;
 import command.couple.CommandCouple;
 import command.user.*;
 
@@ -36,6 +37,8 @@ public class CoupleControl extends HttpServlet {
 		commandMap = new HashMap();
 		commandMap.put("couple-main", new CommandCouple("/couple/CoupleMainView.jsp"));
 		commandMap.put("couple_break_page", new CommandCouple("/main/couple_break.jsp"));
+		
+		commandMap.put("CoupleBreak", new CommandBreak("/plan/plan_person/home.jsp"));
 	}
 
 

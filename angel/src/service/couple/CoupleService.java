@@ -29,6 +29,11 @@ public class CoupleService {
 		return repo.selectCouple(member);
 	}
 
+	public int breakCouple(String id) {
+		return repo.breakCouple(id);
+		
+	}
+
 	
 
 }

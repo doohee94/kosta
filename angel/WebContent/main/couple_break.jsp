@@ -1,10 +1,15 @@
 <%@ page contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<% String projectName = "/test"; %> 
+<% String projectLink = "/angel/CoupleControl?cmd=";%>
 <%
 // 	로그인을 하기 위해, 아이디, 이름을 가져온다. 커플 아이디, 이름도 가져와야함.
+	String break_id = (String)session.getAttribute("loginId");
+	String break_cid = (String)session.getAttribute("coupleId");
+
 	String couple = (String)request.getAttribute("couple");
 	String couplePath = (String)request.getAttribute("couplePath");
 	String memberPath = (String)request.getAttribute("memberPath");	
+	System.out.print("CoupleMainView.jsp)break_id      : " + break_id+'\n');
+	System.out.print("CoupleMainView.jsp)break_cid      : " + break_cid+'\n');	
 	System.out.print("CoupleMainView.jsp)couple      : " + couple+'\n');
 	System.out.print("CoupleMainView.jsp)couplePath      : " + couplePath+'\n');
 	System.out.print("CoupleMainView.jsp)memberPath      : " + memberPath+'\n');
@@ -149,7 +154,13 @@ jQuery(document).ready(function($) {
 
 $(function(){
 	$("#heart").click(function(){
-		alert("클릭!!");
+		//alert("클릭!!");
+		
+		// member, couple을 찾아 update 해줄꺼야
+		// 뭘 update? couple membercouple, coupledate를 각각 null로 만들어야!!!
+				
+		location.href="<%=projectLink%>CoupleBreak&id=<%=break_id%>&cid=<%=break_cid%>";	
+	
 		
 		
 		
