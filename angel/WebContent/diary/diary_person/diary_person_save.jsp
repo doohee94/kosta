@@ -2,29 +2,26 @@
 <%
  String memberId = (String)session.getAttribute("id");
  String coupleId = (String)session.getAttribute("cid");
- memberId = "ckswhd1128";
- coupleId = "aaaa";
+
 %>
 <!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" href="/extest/css/jquery-ui.css" />
-<link rel="stylesheet" href="/extest/css/hello_cloud.css" />
+<link rel="stylesheet" href="/angel/diary/diary_person/css/jquery-ui.css" />
+<link rel="stylesheet" href="/angel/diary/diary_person/css/hello_cloud.css" />
 
-<link href="/extest/css/weather.css" rel="stylesheet"
-	type="text/css" />
+<link href="/angel/diary/diary_person/css/weather.css" rel="stylesheet"	type="text/css" />
 
-<link href="/extest/css/viewtext.css" rel="stylesheet"
-	type="text/css" />
+<link href="/angel/diary/diary_person/css/viewtext.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 
 
 </style>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="/extest/js/jquery-ui-1.11.1.js"></script>
-<script src="/extest/js/jquery.ui.datepicker.option.js"></script>
+<script src="/angel/diary/diary_person/js/jquery-ui-1.11.1.js"></script>
+<script src="/angel/diary/diary_person/js/jquery.ui.datepicker.option.js"></script>
 <title>view</title>
 <script type="text/javascript">
 
@@ -39,7 +36,7 @@ $(function(){
 	$('#dProd').val($.datepicker.formatDate('yy-mm-dd', date));
 	$("#dProd").datepicker({
 		showOn:"button",
-		buttonImage: '/extest/imgs/btn_calendar.gif',
+		buttonImage: '/angel/diary/diary_person/imgs/btn_calendar.gif',
 		buttonImageOnly: true
 		
 	});
@@ -164,7 +161,7 @@ $(function(){
 	</div>
 	<input type="hidden" id="cmd" name = "cmd" value="insert-do"/> 
     <input type="hidden" id="weather" name = "weather"> 
-    <img src="/extest/imgs/confirm.png" id="commit" name="commit"></img>
+    <img src="/angel/diary/diary_person/imgs/confirm.png" id="commit" name="commit"></img>
 	<input type="hidden" id="id" name = "id" value="<%=memberId%>"/>				
 	
 	</form>

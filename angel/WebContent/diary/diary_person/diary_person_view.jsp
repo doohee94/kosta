@@ -1,3 +1,4 @@
+
 <%@page import="mybatis.diary.model.Diary"%>
 <%@ page  contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%
@@ -15,11 +16,9 @@
 <link rel="stylesheet" href="css/jquery-ui.css" />
 <link rel="stylesheet" href="css/hello_cloud.css" />
 
-<link href="css/weather.css" rel="stylesheet"
-	type="text/css" />
+<link href="css/weather.css" rel="stylesheet"	type="text/css" />
 
-<link href="css/viewtext.css" rel="stylesheet"
-	type="text/css" />
+<link href="css/viewtext.css" rel="stylesheet"	type="text/css" />
 <style type="text/css">
 
 
@@ -48,27 +47,27 @@ $(function(){
 	
 	$('#sun-shower').click(function(){
 		$('#weather').val("비 해 구름");
-		alert("비 해 구름 선택했다. 그렇다.")
+		alert("비 해 구름 선택했다")
 	});
 	$('#thunder-storm').click(function(){
 		$('#weather').val("번개");
-		alert("번개 구름. 날벼락조심")
+		alert("번개 구름.")
 	});
 	$('#cloudy').click(function(){
 		$('#weather').val("구름");
-		alert("구름. 먹구름 100퍼")
+		alert("구름.")
 	});
 	$('#flurries').click(function(){
 		$('#weather').val("눈");
-		alert("눈. 빙판길 조심")
+		alert("눈.")
 	});
 	$('#sunny').click(function(){
 		$('#weather').val("해");
-		alert("해. 햇볕은 쨍쨍~")
+		alert("해.")
 	});
 	$('#rainy').click(function(){
 		$('#weather').val("비");
-		alert("비. 우산챙기시요");
+		alert("비.");
 	});
 
 

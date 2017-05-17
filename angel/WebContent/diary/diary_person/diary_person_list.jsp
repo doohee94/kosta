@@ -1,3 +1,4 @@
+
 <%@page import="mybatis.diary.model.Diary"%>
 <%@ page contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
@@ -6,9 +7,6 @@
 <% 
 String memberId = (String)session.getAttribute("id");
 String coupleId = (String)session.getAttribute("cid");
-memberId = "ckswhd1128";
-
-
 
 Date date = new Date();
 SimpleDateFormat today_f = new SimpleDateFormat("yyyy-MM-dd");
@@ -22,7 +20,7 @@ if(d== null){
 }
 
 if(list.size() == 0){
-	System.out.println("리스트음슴");
+	System.out.println("불러 올 일기가 없습니다. ");
 }
 %>
 <!DOCTYPE html >
@@ -32,10 +30,10 @@ if(list.size() == 0){
 <title>일기장리스트</title>
 
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-<link href="/extest/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<link href="/extest/css/bootstrap-theme.min.css" rel="stylesheet"
+<link href="/angel/diary/diary_person/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="/angel/diary/diary_person/css/bootstrap-theme.min.css" rel="stylesheet"
 	type="text/css" />
-<link href="/extest/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/angel/diary/diary_person/css/style.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 h1{
 display: inline-block;
@@ -58,7 +56,7 @@ width:200px;
 }
 </style>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src="/extest/diary/diary_person/js/jquery.listSorter.js"></script>
+<script type="text/javascript" src="/angel/diary/diary_person/js/jquery.listSorter.js"></script>
 <script type="text/javascript">
 
 	$(function(){
@@ -148,7 +146,7 @@ width:200px;
 		</div>
 	</div>
 	
-	<a href=".diary?cmd=insert-page&id=<%=memberId%>"><img src="/extest/diary/diary_person/imgs/insert.png" id='insert' name="insert"></img></a>
+	<a href=".diary?cmd=insert-page&id=<%=memberId%>"><img src="/angel/diary/diary_person/imgs/insert.png" id='insert' name="insert"></img></a>
 	
 	<script>
 		$('#tableLikeList').listSorter({
