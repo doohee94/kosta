@@ -1,13 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% String projectLink = "/angel/UserControl?cmd="; %>
-
+<% String h_projectLink = "/angel/UserControl?cmd="; %>
+<%
+	String h_loginid = (String)session.getAttribute("loginId");
+	System.out.print("plan)head)의 로그인한 아이디   "+h_loginid);
+	
+	String h_id = (String)session.getAttribute("loginId");
+	String h_cid =  (String)session.getAttribute("coupleId");
+	
+%>
 <!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Angel</title>
-<link rel="stylesheet" href="/angel/plan/plan_person/assets/css/tab.css"/>
+<link rel="stylesheet" href="/angel/plan/plan_couple/assets/css/tab.css"/>
 
 
 <style type="text/css">
@@ -115,18 +122,11 @@ $(function(){
 	
 	 $("#naviImg").hover(function(){
    	  
-   	  $('#naviImg').attr("src","/angel/plan/plan_person/assets/css/images/over.png");
+   	  $('#naviImg').attr("src","/angel/plan/plan_couple/assets/css/images/over.png");
      }, function(){
-   	  $('#naviImg').attr("src","/angel/plan/plan_person/assets/css/images/out.png");
+   	  $('#naviImg').attr("src","/angel/plan/plan_couple/assets/css/images/out.png");
    	  
      });
-	 
-
-	 
-	 $(".logout").click(function(){
-// 		session.removeAttribute("login");		
-		location.href="<%=projectLink%>backToLoginView";
-	 })
 	 
 });
 
@@ -136,12 +136,12 @@ $(function(){
 <body>
 
  <div class="jbTitle">
-   		<img src="/angel/plan/plan_person/assets/css/images/logosamlple.png" id="logo" name="logo"></img>
+   		<img src="/angel/plan/plan_couple/assets/css/images/logosamlple.png" id="logo" name="logo"></img>
     </div>
     
     <div class="jbMenu">
       <p>
-     <img src="/angel/plan/plan_person/assets/css/images/out.png" onclick="openNav()" id='naviImg' name="naviImg"></img>
+     <img src="/angel/plan/plan_couple/assets/css/images/out.png" onclick="openNav()" id='naviImg' name="naviImg"></img>
       </p>
       
       
@@ -150,10 +150,10 @@ $(function(){
 <br/>
 <div id="mySidenav" class="sidenav">
 	<div class="jbTitle" ">
-   		<img src="/angel/plan/plan_person/assets/css/images/logosamlple.png" id="logo_in_nave" name="logo_in_nave"  ></img>
+   		<img src="/angel/plan/plan_couple/assets/css/images/logosamlple.png" id="logo_in_nave" name="logo_in_nave"  ></img>
     </div>
     <br/>
-   <div class ="welcome" id="welcome" style="text-align: center">000님, 환영합니다.</div> <br/>
+   <div style="text-align: center">000님, 환영합니다.</div> <br/>
    
   	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"  >&times;</a>
 
@@ -169,6 +169,16 @@ $(function(){
             <li><a>Photo</a></li><br/>
         </ul>
     </li>
+	
+	 <%if(h_cid != null) {%>
+        <li data-extension="open">
+    	<div class="main-title"><span class="folder"> </span><a>Couple <br/></a></div> 
+    	 <ul class="sub">
+            <li><a href="/angel/couple?cmd=couple-main&id=<%=h_loginid%>">Couple</a></li><br/>
+    	 </ul>
+    </li>
+		<%} %>
+
 
     <li data-extension="open">
         <div class="main-title"><span class="folder"> </span><a>Setting <br/> </a></div> 
@@ -184,13 +194,15 @@ $(function(){
 
 	
 			<footer>
-			<div class="logout">
-			<div id='logout'>LOGOUT</div>
-			<img src="/angel/plan/plan_person/assets/css/images/logout.png"></img>
-			</div>
+			<div id='logout' name='logout' >LOGOUT</div>
+			<img src="/angel/plan/plan_couple/assets/css/images/logout.png"></img>
 			</footer>
 			
 	
+	
+
+
+
 
 </div>
     
