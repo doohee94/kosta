@@ -95,7 +95,7 @@
 		<table>
 		<tr>
 		<td>
-			<input class="user-input" type="text" name="id" id="id" placeholder="id"/>		
+			<input class="user-input" type="text" autocomplete="off" name="id" id="id" placeholder="id"/>		
 		</td>
 		<td>
 			<input class="user-input" style="color:#FF5675" type="text" disabled="disabled" name="idCheckResult" id="idCheckResult" placeholder=""/>
@@ -103,15 +103,15 @@
 		</tr>
 		<tr>
 		<td>
-			<input class="user-input" type="password" name="pw" id="pw" placeholder="password"/>		
+			<input class="user-input" type="password" autocomplete="off" name="pw" id="pw" placeholder="password"/>		
 		</td>
 		<td>
-			<input class="user-input" type="password" name="pwCheck" id="pwCheck" placeholder="confirm password"/>		
+			<input class="user-input" type="password" autocomplete="off" name="pwCheck" id="pwCheck" placeholder="confirm password"/>		
 		</td>
 		</tr>
 		<tr>
 		<td>
-			<input class="user-input" type="text" name="name" id="name" placeholder="name"/>		
+			<input class="user-input" type="text" autocomplete="off" name="name" id="name" placeholder="name"/>		
 		</td>
 		<td align="center">
 			<input type="radio" name="gender" id="gender" class="gender" value="male">male
@@ -126,10 +126,10 @@
 		</tr>
 				<tr>
 		<td>
-			<input class="user-input" type="text" name="tel" id="tel" placeholder="tel ex)010-8308-1520"/>		
+			<input class="user-input" type="text" autocomplete="off" name="tel" id="tel" placeholder="tel ex)010-8308-1520"/>		
 		</td>
 		<td>
-			<input class="user-input" type="text" name="birth" id="birth" placeholder="birth ex)19929017"/>		
+			<input class="user-input" type="text" autocomplete="off" name="birth" id="birth" placeholder="birth ex)19929017"/>		
 		</td>
 		</tr>
 		</table>
