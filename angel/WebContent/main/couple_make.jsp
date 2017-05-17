@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <% String project = "/angel/UserControl?cmd=";
-   String id = (String)session.getAttribute("id");
+   String id = (String)session.getAttribute("loginId");
    
 
    
@@ -119,7 +119,6 @@
 	    			  type : "post",
 	    			  dataType : "text",
 	    			  success : function(data){
-	    				  alert(data);
 	    				  if(data == "false"){
 	    					  $("#ck").val("There is no corresponding ID or there is already a couple.");
 	    					  $("#check").val("false");
@@ -154,7 +153,6 @@
 	    		  var id = '<%=id%>';
 	    		  
 	    		  var url = "<%=project%>make_couple&cid="+cid+"&id="+id+"&date="+date;
-	    		  alert(url);
 	    		  $(location).attr("href",url);
 	    		  
 			});//클릭
