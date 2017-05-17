@@ -49,6 +49,8 @@ public class UserControl extends HttpServlet {
 		commandMap.put("ModifyMember", new CommandModifyView("/main/ModifyView.jsp"));
 		commandMap.put("Modify", new CommandModify("/main/ModifyView.jsp"));
 		
+		commandMap.put("logout_user", new CommandLogout("/main/LoginView.jsp"));
+		
 	}
 
 
