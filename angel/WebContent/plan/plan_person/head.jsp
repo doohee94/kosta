@@ -207,7 +207,7 @@ $(function(){
     <li data-extension="open">
         <div class="main-title"><span class="folder"> </span><a>Setting <br/> </a></div> 
         <ul class="sub">
-            <li><a href="/angel/main/UserControl?cmd=ModifyMember&id=<%=h_loginid%>">Information</a></li><br/>
+            <li><a href="/angel/UserControl?cmd=ModifyMember&id=<%=h_loginid%>">Information</a></li><br/>
 
         </ul>
     </li>

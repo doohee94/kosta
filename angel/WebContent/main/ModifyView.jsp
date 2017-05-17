@@ -1,5 +1,21 @@
+<%@page import="java.util.StringTokenizer"%>
+<%@page import="model.user.MemberVo"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<% String projectLink = "/angel/UserControl?cmd="; %>
+<% String projectLink = "/angel/UserControl?cmd="; 
+	MemberVo member = (MemberVo)request.getAttribute("modifyMember");
+	String bday = member.getMemberBirth();
+	StringTokenizer st = new StringTokenizer(bday);
+	String birthDay = st.nextToken();
+// 	System.out.print("ModifyView.jsp   "+member.getMemberId()+"\n");
+// 	System.out.print("ModifyView.jsp   "+member.getMemberPw()+"\n");
+// 	System.out.print("ModifyView.jsp   "+member.getMemberName()+"\n");
+// 	System.out.print("ModifyView.jsp   "+member.getMemberGender()+"\n");
+// 	System.out.print("ModifyView.jsp   "+member.getMemberTel()+"\n");
+// 	System.out.print("ModifyView.jsp   "+member.getMemberBirth()+"\n");
+// 	System.out.print("ModifyView.jsp   "+member.getPhotoRealpath()+"\n");
+	
+	
+%>
 
 <!DOCTYPE html>
 <html>
@@ -14,6 +30,17 @@
 <script type="text/javascript">
 	$(function(){
 
+		// 라디오버튼은 이렇게
+		if("male"=="<%=member.getMemberGender()%>"){
+			$("input:radio[name='gender']:radio[value='male']").prop("checked", true);
+		}else{
+			$("input:radio[name='gender']:radio[value='female']").prop("checked", true);
+		};
+
+		
+		
+		
+		
 		$(".photo").click(function(){
 			// 회원가입시 사진도 필요하지~
 			alert("사진등록");	
@@ -83,7 +110,7 @@
 	<form name="frm" method="post" action="<%=projectLink%>memberSignUp" enctype="multipart/form-data">
 <!-- 	<input type="hidden" id='cmd' name='cmd' value="memberSignUp"/> -->
 	<div align="center">
-<!-- 	<img src="img/profile1.jpg" alt="boy"> -->
+	<img src="<%=member.getPhotoRealpath()%>" width=200px height=150px alt="boy">
 	<br/>
 	
 	<!-- 	<button class="replace">파일 업로드</button> -->
@@ -95,7 +122,7 @@
 		<table>
 		<tr>
 		<td>
-			<input class="user-input" type="text" autocomplete="off" name="id" id="id" placeholder="id"/>		
+			<input class="user-input" type="text" autocomplete="off" name="id" id="id" placeholder="id" value=<%=member.getMemberId()%>>		
 		</td>
 		<td>
 			<input class="user-input" style="color:#FF5675" type="text" disabled="disabled" name="idCheckResult" id="idCheckResult" placeholder=""/>
@@ -103,15 +130,15 @@
 		</tr>
 		<tr>
 		<td>
-			<input class="user-input" type="password" autocomplete="off" name="pw" id="pw" placeholder="password"/>		
+			<input class="user-input" type="password" autocomplete="off" name="pw" id="pw" placeholder="password" value="<%=member.getMemberPw()%>">		
 		</td>
 		<td>
-			<input class="user-input" type="password" autocomplete="off" name="pwCheck" id="pwCheck" placeholder="confirm password"/>		
+			<input class="user-input" type="password" autocomplete="off" name="pwCheck" id="pwCheck" placeholder="confirm password" value="<%=member.getMemberPw()%>">		
 		</td>
 		</tr>
 		<tr>
 		<td>
-			<input class="user-input" type="text" autocomplete="off" name="name" id="name" placeholder="name"/>		
+			<input class="user-input" type="text" autocomplete="off" name="name" id="name" placeholder="name" value="<%=member.getMemberName()%>">		
 		</td>
 		<td align="center">
 			<input type="radio" name="gender" id="gender" class="gender" value="male">male
@@ -126,10 +153,10 @@
 		</tr>
 				<tr>
 		<td>
-			<input class="user-input" type="text" autocomplete="off" name="tel" id="tel" placeholder="tel ex)010-8308-1520"/>		
+			<input class="user-input" type="text" autocomplete="off" name="tel" id="tel" placeholder="tel ex)010-8308-1520" value="<%=member.getMemberTel()%>">		
 		</td>
 		<td>
-			<input class="user-input" type="text" autocomplete="off" name="birth" id="birth" placeholder="birth ex)19929017"/>		
+			<input class="user-input" type="text" autocomplete="off" name="birth" id="birth" placeholder="birth ex)19929017" value="<%=birthDay%>">		
 		</td>
 		</tr>
 		</table>

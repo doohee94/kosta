@@ -47,7 +47,7 @@ public class UserControl extends HttpServlet {
 		commandMap.put("make_couple", new CommandMakeCouple("/plan/plan_person/home.jsp"));
 		
 		commandMap.put("ModifyMember", new CommandModifyView("/main/ModifyView.jsp"));
-		commandMap.put("ModifyMember", new CommandModify("/main/ModifyView.jsp"));
+		commandMap.put("Modify", new CommandModify("/main/ModifyView.jsp"));
 		
 	}
 

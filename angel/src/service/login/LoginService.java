@@ -52,6 +52,10 @@ public class LoginService {
 		return repo.searchPw(search);
 	}
 
+	public MemberVo ModifyView(String id) {
+		return repo.modifyView(id);
+	}
+
 	
 	
 	
