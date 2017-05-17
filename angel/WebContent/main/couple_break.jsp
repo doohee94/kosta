@@ -87,6 +87,9 @@ jQuery(document).ready(function($) {
 						<!-- Me -->
 							<article id="me" class="panel">
 								<header>
+								
+<h3 class="sign-in">Please Think Again</h3>								
+<h3 class="sign-in">If You Click Heart, You Can Break Couple</h3>								
 <div class="total">								
 <div class="profile" align="center">
 <img src="<%=memberPath%>" height="128px" width="128px" alt="boy">

@@ -35,7 +35,7 @@ public class CoupleControl extends HttpServlet {
 		System.out.println("couple)command를 탄다...!!!");
 		commandMap = new HashMap();
 		commandMap.put("couple-main", new CommandCouple("/couple/CoupleMainView.jsp"));
-		
+		commandMap.put("couple_break_page", new CommandCouple("/main/couple_break.jsp"));
 	}
 
 

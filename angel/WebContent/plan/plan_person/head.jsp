@@ -190,7 +190,7 @@ $(function(){
             <li><a href="/angel/couple?cmd=couple-main&id=<%=h_loginid%>">Couple</a></li><br/>
             <li><a href="">Couple Plan</a></li><br/>
             <li><a href="">Couple Diary</a></li><br/>
-            <li><a href="/angel/couple?cmd=couple-main&id=<%=h_loginid%>">Break Couple</a></li><br/>
+            <li><a href="/angel/couple?cmd=couple_break_page&id=<%=h_loginid%>">Break Couple</a></li><br/>
     	 </ul>
     </li>
 		<%}else{ %>
