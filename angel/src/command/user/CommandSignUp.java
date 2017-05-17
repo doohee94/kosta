@@ -55,7 +55,7 @@ public class CommandSignUp implements Command {
 			// 전송받은 데이터가 파일일 경우 getOriginalFileName 으로 파일 이름을 받는다.
 			String photo = mult.getOriginalFileName("photo");
 			// 업로드한 파일의 전체 경로를 DB에 저장하기 위함.. (사용하기 쉽게 하기 위해 잘라서 넣는다. 나중에 가져오기 쉽게할려고!!!!)
-			String path = "/angel/profilePhoto/"+photo;
+			String path = "/angel/profile/"+photo;
 			
 			// 잘 가져오는지 test 해보기위함.. (파라미터를.. 아주 힘들었음)
 			System.out.println("id는   "+id);
