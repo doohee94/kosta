@@ -227,9 +227,11 @@
 				
 			<script> //@@@@@@@@@@@여기도@@@@@@@@@@@@@
 function openNav() {
-    document.getElementById("mySidenav").style.width = "350px";
-    document.getElementById("sidemain").style.marginLeft = "350px";
-}
+			    document.getElementById("mySidenav").style.width = "350px";
+			    document.getElementById("sidemain").style.marginLeft = "350px";
+			    document.getElementById("welcome").innerHTML="Welcome <%=id%>!";
+			  
+			}
 
 function closeNav() {
 	 document.getElementById("mySidenav").style.width = "0";
