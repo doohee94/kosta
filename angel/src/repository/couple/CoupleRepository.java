@@ -77,6 +77,33 @@ public class CoupleRepository {
 
 	}
 
+	public int breakCouple(String id) {
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		
+		System.out.println("Couple)Repository)id는   "+id);
+
+		try{
+			
+			HashMap map = new HashMap();
+			map.put("id", id);
+			
+			String statement = namespace + ".breakCouple";
+			int update_break = sqlSess.update(statement, map);
+			
+			System.out.println("update한 결과?"+update_break);
+			
+			if(update_break>0){
+				sqlSess.commit();
+			}else{
+				sqlSess.rollback();
+			}
+			
+			return update_break;
+		}finally{
+			sqlSess.close();
+		}
+	}
+
 
 
 }

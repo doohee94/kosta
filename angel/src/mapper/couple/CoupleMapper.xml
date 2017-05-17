@@ -14,5 +14,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	WHERE member_couple = #{memberId}
 </select>
 
+<update id="breakCouple" parameterType="hashmap">
+
+	UPDATE member
+	SET member_couple = null, couple_date=null
+	WHERE member_id = #{id}
+
+</update>
 
 </mapper>
