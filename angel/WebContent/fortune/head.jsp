@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<% String h_projectLink = "/angel/UserControl?cmd="; %>
+<%
+	String h_loginid = (String)session.getAttribute("loginId");
+	System.out.print("plan)head)의 로그인한 아이디   "+h_loginid);
+	
+	String h_id = (String)session.getAttribute("loginId");
+	String h_cid =  (String)session.getAttribute("coupleId");
+	
+%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -157,10 +165,20 @@ $(function(){
         <ul class="sub">
             <li><a href="/angel/.diary?cmd=list-page">Diary</a></li> <br/>
             <li><a href="/angel/plan?cmd=list-page">Plan</a></li> <br/>
-            <li><a href="/angel/cost?cmd=cost-list">Household Account</a></li><br/>
+            <li><a href="/angel/cost?cmd=cost-list">Household Account</a></li><br/><br/>
             <li><a>Photo</a></li><br/>
         </ul>
     </li>
+	
+	 <%if(h_cid != null) {%>
+        <li data-extension="open">
+    	<div class="main-title"><span class="folder"> </span><a>Couple <br/></a></div> 
+    	 <ul class="sub">
+            <li><a href="/angel/couple?cmd=couple-main&id=<%=h_loginid%>">Couple</a></li><br/>
+    	 </ul>
+    </li>
+		<%} %>
+
 
     <li data-extension="open">
         <div class="main-title"><span class="folder"> </span><a>Setting <br/> </a></div> 
