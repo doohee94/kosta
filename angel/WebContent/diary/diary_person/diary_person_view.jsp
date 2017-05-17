@@ -1,5 +1,12 @@
+<%@page import="mybatis.diary.model.Diary"%>
 <%@ page  contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-
+<%
+	Diary list= (Diary)request.getAttribute("param");
+	
+	String memberId = (String)session.getAttribute("id");
+	String coupleId = (String)session.getAttribute("cid");
+	memberId = "ckswhd1128";
+%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -17,66 +24,69 @@
 
 
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="js/jquery-ui-1.11.1.js"></script>
 <script src="js/jquery.ui.datepicker.option.js"></script>
 <title>view</title>
 <script type="text/javascript">
 
+function replaceAll(str, searchStr, replaceStr) {
+    return str.split(searchStr).join(replaceStr);
+}
+
+
 $(function(){
 	var date = new Date();
 	var month = date.getMonth();
-	var rain = document.getElementById("sun-shower");
-	$('#dProd').val($.datepicker.formatDate('yy-mm-dd', date));
-	$("#dProd").datepicker({
-		showOn:"button",
-		buttonImage: 'imgs/btn_calendar.gif',
-		buttonImageOnly: true
-		
-	});
+	var rain = document.getElementById("rain");
 	
-	$(".sun-shower").click(function(){
-		$(".rain").toggleClass("rainToggle");	//class를 on/of를 하는 방법 : toggleClass
-		$(".sun").toggleClass("sunToggle");
-	});
+	var text = '<%= list.getDiaryContent() %>';
 	
-	$(".cloudy").click(function(){
-		$(".cloud:nth-child(2)").toggleClass("cloudToggle");
-	});
 	
-	$(".thunder-storm").click(function(){
-		$(".bolt").toggleClass("boltToggle1");	
-		$(".bolt:nth-child(2)").toggleClass("boltToggle2");
-	});
+	$('#texta').val(replaceAll(text,"<br/>", "\r\n"));
 	
-	 
-	$(".flurries").click(function(){
-		$(".flake").toggleClass("flakeToggle3");	
-		$(".flake").toggleClass("flakeToggle4");
-		$(".flake").toggleClass("flakeToggle1");
-		$(".flake").toggleClass("flakeToggle2");
-		
-		
+	$('#sun-shower').click(function(){
+		$('#weather').val("비 해 구름");
+		alert("비 해 구름 선택했다. 그렇다.")
 	});
-	 
+	$('#thunder-storm').click(function(){
+		$('#weather').val("번개");
+		alert("번개 구름. 날벼락조심")
+	});
+	$('#cloudy').click(function(){
+		$('#weather').val("구름");
+		alert("구름. 먹구름 100퍼")
+	});
+	$('#flurries').click(function(){
+		$('#weather').val("눈");
+		alert("눈. 빙판길 조심")
+	});
+	$('#sunny').click(function(){
+		$('#weather').val("해");
+		alert("해. 햇볕은 쨍쨍~")
+	});
+	$('#rainy').click(function(){
+		$('#weather').val("비");
+		alert("비. 우산챙기시요");
+	});
+
+
 });
 </script>
 </head>
 <body>
+<div class="weather_tab">
 
-		
-
-	<div class="weather_tab">
-
-		<div class="icon sun-shower" id="sun-shower">
-			<div class="cloud" id="cloud"></div>
-			<div class="sun" id="sun">
-				<div class="rays" id="rays"></div>
+		<div class="icon sun-shower"  id="sun-shower" name="sun-shower">
+			<div class="cloud"></div>
+			<div class="sun">
+				<div class="rays"></div>
 			</div>
 			<div class="rain" ></div>
 		</div>
 
-		<div class="icon thunder-storm" id="thunder-storm">
+		<div class="icon thunder-storm" id="thunder-storm" name="thunder-storm">
 			<div class="cloud"></div>
 			<div class="lightning">
 				<div class="bolt"></div>
@@ -84,12 +94,12 @@ $(function(){
 			</div>
 		</div>
 
-		<div class="icon cloudy" id="cloudy">
+		<div class="icon cloudy" id="cloudy" name="cloudy">
 			<div class="cloud"></div>
 			<div class="cloud"></div>
 		</div>
 
-		<div class="icon flurries" id="flurries">
+		<div class="icon flurries" id="flurries" name="flurries">
 			<div class="cloud"></div>
 			<div class="snow">
 				<div class="flake"></div>
@@ -97,13 +107,13 @@ $(function(){
 			</div>
 		</div>
 
-		<div class="icon sunny" id="sunny">
+		<div class="icon sunny" id="sunny" name="sunny">
 			<div class="sun">
 				<div class="rays"></div>
 			</div>
 		</div>
 
-		<div class="icon rainy" id="rainy">
+		<div class="icon rainy" id="rainy" name="rainy">
 			<div class="cloud"></div>
 			<div class="rain"></div>
 		</div>
@@ -113,15 +123,14 @@ $(function(){
 	<div class="paper">
     	<div class="paper-content">
     	<p>	
-				<label for = "title" id="title2">제목:</label><input type= 'text' id = "title" name = 'title' />
-			
-		
-		 <input type="text" id="dProd" readonly/> 
+			<label for = "title" id="title2">제목:</label><input type= 'text' id = "title" name = 'title' value="<%= list.getDiaryTitle()%>" readonly/>
+			<input type="text" id="dProd" value="<%= list.getDiaryDate() %>" readonly/> 
 		</p>
-        	<textarea >textarea tag.</textarea>
+  	      	<textarea id = 'texta' name='texta'readonly></textarea>
    		</div>
 	</div>
-    
-
+	<input type="hidden" id="weather" name = "weather">
+   	<a href=".diary?cmd=update-page&diarynum=<%=list.getDiaryNum()%>"><img src="/extest/imgs/update.png" id="change" name="change"></img></a>					   
+	<a href=".diary?cmd=delete&diarynum=<%=list.getDiaryNum()%>"><img src="/extest/imgs/delete.png" id="delete" name="delete"></img></a>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <%@page import="javafx.scene.control.Alert"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <% String projectLink = "/angel/UserControl?cmd="; %>
-<%
+<%   
 	// 로그인 실패시 알려주기 위해 request로 받아왔음
 	String loginCheck = (String)request.getAttribute("loginCheck");
 //  System.out.print(loginCheck+"는 로그인 체크 결과값임");
@@ -54,10 +54,10 @@
 	<form id="frm" name="frm" method="post" action="<%=projectLink%>loginCheck">
 		<div align="center">
 		
-		<input class="user-input" type="text" name="id" id="id" placeholder="id is"/>
+		<input class="user-input" autocomplete="off" type="text" name="id" id="id" placeholder="id is"/>
  		</div>
 		<div align="center">
-			<input type="password" name="pw" id="pw" placeholder="password is"/>
+			<input type="password" autocomplete="off" name="pw" id="pw" placeholder="password is"/>
  		</div>
  		<div align="center">
 		<input type="submit" value="Login" class="login">

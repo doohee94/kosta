@@ -2,7 +2,7 @@ package service.diary;
 
 import java.util.List;
 
-import model.diary.DiaryVo;
+import mybatis.diary.model.Diary;
 import repository.diary.DiaryRepository;
 
 public class DiaryService {
@@ -22,10 +22,25 @@ public class DiaryService {
 	   
 	   DiaryRepository repo = new DiaryRepository();
 	   
-	   public List<DiaryVo> selectList(){
-		   return repo.selectList();
+	   public List<Diary> selectList(String memberId, String coupleId ){
+		   return repo.selectList(memberId, coupleId );
 	   }
-	   public DiaryVo selectView(int diarynum){
+	   public Diary selectView(int diarynum){
 		   return repo.selectView(diarynum);
 	   }
+	   public int insertView(Diary d){
+		   return repo.insertView(d);
+	   }
+	   public int deleteView(int diarynum){
+		   return repo.deleteView(diarynum);
+	   }
+	   public int modifyView(Diary d){
+		   return repo.modifyView(d);
+	   }
+	   public List<Diary> researchList(String memberId, String diarydate){
+		   return repo.researchList(memberId,diarydate);
+	   }
+	   public int insertViewCouple(Diary d){
+		   return repo.insertViewCouple(d);
+	   } 
 }

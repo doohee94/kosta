@@ -14,7 +14,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-		
+		   
 		$(".ok1").click(function(){
 			
 			//ajax를 이용하여!!!!!!
@@ -73,8 +73,8 @@
   	<div id="home" class="tab-pane fade in active">
    	<h3>아이디 찾기를 선택하셨습니다.</h3>
    	(본인의 이름, 핸드폰번호를 입력해주세요.)<br/>
-  	이름 <input type="text" name="name" class="name"/>
-   	핸드폰번호 <input type="text" class="tel1" name="tel1" placeholder="tel ex)010-8308-1520"/>
+  	이름 <input type="text"  autocomplete="off" name="name" class="name"/>
+   	핸드폰번호 <input type="text" autocomplete="off" class="tel1" name="tel1" placeholder="tel ex)010-8308-1520"/>
    	<div id="searchResult"></div>
 	<div class="ok1">확인</div>
 	<div class="cancel">취소</div>
@@ -83,8 +83,8 @@
 	<div id="menu1" class="tab-pane fade">
    	<h3>비밀번호 찾기를 선택하셨습니다.</h3>
    	(본인의 아이디, 핸드폰번호를 입력해주세요.)<br/>
-   	아이디 <input type="text" name="id" class="id">
-   	핸드폰번호 <input type="text" name="tel" class="tel2" placeholder="tel ex)010-8308-1520"/>
+   	아이디 <input type="text" autocomplete="off" name="id" class="id">
+   	핸드폰번호 <input type="text" autocomplete="off" name="tel" class="tel2" placeholder="tel ex)010-8308-1520"/>
     <div id="searchResult2"></div>
 	<div class="ok2">확인</div>
 	<div class="cancel">취소</div>

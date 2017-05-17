@@ -1,12 +1,29 @@
-<%@page import="model.diary.DiaryVo"%>
+<%@page import="mybatis.diary.model.Diary"%>
 <%@ page contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.SimpleDateFormat"%>
-<% Date date = new Date();
+<% 
+String memberId = (String)session.getAttribute("id");
+String coupleId = (String)session.getAttribute("cid");
+memberId = "ckswhd1128";
+
+
+
+Date date = new Date();
 SimpleDateFormat today_f = new SimpleDateFormat("yyyy-MM-dd");
 String today =today_f.format(date); 
-List <DiaryVo> list = (List <DiaryVo>)request.getAttribute("param");
+
+List <Diary> list = (List <Diary>)request.getAttribute("param");
+String d = (String)request.getAttribute("date");
+
+if(d== null){
+	d=today;
+}
+
+if(list.size() == 0){
+	System.out.println("리스트음슴");
+}
 %>
 <!DOCTYPE html >
 <html>
@@ -14,12 +31,11 @@ List <DiaryVo> list = (List <DiaryVo>)request.getAttribute("param");
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>일기장리스트</title>
 
-<link href="http://www.jqueryscript.net/css/jquerysctipttop.css"
-	rel="stylesheet" type="text/css">
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<link href="css/bootstrap-theme.min.css" rel="stylesheet"
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link href="/extest/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="/extest/css/bootstrap-theme.min.css" rel="stylesheet"
 	type="text/css" />
-<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="/extest/css/style.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 h1{
 display: inline-block;
@@ -27,27 +43,38 @@ display: inline-block;
 #year{
 margin-left: 250px;
 }
+
+.list-group-item clearfix{
+
+width:200px;
+
+
+}
+
+#month, #year{
+	height:50px;
+	font-size: 20px;
+	
+}
 </style>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src="js/jquery.listSorter.js"></script>
+<script type="text/javascript" src="/extest/diary/diary_person/js/jquery.listSorter.js"></script>
 <script type="text/javascript">
 
 	$(function(){
-		
-		var year = $('#year option:selected').val();
-		var month = $('#month option:selected').val();
+		var selDate = '<%=d%>';
+		if(selDate.split("/") == null){
+			alert(selDate.split("-")[0]);
+		}
 		$('#search').click(function(){
-// 			$.ajax({  
-// 				url: '/.diary?cmd=list-page&year='+year+"&month="+month,
-// 				type : 'get',
-				
-// 			});
-
+			var year = $('#year option:selected').val();
+			var month = $('#month option:selected').val();
+			var date = year +"/"+month;
+			var url = ".diary?cmd=list-research&date="+date;
 			
-
+			$(location).attr('href',url);
 		});
 	});
-
 </script>
 </head>
 <body>
@@ -56,33 +83,35 @@ margin-left: 250px;
 		<div class="row">
 			<h1>일기장</h1>
 			<select  class="select" id= "year" tabindex="1">
-            <option value="2011">2011</option>
-            <option value="2012">2012</option>
-            <option value="2013">2013</option>
-            <option value="2014">2014</option>
-            <option value="2015">2015</option>
-            <option value="2016">2016</option>
-            <option value="2017">2017</option>
-            <option value="2018">2018</option>
-            <option value="2019">2019</option>
-            <option value="2020">2020</option>
-                   </select>
+            <option value="11">2011년</option>
+            <option value="12">2012년</option>
+            <option value="13">2013년</option>
+            <option value="14">2014년</option>
+            <option value="15">2015년</option>
+            <option value="16">2016년</option>
+            <option value="17">2017년</option>
+            <option value="18">2018년</option>
+            <option value="19">2019년</option>
+            <option value="20">2020년</option>
+            </select>
 			<select name="month" id="month" >
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
-				</select> 
+					<option value="01">1월</option>
+					<option value="02">2월</option>
+					<option value="03">3월</option>
+					<option value="04">4월</option>
+					<option value="05">5월</option>
+					<option value="06">6월</option>
+					<option value="07">7월</option>
+					<option value="08">8월</option>
+					<option value="09">9월</option>
+					<option value="10">10월</option>
+					<option value="11">11월</option>
+					<option value="12">12월</option>
+				</select>
 			<input type='button' value='검색' id = 'search'>
-			<div id="tableLikeList" class="row panel panel-default">
+			
+			
+			<div id="tableLikeList" >
 				<div class="thead panel-heading clearfix">
 					<div data-idx="0" class="col-md-6 hcell">
 						<p class="text-center">
@@ -95,6 +124,8 @@ margin-left: 250px;
 						</p>
 					</div>
 				</div>
+				
+			<%if(list.size()>0){ %>
 				<ul class="tbody cb list-group">
 				
 					<% for(int i = 0; i<list.size(); i++){ %>
@@ -110,9 +141,14 @@ margin-left: 250px;
 					<%} %>
 					
 				</ul>
+				<%}else{ %>
+						<div>일기가 없습니다.</div>
+				<%} %>
 			</div>
 		</div>
 	</div>
+	
+	<a href=".diary?cmd=insert-page&id=<%=memberId%>"><img src="/extest/diary/diary_person/imgs/insert.png" id='insert' name="insert"></img></a>
 	
 	<script>
 		$('#tableLikeList').listSorter({
