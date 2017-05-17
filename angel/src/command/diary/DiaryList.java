@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.basic.Command;
-import model.diary.DiaryVo;
+import mybatis.diary.model.Diary;
 import service.diary.DiaryService;
 
 public class DiaryList implements Command{
@@ -18,14 +18,11 @@ public class DiaryList implements Command{
 	   }
 
 
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		
-		
-		List<DiaryVo> list = DiaryService.getInstance().selectList();
-		
+	public String execute(HttpServletRequest request , HttpServletResponse response) {
+		String memberId = request.getParameter("id");
+		String coupleId = request.getParameter("cid");
+		List<Diary> list = DiaryService.getInstance().selectList(memberId, coupleId);
 		request.setAttribute("param", list);
-		
-		
 		
 		
 		return next;

@@ -54,10 +54,10 @@
 	<form id="frm" name="frm" method="post" action="<%=projectLink%>loginCheck">
 		<div align="center">
 		
-		<input class="user-input" type="text" name="id" id="id" placeholder="id is"/>
+		<input class="user-input" autocomplete="off" type="text" name="id" id="id" placeholder="id is"/>
  		</div>
 		<div align="center">
-			<input type="password" name="pw" id="pw" placeholder="password is"/>
+			<input type="password" autocomplete="off" name="pw" id="pw" placeholder="password is"/>
  		</div>
  		<div align="center">
 		<input type="submit" value="Login" class="login">

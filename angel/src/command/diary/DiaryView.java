@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.basic.Command;
-import model.diary.DiaryVo;
+import mybatis.diary.model.Diary;
 import service.diary.DiaryService;
 
 public class DiaryView implements Command {
@@ -18,7 +18,8 @@ public class DiaryView implements Command {
 		
 		
 		int diarynum =Integer.parseInt(request.getParameter("diarynum"));
-		DiaryVo list = DiaryService.getInstance().selectView(diarynum);
+		
+		Diary list = DiaryService.getInstance().selectView(diarynum);
 		request.setAttribute("param", list);
 		return next;
 	}
