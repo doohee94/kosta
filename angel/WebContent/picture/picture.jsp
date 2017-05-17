@@ -45,7 +45,7 @@ $(function () {
          <div align="center">
          
          	<a href="/angel/picture/h_uploadform.jsp"><img src="/angel/picture/pics/input.png" width="60 height="60" align="middle"  /></a>
-         	<a href="/angel/picture/list.jsp"><img src="/angel/picture/pics/list.png" width="60 height="60" align="middle"/></a>
+         	<a href="/angel/picture/h_listview.jsp"><img src="/angel/picture/pics/list.png" width="60 height="60" align="middle"/></a>
         
          </div>
        </div>  

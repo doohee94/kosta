@@ -12,7 +12,7 @@ public class ConnectionProvider {
 	private ConnectionProvider() throws Exception
 	{
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:scott", "scott", "tiger");
+		conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.0.106:1521:orcl", "scott", "tiger");
 	}
 	
 	public static Connection getConnection() throws Exception {

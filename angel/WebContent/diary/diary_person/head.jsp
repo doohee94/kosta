@@ -131,13 +131,11 @@ $(function(){
    	  
      });
 	 
-	 $("#logout").click(function(){
-		alert("logout"); 
-		
-		
-		session.setAttribute("loginId", loginId);
-		session.setAttribute("coupleId", coupleID);
-	 });
+	    $("#logout").click(function(){
+	          var url = "angel.user?cmd=logout_user"
+	                alert(url);
+	         $(location).attr('href',url);
+	    });
 	 
 });
 
@@ -176,7 +174,8 @@ $(function(){
             <li><a href="/angel/.diary?cmd=list-page">Diary</a></li> <br/>
             <li><a href="/angel/plan?cmd=list-page">Plan</a></li> <br/>
             <li><a href="/angel/cost?cmd=cost-list">Household Account</a></li><br/>
-            <li><a>Photo</a></li><br/>
+            <li><a href="/angel/picture/h_picture.jsp">Photo</a></li><br/>
+            <li><a href="/angel/fortune/home.jsp">Fortune</a></li><br/>
         </ul>
     </li>
 	
@@ -201,11 +200,11 @@ $(function(){
 
 
 
-    <li data-extension="open">
+     <li data-extension="open">
         <div class="main-title"><span class="folder"> </span><a>Setting <br/> </a></div> 
         <ul class="sub">
-            <li><a>Option</a></li><br/>
-            <li><a>Information</a></li><br/>
+            <li><a href="/angel/UserControl?cmd=ModifyMember&id=<%=h_loginid%>">Information</a></li><br/>
+
         </ul>
     </li>
 </ul>
@@ -219,12 +218,6 @@ $(function(){
 			<img src="/angel/plan/plan_couple/assets/css/images/logout.png"></img>
 			</footer>
 			
-	
-	
-
-
-
-
 </div>
     
 

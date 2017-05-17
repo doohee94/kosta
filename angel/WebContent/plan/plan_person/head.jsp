@@ -174,7 +174,8 @@ $(function(){
             <li><a href="/angel/.diary?cmd=list-page">Diary</a></li> <br/>
             <li><a href="/angel/plan?cmd=list-page">Plan</a></li> <br/>
             <li><a href="/angel/cost?cmd=cost-list">Household Account</a></li><br/>
-            <li><a href="/angel/photo?cmd=">Photo</a></li><br/>
+            <li><a href="/angel/picture/h_picture.jsp">Photo</a></li><br/>
+            <li><a href="/angel/fortune/home.jsp">Fortune</a></li><br/>
         </ul>
     </li>
 	

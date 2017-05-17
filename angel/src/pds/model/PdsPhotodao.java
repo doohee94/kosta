@@ -48,7 +48,7 @@ public class PdsPhotodao {
 //			pstmt.setInt(2, endRow - firstRow + 1);
 			
 			
-			pstmt = conn.prepareStatement("select * from photo  order by photo_num desc");
+			pstmt = conn.prepareStatement("select * from photo order by photo_num desc");
 			rs = pstmt.executeQuery();
 			if (!rs.next()) {
 				return Collections.emptyList();
@@ -57,6 +57,7 @@ public class PdsPhotodao {
 			do {
 				PdsPhoto article = makePhotoFromResultSet(rs);
 				photoList.add(article);
+				
 			} while (rs.next());
 			return photoList;
 		} finally {
@@ -111,7 +112,7 @@ public class PdsPhotodao {
 			System.out.println("1");
 			pstmt = conn.prepareStatement(sql);
 			System.out.println("sql->" + sql );
-			pstmt.setString(1, "pika");  //pika대신 사용자아이디로 대체해야됨
+			pstmt.setString(1, "doohee94");  //pika대신 사용자아이디로 대체해야됨
 			System.out.println("11");
 			//pstmt.setString(1, item.getMember_id());
 			pstmt.setString(2, item.getPhoto_name());

@@ -38,7 +38,7 @@
 		<td>${photo.member_id}</td>
 		<td>${photo.photo_title}</td>
 		<td>${photo.photo_content}</td>
-		<td><img src='/project/fileupload/${photo.photo_path}'/></td>
+		<td><img src='/angel/fileupload/${photo.photo_path}'/></td>
 <%-- 		<td><a href='download.jsp?id=${item.id }'>다운받기</a></td> --%>
 	</tr>
 	</c:forEach>
@@ -47,7 +47,7 @@
 	
 	<tr>
 		<td colspan="5">
-			<a href="uploadform.jsp">파일 첨부</a>
+			<a href="h_uploadform.jsp">파일 첨부</a>
 		</td>
 	</tr>	
 </table>

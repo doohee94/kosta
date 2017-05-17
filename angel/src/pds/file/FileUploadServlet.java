@@ -44,7 +44,7 @@ public class FileUploadServlet extends HttpServlet {
 		String description = readParameterValue(descPart);
 		Part filePart = req.getPart("file");
 		String fileName = getFileName(filePart);
-		/*여기바꿔줘야됨*/String realPath = FileSaveHelper.save("C:\\Users\\kosta\\git\\kosta\\project22\\angel\\WebContent\\fileupload\\",
+		/*여기바꿔줘야됨*/String realPath = FileSaveHelper.save("C:\\Users\\kosta\\git\\angel\\angel\\WebContent\\fileupload\\",
 				filePart.getInputStream());
 		
 		PdsPhoto addRequest = new PdsPhoto();

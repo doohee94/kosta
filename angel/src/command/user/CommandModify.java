@@ -40,7 +40,7 @@ public class CommandModify implements Command {
 		// request가 아닌 MultipartRequest 객체로 불러와야 한다.
 		
 		// 파일이 저장될 주소를 선언.
-		String saveDirectory="C:\\Users\\kosta\\Desktop\\test\\angel\\WebContent\\profile\\";
+		String saveDirectory="C:\\Users\\kosta\\git\\angel\\angel\\WebContent\\profile\\";
 		
 		try {
 			MultipartRequest mult = new MultipartRequest(request, saveDirectory, 1024*1024*15, "euc-kr", new DefaultFileRenamePolicy());
