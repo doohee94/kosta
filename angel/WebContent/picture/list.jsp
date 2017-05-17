@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=euc-kr" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="pds.service.ListPdsPhotoService"%>
 <%@ page import="pds.model.PdsPhoto"%>
 <%@ page import="java.util.List" %>

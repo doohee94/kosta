@@ -1,14 +1,14 @@
- <%@ page contentType="text/html; charset=euc-kr" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 
 <% String projectName = "/angel"; %>
 <html>
-<head><title>ÆÄÀÏ µî·Ï</title></head>
+<head><title>íŒŒì¼ ë“±ë¡</title></head>
 <body>
 <form action='<%=projectName %>/pds' method='post' enctype='multipart/form-data'>
-ÆÄÀÏ: <input type="file" name="file" /> <br/>
-Á¦¸ñ: <input type="text" name="title" />
-¼³¸í: <input type="text" name="description" /> <br/>
-<input type="submit" value="¾÷·Îµå" />
+íŒŒì¼: <input type="file" name="file" /> <br/>
+ì œëª©: <input type="text" name="title" />
+ì„¤ëª…: <input type="text" name="description" /> <br/>
+<input type="submit" value="ì—…ë¡œë“œ" />
 </form>
 </body>
 </html>

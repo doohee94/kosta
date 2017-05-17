@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=euc-kr" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%
 	response.setHeader("Pragma", "No-cache");
@@ -7,14 +7,14 @@
 	response.setDateHeader("Expires", 1L);
 %>
 <html>
-<head><title>�ڷ�� ���</title></head>
+<head><title>자료실 목록</title></head>
 <body>
 <table border="1">
 	<tr>
-		<td>��ȣ</td>
-		<td>���̵�</td>
-		<td>�����̸�</td>
-		<td>����</td>
+		<td>번호</td>
+		<td>아이디</td>
+		<td>사진이름</td>
+		<td>내용</td>
 		<td>path</td>
 	
 	</tr>
@@ -24,7 +24,7 @@
 	
 	<tr>
 		<td colspan="5">
-			�Խñ��� �����ϴ�.
+			게시글이 없습니다.
 		</td>
 	</tr>
 </c:when>
@@ -39,7 +39,7 @@
 		<td>${photo.photo_title}</td>
 		<td>${photo.photo_content}</td>
 		<td><img src='/project/fileupload/${photo.photo_path}'/></td>
-<%-- 		<td><a href='download.jsp?id=${item.id }'>�ٿ�ޱ�</a></td> --%>
+<%-- 		<td><a href='download.jsp?id=${item.id }'>다운받기</a></td> --%>
 	</tr>
 	</c:forEach>
 </c:otherwise>
@@ -47,7 +47,7 @@
 	
 	<tr>
 		<td colspan="5">
-			<a href="uploadform.jsp">���� ÷��</a>
+			<a href="uploadform.jsp">파일 첨부</a>
 		</td>
 	</tr>	
 </table>

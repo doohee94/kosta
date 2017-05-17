@@ -14,10 +14,10 @@ request.setAttribute("listModel", PhotoListModel);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title></title>
+
+<link rel="stylesheet" href="./css/glisse.css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="./js/glisse.js"></script>
-<link rel="stylesheet" href="./css/glisse.css" />
-
 
 <script>
 $(function () {
@@ -35,13 +35,15 @@ $(function () {
 
 <c:forEach var="photo" items ="${listModel }">
 
-<img class="pics" src='/project/fileupload/${photo.photo_path}'  height='300px' max-width:100% data-glisse-big="" title="title값을 받아오기"/>
+<img class="pics" src='/angel/fileupload/${photo.photo_path}'  height='150px' max-width:100% data-glisse-big="" title=""/>
 	</c:forEach>
 
 <div class="button">
          <div align="center">
-         	<a href="/angel/picture/upload.jsp"><img src="/angel/picture/pics/input.png" width="60 height="60" align="middle"  /></a>
-         	<a href="/angel/picture/list.jsp"><img src="/angel/picture/pics/delete.png" width="60 height="60" align="middle"/></a>
+         
+         	<a href="/angel/picture/h_uploadform.jsp"><img src="/angel/picture/pics/input.png" width="60 height="60" align="middle"  /></a>
+         	<a href="/angel/picture/list.jsp"><img src="/angel/picture/pics/list.png" width="60 height="60" align="middle"/></a>
+        
          </div>
        </div>  
 

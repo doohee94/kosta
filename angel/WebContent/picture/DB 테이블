@@ -1,3 +1,4 @@
+
 create table photo(
 photo_num number,
 member_id varchar2(50),
@@ -9,6 +10,4 @@ photo_coupleck varchar2(50),
 constraint pk_photo_num primary key (photo_num),
 constraint fk_photo_member_id foreign key (member_id) references member (member_id)
 );
-
-create sequence seq_photo_num
-increment by 1 ;
+ALTER   TABLE  photo ADD ( photo_title  varchar2(100)  );

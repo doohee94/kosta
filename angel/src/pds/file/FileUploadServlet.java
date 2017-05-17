@@ -19,7 +19,7 @@ public class FileUploadServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		req.setCharacterEncoding("euc-kr");
+		req.setCharacterEncoding("UTF-8");
 
 		String contentType = req.getContentType();
 		if (contentType != null
@@ -27,11 +27,11 @@ public class FileUploadServlet extends HttpServlet {
 			PdsPhoto uploadedPhoto = saveUploadFile(req);
 			req.setAttribute("uploadedPhoto", uploadedPhoto);
 			RequestDispatcher dispatcher = req
-					.getRequestDispatcher("/picture/uploaded.jsp");
+					.getRequestDispatcher("/picture/h_picture.jsp");
 			dispatcher.forward(req, resp);
 		} else {
 			RequestDispatcher dispatcher = req
-					.getRequestDispatcher("/picture/invalid.jsp");
+					.getRequestDispatcher("/picture/h_invalid.jsp");
 			dispatcher.forward(req, resp);
 		}
 	}
@@ -44,9 +44,9 @@ public class FileUploadServlet extends HttpServlet {
 		String description = readParameterValue(descPart);
 		Part filePart = req.getPart("file");
 		String fileName = getFileName(filePart);
-		String realPath = FileSaveHelper.save("C:\\newwork\\workspace\\project\\WebContent\\fileupload\\",
+		/*여기바꿔줘야됨*/String realPath = FileSaveHelper.save("C:\\Users\\kosta\\git\\kosta\\project22\\angel\\WebContent\\fileupload\\",
 				filePart.getInputStream());
-
+		
 		PdsPhoto addRequest = new PdsPhoto();
 		addRequest.setPhoto_name(fileName);
 		addRequest.setPhoto_size(filePart.getSize());
@@ -68,7 +68,7 @@ public class FileUploadServlet extends HttpServlet {
 	}
 
 	private String readParameterValue(Part part) throws IOException {
-		InputStreamReader reader = new InputStreamReader(part.getInputStream(),"euc-kr");
+		InputStreamReader reader = new InputStreamReader(part.getInputStream(),"UTF-8");
 		char[] data = new char[512];
 		int len = -1;
 		StringBuilder builder = new StringBuilder();
