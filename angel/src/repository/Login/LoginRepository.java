@@ -181,7 +181,7 @@ public class LoginRepository {
 		}
 		
 		return member;
-		}
+		}  
 		finally{
 			sqlSess.close();
 		}

@@ -9,7 +9,7 @@
 	System.out.print("CoupleMainView.jsp)couplePath      : " + couplePath+'\n');
 	System.out.print("CoupleMainView.jsp)memberPath      : " + memberPath+'\n');
 	
-
+  
 %>
 <!DOCTYPE HTML>
 <!--

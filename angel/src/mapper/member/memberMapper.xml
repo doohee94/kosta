@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	SELECT * FROM member
 	WHERE member_id = #{cid} and member_couple is null
 </select>
-
+  
 <update id="coupleMake_ME" parameterType="hashmap" >
 	UPDATE member
 	SET member_couple= #{cid}

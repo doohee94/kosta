@@ -18,7 +18,7 @@ public class CommandSearchPw implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws CommandException {
 		try{
-			
+			  
 			String id = request.getParameter("id");
 			String tel = request.getParameter("tel");
 		

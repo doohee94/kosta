@@ -1,7 +1,7 @@
 <%@page import="javafx.scene.control.Alert"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <% String projectLink = "/angel/UserControl?cmd="; %>
-<%
+<%   
 	// 로그인 실패시 알려주기 위해 request로 받아왔음
 	String loginCheck = (String)request.getAttribute("loginCheck");
 //  System.out.print(loginCheck+"는 로그인 체크 결과값임");

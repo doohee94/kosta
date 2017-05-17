@@ -159,7 +159,7 @@ $(function(){
       
       
     </div>
-    
+      
 <br/>
 <div id="mySidenav" class="sidenav">
 	<div class="jbTitle" ">
