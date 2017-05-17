@@ -162,15 +162,12 @@ $(function(){
    		<img src="/angel/plan/plan_couple/assets/css/images/logosamlple.png" id="logo_in_nave" name="logo_in_nave"  ></img>
     </div>
     <br/>
-    
-    	
    <div id="welcome" style="text-align: center">000님, 환영합니다.</div> <br/>
    
   	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"  >&times;</a>
 
 
   <ul class="acc-menu" id="accordionMenu1">  
-  
     <li data-extension="open">
         <div class="main-title"><span class="folder"> </span><a>Personal <br/></a></div> 
         <ul class="sub">
@@ -200,7 +197,9 @@ $(function(){
     </li>
 		<%}%>
 
-    <li data-extension="open">
+
+
+     <li data-extension="open">
         <div class="main-title"><span class="folder"> </span><a>Setting <br/> </a></div> 
         <ul class="sub">
             <li><a href="/angel/UserControl?cmd=ModifyMember&id=<%=h_loginid%>">Information</a></li><br/>
@@ -208,7 +207,6 @@ $(function(){
         </ul>
     </li>
 </ul>
-
 
 	<br/><br/><br/><br/><br/>
 

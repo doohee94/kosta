@@ -1,12 +1,21 @@
 <%@ page contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <% String projectName = "/test"; %> 
 <%
-// 	로그인을 하기 위해, 아이디, 이름을 가져온다. 커플 아이디, 이름도 가져와야함.
-	String loginId = (String)session.getAttribute("loginId");
+String coupleID = (String)request.getAttribute("couple");
+String loginId = (String)request.getAttribute("id");
+//System.out.print("home 화면, loginId는      : " + loginId+'\n');
+//System.out.print("home 화면, coupleId는      : " + coupleID+'\n');
+//session에 로그인 아이디, 커플 아이디를 등록함.
 
-	System.out.print("loginId는      : " + loginId+'\n');
+request.getSession(true);
+if(loginId != null){
+session.setAttribute("loginId", loginId);
+session.setAttribute("coupleId", coupleID);
+}
+String id = (String)session.getAttribute("loginId");
+String cid =  (String)session.getAttribute("coupleId");
 
-	
+System.out.print("id는"+id);
 
 %>
 <!DOCTYPE HTML>
@@ -119,7 +128,7 @@
 
 
 jQuery(document).ready(function($) {
-	var memberId ="<%=loginId%>";
+	var memberId ="<%=id%>";
     $('#calendar').fullCalendar({	
     	
        header: {
@@ -165,7 +174,7 @@ jQuery(document).ready(function($) {
     
     	//입력
     	  $("#submit").click(function(){
-    		  
+    		  alert(memberId);
     		  if($("#content").val() == "" || $("#day").val() == "" || $("#category").val() == ""|| $("#cost").val()==""){
     			  alert("Plase Insert All Text");
     			  return false;
@@ -198,7 +207,7 @@ jQuery(document).ready(function($) {
     	  });//클릭 
     	  //수정(입력하는 방식)
    	  $("#mSubmit").click(function(){
-    		  
+    		 
     		  if($("#mContent").val() == "" || $("#mDay").val() == "" || $("#mCategory").val() == ""|| $("#mCost").val() == "" ){
     			  alert("Plase Insert All Text");
     			  return false;
@@ -278,7 +287,7 @@ jQuery(document).ready(function($) {
 							<article id="me" class="panel">
 								<header>
 								<h2>CALENDAR</h2>
-								<input type='hidden' id='memberId' name='memberId' value='<%=loginId%>'/>
+								<input type='hidden' id='memberId' name='memberId' value='<%=id%>'/>
 								<input type='hidden' id='costNo' name='costNo' value=''>
 								
 								</header>							
@@ -390,6 +399,8 @@ jQuery(document).ready(function($) {
 function openNav() {
     document.getElementById("mySidenav").style.width = "350px";
     document.getElementById("sidemain").style.marginLeft = "350px";
+    document.getElementById("welcome").innerHTML="Welcome <%=id%>!";
+  
 }
 
 function closeNav() {

@@ -211,6 +211,25 @@ public class LoginRepository {
 			sqlSess.close();
 		}
 	}
+
+	public MemberVo modifyView(String id) {
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		try{
+			
+			String statement = namespace + ".idCheck";
+			String result;
+			
+			HashMap map = new HashMap();
+			map.put("inputId", id);
+			
+			MemberVo member= sqlSess.selectOne(statement, map);	// 아이디를 넘겨서 이미있는 아이디인지 검색!
+
+			return member;
+			
+		}finally{
+			sqlSess.close();
+		}
+	}
 	
 	
 	

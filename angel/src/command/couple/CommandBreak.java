@@ -34,6 +34,7 @@ public class CommandBreak implements Command{
 		CoupleService.getInstance().breakCouple(cid);
 		
 		request.setAttribute("couple", null);
+		request.setAttribute("id", id);
 		
 		return next;
 		
