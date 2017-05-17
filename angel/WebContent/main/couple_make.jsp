@@ -2,8 +2,6 @@
 <% String project = "/angel/UserControl?cmd=";
    String id = (String)session.getAttribute("id");
    
-   id="doohee94";
-   
 %>
 <!DOCTYPE HTML>
 <!--

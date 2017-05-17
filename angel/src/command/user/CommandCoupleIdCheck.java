@@ -19,7 +19,7 @@ public class CommandCoupleIdCheck implements Command{
 		
 		try{
 		String cid = request.getParameter("cid");
-		System.out.println("여기탐?????");
+
 		String result = LoginService.getInstance().selectCouple(cid);
 		
 		response.getWriter().print(result);
