@@ -45,6 +45,12 @@ public class UserControl extends HttpServlet {
 		commandMap.put("CoupleMake", new CommandNull("/main/couple_make.jsp"));
 		commandMap.put("Couple_idCheck", new CommandCoupleIdCheck("/main/couple_make.jsp"));
 		commandMap.put("make_couple", new CommandMakeCouple("/plan/plan_person/home.jsp"));
+		
+		commandMap.put("ModifyMember", new CommandModifyView("/main/ModifyView.jsp"));
+		commandMap.put("Modify", new CommandModify("/main/ModifyView.jsp"));
+		
+		commandMap.put("logout_user", new CommandLogout("/main/LoginView.jsp"));
+		
 	}
 
 
